@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- adding fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@1&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
 
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/7daad3ad0b.js" crossorigin="anonymous"></script>
@@ -14,9 +14,201 @@
 
     <title>Illia Nikitin</title>
 </head>
-<body>
+<body class="bordered loadingEnd">
+    <!-- BORDERS (Don't want any border? Delete the class bordered on the body and this part) -->
+    <div class="bodyborder bodyborderLeft"></div>
+    <div class="bodyborder bodyborderRight"></div>
+    <div class="bodyborder bodyborderTop"></div>
+    <div class="bodyborder bodyborderBottom"></div>
+    <!-- BORDERS -->
 
+    <header>
+        <div class="logoContainer">
+            <a href="#" class="logo"><img src="assets/logoWhite.png" alt="logo initials"></a>
+        </div>
+        
+        <h1>Hello, I am Illia Nikitin</h1>
+        <h2>A Front-End Web Developer</h2>
+    </header>
 
+    <main>
+        <!-- ABOUT STARTS -->
+        <section class="about wrapper">
+            <div class="myPhoto">
+                <img src="./assets/myPhoto.jpg" alt="personal photo">
+            </div>
 
+            <div class="aboutInfo">
+                <div>
+                    <h2 class="visible" data-bigletter="A"><strong>ABOUT</strong></h2>
+                    <div class="separator"><span></span></div>
+                </div>
+                <p>I am a Front-End Web Developer who loves coding and learning more by solving new problems and facing new challenges.</p>
+                <p>Prior to <span>Web-Development</span>, I have background in <span>electrical/mechanical</span> engineering. During the years in these industries, I developed a strong attitude to work and creative approach to solve problems.</p>
+                <p>I have gone to web-development as it is a great place where I can to learn more, solve new interesting problems. Moreover, developing my own vision of things and bring new ideas into reality.</p>
+                <p>I gained <span>Web Development Immersive Bootcamp Certificate</span> at <span>Juno College of Technology</span>. It has been a wonderful journey of learning(still continues) where I went from creaing a simple web-page to builing complex real-world projects. Now, <span>I am excited to apply my knowledge and skills in the working world</span>.</p>
+                <p>In general, I love spending time outside, travelling, reading books, gaming.</p>
+            </div>
+        </section>
+        <!-- ABOUT ENDS -->
+
+        <!-- SKILLS STARTS -->
+        <section class="skills wrapper">
+            <div class="headingSkills">
+                <h2 class="visible" data-bigletter="S"><strong>SKILLS</strong></h2>
+                <div class="separator"><span></span></div>
+            </div>
+            <div class="allSkills">
+                <div class="singleSkill">
+                    <img src="./assets/skillIcons/html5.svg" alt="html icon">
+                    <h5 class="visible" data-bigletter="H"><strong>HTML5</strong></h5>
+                </div>
+
+                <div class="singleSkill">
+                    <img src="./assets/skillIcons/css-3.svg" alt="css icon">
+                    <h5 class="visible" data-bigletter="C"><strong>CSS3</strong></h5>
+                </div>
+
+                <div class="singleSkill">
+                    <img src="./assets/skillIcons/sass-1.svg" alt="sass icon">
+                    <h5 class="visible" data-bigletter="S"><strong>Sass</strong></h5>
+                </div>
+
+                <div class="singleSkill">
+                    <img src="./assets/skillIcons/javascript-4.svg" alt="JavaScript icon">
+                    <h5 class="visible" data-bigletter="J"><strong>JavaScript</strong></h5>
+                </div>
+
+                <div class="singleSkill">
+                    <img src="./assets/skillIcons/jquery-1.svg" alt="jQuery icon">
+                    <h5 class="visible" data-bigletter="J"><strong>jQuery</strong></h5>
+                </div>
+
+                <div class="singleSkill">
+                    <img src="./assets/skillIcons/react-2.svg" alt="React icon">
+                    <h5 class="visible" data-bigletter="R"><strong>React</strong></h5>
+                </div>
+
+                <div class="singleSkill">
+                    <img src="./assets/skillIcons/firebase-2.svg" alt="Firebase icon">
+                    <h5 class="visible" data-bigletter="F"><strong>Firebase</strong></h5>
+                </div>
+
+                <div class="singleSkill">
+                    <img src="./assets/skillIcons/git-icon.svg" alt="Git/GitHub icon">
+                    <h5 class="visible" data-bigletter="G"><strong>Git/GitHub</strong></h5>
+                </div>
+            </div>
+        </section>
+        <!-- SKILLS -->
+
+        <!-- PROJECTS STARTS -->
+        <section id="projects wrapper">
+            <div>
+                <h2 class="visible" data-bigletter="P"><strong>PROJECTS</strong></h2>
+                <div class="separator"><span></span></div>
+            </div>
+
+            <ul class="allProjects wrapper">
+                <li class="singleProject">
+                    <img src="./assets/project5.png" alt="to do list project">
+
+                    <div class="projectInfo">
+                        <h5>TO DO APP</h5>
+                        <div class="separator"><span></span></div>
+                        <p>Built an multilingual app that allows the user to add and remove items from the list using React and Firebase database</p>
+
+                        <div class="linksProjects">
+                            <a href="#">VIEW LIVE</a>
+                            <a href="#">VIEW ON GITHUB</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="singleProject">
+                    <img src="./assets/project3.png" alt="meal generator project">
+
+                    <div class="projectInfo">
+                        <h5>MEAL GENERATOR</h5>
+                        <div class="separator"><span></span></div>
+                        <p>Built an app that allows the user to create a meal with any ingredients based on user's choice.</p>
+
+                        <div class="linksProjects">
+                            <a href="#">VIEW LIVE</a>
+                            <a href="#">VIEW ON GITHUB</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="singleProject">
+                    <img src="./assets/project2_2.png" alt="find a movie project">
+
+                    <div class="projectInfo">
+                        <h5>FIND A MOVIE</h5>
+                        <div class="separator"><span></span></div>
+                        <p>The app lets the user find a movie based on its genre and(or) year released.</p>
+
+                        <div class="linksProjects">
+                            <a href="#">VIEW LIVE</a>
+                            <a href="#">VIEW ON GITHUB</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="singleProject">
+                    <img src="./assets/project2.png" alt="psd conversion project">
+
+                    <div class="projectInfo">
+                        <h5>Boat Ride Adventures</h5>
+                        <p>A multipage psd-conversion.</p>
+
+                        <div class="linksProjects">
+                            <a href="#">VIEW LIVE</a>
+                            <a href="#">VIEW ON GITHUB</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <!-- PROJECTS ENDS -->
+
+        <section class="contact wrapper">
+				
+                <div class="contactTitle">
+                    <h2 class="visible" data-bigletter="C"><strong>CONTACT</strong></h2>
+                    <div class="separator"><span></span></div>
+                    <h5 class="alttitle titleMinimal">Get in touch with me</h5>
+                </div>
+                
+                <form id="contactForm" class="checkform" action="http://www.focuspocus.io/magic/3b84de581148fea3a588b4b85035fb37" method="POST" >
+            
+                    <div class="formRow ">
+                        <label for="name" class="req srOnly">Name *</label>
+                        <input type="text" name="name" class="name" id="name" value="" placeholder="Name" />
+                    </div>
+                    
+                    <div class="formRow">
+                        <label for="email" class="req srOnly">Email *</label>
+                        <input type="text" name="email" class="email" id="email" value="" placeholder="Email"/>
+                    </div>
+                    
+                    <div class="formRow textbox">
+                        <label for="message" class="req srOnly">Message *</label>
+                        <textarea name="message" class="message" id="message"  placeholder="Message"></textarea>
+                    </div>
+                    
+                    <!-- <div id="formNote">
+                        <div class="alert alertError">
+                            <strong>Error</strong>: Please check your entries!
+                        </div>
+                    </div> -->
+                    
+                    <div class="formRow formSubmit">
+                        <input type="submit" name="submit_form" class="submit" value="SEND" />
+                    </div>
+                    
+                </form> 
+        </section>
+    </main>
 </body>
 </html>

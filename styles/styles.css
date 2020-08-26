@@ -222,7 +222,7 @@ html {
           box-sizing: inherit;
 }
 
-.sr-only {
+.srOnly {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -244,6 +244,7 @@ html {
   max-width: 1280px;
   width: 90%;
   margin: 0 auto;
+  padding: 50px 0;
 }
 
 img {
@@ -264,9 +265,9 @@ ul, ol {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
   font-size: 2rem;
-  line-height: 2.5rem;
   letter-spacing: 0.15rem;
 }
 
@@ -274,4 +275,369 @@ body {
 :focus {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+}
+
+textarea {
+  resize: none;
+}
+
+h1,
+h2 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-size: 7rem;
+  color: #ffffff;
+}
+
+header h2 {
+  color: #ffffff;
+}
+
+h2 {
+  font-size: 5rem;
+  color: #0d0d0d;
+  text-align: center;
+}
+
+.separator {
+  position: relative;
+  display: block;
+  margin: 50px 0;
+  height: 10px;
+}
+
+.separator span {
+  position: absolute;
+  display: block;
+  width: 100px;
+  height: 1px;
+  margin: 1px;
+  line-height: 1px;
+  background: #0d0d0d;
+  left: calc(100%/2 - 50px);
+}
+
+[data-bigletter] {
+  position: relative;
+  z-index: 1;
+}
+
+[data-bigletter]:before {
+  z-index: -1;
+  content: attr(data-bigletter);
+  font-weight: 700;
+  font-size: 3em;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  position: absolute;
+  top: -0.5em;
+  left: 50%;
+  text-align: center;
+  -webkit-transition: all 600ms 0.2s ease;
+  transition: all 600ms 0.2s ease;
+}
+
+.align-center [data-bigletter]:before,
+nav#main-nav [data-bigletter]:before {
+  left: 50%;
+  width: 1200px;
+  margin-left: -600px;
+}
+
+.align-right [data-bigletter]:before {
+  left: inherit;
+  right: -0.35em;
+}
+
+.visible[data-bigletter]:before {
+  top: -0.5em;
+  left: 45%;
+  opacity: 0.07;
+  filter: alpha(opacity=7);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=7)";
+}
+
+.text-light .visible[data-bigletter]:before {
+  opacity: 0.15;
+  filter: alpha(opacity=15);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=15)";
+}
+
+header {
+  background: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.about h2 {
+  color: #0d0d0d;
+}
+
+.myPhoto {
+  border-radius: 50%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 250px;
+          flex: 1 0 250px;
+  max-width: 300px;
+  padding: 10px;
+}
+
+.myPhoto > * {
+  border-radius: 50%;
+}
+
+.aboutInfo {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 250px;
+          flex: 1 0 250px;
+  padding: 50px;
+}
+
+.aboutInfo span {
+  color: darkblue;
+  font-weight: 700;
+}
+
+.allSkills {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.singleSkill {
+  width: 25%;
+  min-width: 200px;
+}
+
+.singleSkill img {
+  height: 25%;
+}
+
+h5 {
+  font-size: 3rem;
+}
+
+.allProjects {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.singleProject {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 calc(50% - 20px);
+          flex: 1 0 calc(50% - 20px);
+  min-width: 250px;
+  margin: 10px;
+  position: relative;
+}
+
+.projectInfo {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.projectInfo > *,
+.linksProjects > * {
+  color: white;
+  margin: 0;
+}
+
+.linksProjects a {
+  padding: 10px;
+  margin: 5px;
+  background: black;
+}
+
+.linksProjects a:hover,
+.linksProjects a:focus {
+  background: white;
+  color: black;
+}
+
+.projectInfo h5 {
+  margin: 0;
+}
+
+.projectInfo .separator {
+  width: 50%;
+}
+
+.projectInfo span {
+  background: white;
+}
+
+.singleProject:hover .projectInfo,
+.singleProject:focus .projectInfo {
+  background-color: rgba(0, 0, 0, 0.75);
+  opacity: 1;
+  z-index: 10;
+  visibility: visible;
+}
+
+.contactTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contactTitle .separator {
+  margin: 0;
+}
+
+form {
+  text-align: center;
+}
+
+form > * {
+  margin-top: 35px;
+  width: 100%;
+}
+
+form input[type="text"],
+form textarea {
+  border: none;
+  border-bottom: 1px solid rgba(112, 112, 112, 0.5);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+form input[type="text"]:focus,
+form textarea:focus {
+  border-bottom: 1px solid black;
+}
+
+.formRow > * {
+  width: 70%;
+}
+
+.formRow input[type="text"],
+.formSubmit input[type="submit"],
+form textarea {
+  padding: 10px;
+}
+
+.formRow textarea {
+  height: 250px;
+}
+
+.formSubmit {
+  width: 200px;
+  margin: 35px auto;
+}
+
+.formSubmit input[type="submit"] {
+  background: none;
+  border: 1px solid black;
+  color: black;
+}
+
+.formSubmit input[type="submit"]:hover,
+.formSubmit input[type="submit"]:focus {
+  background: black;
+  border: 1px solid black;
+  color: white;
+}
+
+.bodyborder {
+  background: #f0f0f0;
+  position: fixed;
+  z-index: 50;
+}
+
+@media (max-width: 1000px) {
+  .about {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .allProjects {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .projectInfo h5 {
+    font-size: 2rem;
+  }
+  .projectInfo p,
+  .projectInfo a {
+    font-size: 1.2rem;
+  }
+  .projectInfo p {
+    width: 60%;
+  }
+  .projectInfo a {
+    padding: 5px;
+  }
 }
