@@ -3,33 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- adding fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
+    <!-- FONTS -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/7daad3ad0b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
 
     <!-- connecting styles -->
     <link rel="stylesheet" href="./styles/styles.css">
 
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="files/img/logoBlackFilled.png"/>
+
     <title>Illia Nikitin</title>
 </head>
-<body class="bordered loadingEnd">
-    <!-- BORDERS (Don't want any border? Delete the class bordered on the body and this part) -->
-    <div class="bodyborder bodyborderLeft"></div>
-    <div class="bodyborder bodyborderRight"></div>
-    <div class="bodyborder bodyborderTop"></div>
-    <div class="bodyborder bodyborderBottom"></div>
-    <!-- BORDERS -->
+<body class="bordered">
 
-    <header>
-        <div class="logoContainer">
-            <a href="#" class="logo"><img src="assets/logoWhite.png" alt="logo initials"></a>
-        </div>
-        
-        <h1>Hello, I am Illia Nikitin</h1>
-        <h2>A Front-End Web Developer</h2>
-    </header>
+    <!-- BORDERS (Don't want any border? Delete the class bordered on the body and this part) -->
+	<div id="bodyborder-left"></div>
+	<div id="bodyborder-right"></div>
+	<div id="bodyborder-top"></div>
+    <div id="bodyborder-bottom"></div>
+    
+    <!-- PAGELOADER -->
+	<div id="page-loader" class="text-light">
+		<div class="page-loader-inner">
+			<div class="loader-logo-name"><img src="files/img/logoWhite.png" alt="Logo"/></div>
+			<h6 class="alttitle title-minimal">Loading</h6>
+		</div>
+	</div>
+
+    <!-- HEADER -->
+    <header id="header">        
+        <div class="header-inner clearfix">
+            <!-- DEFAULT HEADER CONTENT -->
+            <div class="default-header-content">                 
+                <div id="logo" class="left-float">
+                    <a id="default-logo" class="logotype" href="index.html"><img src="files/img/logoWhite.png" alt="Logo"></a>
+                    <a id="fixed-logo" class="logotype" href="index.html"><img src="files/img/logoBlack.png" alt="Logo"></a>
+                </div>
+                
+                <div class="menu right-float clearfix">
+                    <a href="#" class="open-nav"><span></span></a>
+                    <nav id="main-nav" class="text-light">
+                        <div class="nav-logo"><img src="files/img/logoWhite.png" alt="Logo"></div>
+                        <div class="nav-inner">
+                            <ul>
+                                <li class="current-menu-item"><a href="#home" class="scroll-to" data-bigletter="H">Home</a></li>
+                                <li><a href="#about" class="scroll-to" data-bigletter="A">About</a></li>
+                                <li><a href="#skills" class="scroll-to" data-bigletter="S">Skills</a></li>
+                                <li><a href="#projects" class="scroll-to" data-bigletter="P">Projects</a></li>
+                                <li><a href="#contact" class="scroll-to" data-bigletter="C">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="nav-social">
+                            <ul class="socialmedia-widget social-share">
+                                <li><a href="https://twitter.com/Illia__N"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/illia-nikitin-a4a637122/"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                                <li><a href="https://github.com/Illia16"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+                                <li><a href="https://medium.com/@illia2143"><i class="fab fa-medium" aria-hidden="true"></i></a></li>
+                                <li><a href="https://calendly.com/illianikitin/30-minutes-meeting"><i class="fas fa-calendar-week" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="nav-bg"></div>
+                    </nav>
+                </div>
+            </div>
+            <!-- DEFAULT HEADER CONTENT -->
+        </div> <!-- END .header-inner -->
+    </header> <!-- END header -->
+    <!-- HEADER -->    
 
     <main>
         <!-- ABOUT STARTS -->
@@ -60,8 +105,13 @@
             </div>
             <div class="allSkills">
                 <div class="singleSkill">
-                    <img src="./assets/skillIcons/html5.svg" alt="html icon">
-                    <h5 class="visible" data-bigletter="H"><strong>HTML5</strong></h5>
+                    <!-- <img src="./assets/skillIcons/html5.svg" alt="html icon">
+                    <h5 class="visible" data-bigletter="H"><strong>HTML5</strong></h5> -->
+
+                    <i class="fab fa-html5 pe-4x"></i>
+
+                    <h5 class="title-minimal" data-bigletter="H"><strong>HTML5</strong></h5>
+                    <div class="separator-small"><span></span></div>
                 </div>
 
                 <div class="singleSkill">
