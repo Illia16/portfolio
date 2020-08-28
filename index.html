@@ -1,264 +1,419 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+
+<html class="no-js" lang="en-US">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- FONTS -->
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 
-    <!-- font awesome -->
-    <script src="https://kit.fontawesome.com/7daad3ad0b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
 
-    <!-- connecting styles -->
-    <link rel="stylesheet" href="./styles/styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Illia Nikitin</title>
 
-    <!-- FAVICON -->
-    <link rel="shortcut icon" href="files/img/logoBlackFilled.png"/>
+<!-- FONTS -->
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+<!-- FONTS -->
 
-    <title>Illia Nikitin</title>
+<!-- font awesome -->
+<script src="https://kit.fontawesome.com/7daad3ad0b.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+
+<!-- CSS -->
+<link rel='stylesheet' id='default-style-css'  href='css/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='isotope-style-css'  href='css/isotope.css' type='text/css' media='all' />
+<link rel='stylesheet' id='mqueries-style-css'  href='css/mqueries.css' type='text/css' media='all' />
+<!-- CSS -->
+
+<!-- FAVICON -->
+<link rel="shortcut icon" href="img/logoBlackFilled.png"/>
+<!-- FAVICON -->
+
+<!-- JQUERY LIBRARY -->
+<script src="js/jquery-1.9.1.min.js"></script>
+<!-- JQUERY LIBRARY -->
+
 </head>
+
 <body class="bordered">
 
-    <!-- BORDERS (Don't want any border? Delete the class bordered on the body and this part) -->
+	<!-- BORDERS (Don't want any border? Delete the class bordered on the body and this part) -->
 	<div id="bodyborder-left"></div>
 	<div id="bodyborder-right"></div>
 	<div id="bodyborder-top"></div>
-    <div id="bodyborder-bottom"></div>
-    
-    <!-- PAGELOADER -->
+	<div id="bodyborder-bottom"></div>
+	<!-- BORDERS -->
+	
+	<!-- PAGELOADER -->
 	<div id="page-loader" class="text-light">
 		<div class="page-loader-inner">
-			<div class="loader-logo-name"><img src="files/img/logoWhite.png" alt="Logo"/></div>
+			<div class="loader-logo-name"><img src="img/logoWhite.png" alt="Logo"/></div>
 			<h6 class="alttitle title-minimal">Loading</h6>
 		</div>
 	</div>
+	<!-- PAGELOADER -->
 
-    <!-- HEADER -->
-    <header id="header">        
-        <div class="header-inner clearfix">
-            <!-- DEFAULT HEADER CONTENT -->
-            <div class="default-header-content">                 
-                <div id="logo" class="left-float">
-                    <a id="default-logo" class="logotype" href="index.html"><img src="files/img/logoWhite.png" alt="Logo"></a>
-                    <a id="fixed-logo" class="logotype" href="index.html"><img src="files/img/logoBlack.png" alt="Logo"></a>
-                </div>
-                
-                <div class="menu right-float clearfix">
-                    <a href="#" class="open-nav"><span></span></a>
-                    <nav id="main-nav" class="text-light">
-                        <div class="nav-logo"><img src="files/img/logoWhite.png" alt="Logo"></div>
-                        <div class="nav-inner">
-                            <ul>
-                                <li class="current-menu-item"><a href="#home" class="scroll-to" data-bigletter="H">Home</a></li>
-                                <li><a href="#about" class="scroll-to" data-bigletter="A">About</a></li>
-                                <li><a href="#skills" class="scroll-to" data-bigletter="S">Skills</a></li>
-                                <li><a href="#projects" class="scroll-to" data-bigletter="P">Projects</a></li>
-                                <li><a href="#contact" class="scroll-to" data-bigletter="C">Contact</a></li>
-                            </ul>
-                        </div>
-                        <div class="nav-social">
-                            <ul class="socialmedia-widget social-share">
-                                <li><a href="https://twitter.com/Illia__N"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="https://www.linkedin.com/in/illia-nikitin-a4a637122/"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="https://github.com/Illia16"><i class="fab fa-github" aria-hidden="true"></i></a></li>
-                                <li><a href="https://medium.com/@illia2143"><i class="fab fa-medium" aria-hidden="true"></i></a></li>
-                                <li><a href="https://calendly.com/illianikitin/30-minutes-meeting"><i class="fas fa-calendar-week" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="nav-bg"></div>
-                    </nav>
-                </div>
-            </div>
-            <!-- DEFAULT HEADER CONTENT -->
-        </div> <!-- END .header-inner -->
-    </header> <!-- END header -->
-    <!-- HEADER -->    
+	<!-- PAGE CONTENT -->
+	<div id="page-content">
 
-    <main>
-        <!-- ABOUT STARTS -->
-        <section class="about wrapper">
-            <div class="myPhoto">
-                <img src="./assets/myPhoto.jpg" alt="personal photo">
-            </div>
+		<!-- HEADER -->
+		<header id="header">
+			<div class="header-inner clearfix">
+				<!-- DEFAULT HEADER CONTENT -->
+				<div class="default-header-content">
+					<div id="logo" class="left-float">
+						<a id="default-logo" class="logotype" href="index.html"><img src="img/logoWhite.png" alt="Logo"></a>
+						<a id="fixed-logo" class="logotype" href="index.html"><img src="img/logoBlack.png" alt="Logo"></a>
+					</div>
+					
+					<div class="menu right-float clearfix">
+						<a href="#" class="open-nav"><span></span></a>
+						<nav id="main-nav" class="text-light">
+							<div class="nav-logo"><img src="img/logoWhite.png" alt="Logo"></div>
+							<div class="nav-inner">
+								<ul>
+									<li class="current-menu-item"><a href="#home" class="scroll-to" data-bigletter="H">Home</a></li>
+									<li><a href="#about" class="scroll-to" data-bigletter="A">About</a></li>
+									<li><a href="#skills" class="scroll-to" data-bigletter="S">Skills</a></li>
+									<li><a href="#projects" class="scroll-to" data-bigletter="P">Projects</a></li>
+									<li><a href="#contact" class="scroll-to" data-bigletter="C">Contact</a></li>
+								</ul>
+							</div>
+							<div class="nav-social">
+								<ul class="socialmedia-widget social-share">
+									<li><a href="https://twitter.com/Illia__N"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+									<li><a href="https://www.linkedin.com/in/illia-nikitin-a4a637122/"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+									<li><a href="https://github.com/Illia16"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+									<li><a href="https://medium.com/@illia2143"><i class="fab fa-medium" aria-hidden="true"></i></a></li>
+									<li><a href="https://calendly.com/illianikitin/30-minutes-meeting"><i class="fas fa-calendar-week" aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+							<div class="nav-bg"></div>
+						</nav>
+					</div>
+				</div>
+				<!-- DEFAULT HEADER CONTENT -->
+			</div> <!-- END .header-inner -->
+		</header> <!-- END header -->
+		<!-- HEADER -->
 
-            <div class="aboutInfo">
-                <div>
-                    <h2 class="visible" data-bigletter="A"><strong>ABOUT</strong></h2>
-                    <div class="separator"><span></span></div>
-                </div>
-                <p>I am a Front-End Web Developer who loves coding and learning more by solving new problems and facing new challenges.</p>
-                <p>Prior to <span>Web-Development</span>, I have background in <span>electrical/mechanical</span> engineering. During the years in these industries, I developed a strong attitude to work and creative approach to solve problems.</p>
-                <p>I have gone to web-development as it is a great place where I can to learn more, solve new interesting problems. Moreover, developing my own vision of things and bring new ideas into reality.</p>
-                <p>I gained <span>Web Development Immersive Bootcamp Certificate</span> at <span>Juno College of Technology</span>. It has been a wonderful journey of learning(still continues) where I went from creaing a simple web-page to builing complex real-world projects. Now, <span>I am excited to apply my knowledge and skills in the working world</span>.</p>
-                <p>In general, I love spending time outside, travelling, reading books, gaming.</p>
-            </div>
-        </section>
-        <!-- ABOUT ENDS -->
+		<section class="mainHeadings">
+			<h1>Hello, I am Illia Nikitin</h1>
+			<h2>A Front-End Web Developer</h2>
+		</section>
+		
+		
+		<!-- PAGEBODY -->
+		<div class="page-body">
+		
+			<!-- ABOUT --> 
+			<section id="about">
+				<div class="section-inner">
+		
+					<div class="wrapper">
+						<div class="main-title align-center">
+							<h2 data-bigletter="A"><strong>About</strong></h2>
+							<div class="separator"><span></span></div>
+							<h5 class="alttitle title-minimal">Let me introduce myself</h5>
+						</div>
+					</div> <!-- END .wrapper -->
+					
+					
+					<div id="agency-split" class="split-section clearfix" style="background: #0d0d0d;">
+						
+						<div class="split-right split-half text-light">
+							<div class="myImage">
+								<img src="./img/myPhoto.jpg" alt="my photo">
+							</div>
 
-        <!-- SKILLS STARTS -->
-        <section class="skills wrapper">
-            <div class="headingSkills">
-                <h2 class="visible" data-bigletter="S"><strong>SKILLS</strong></h2>
-                <div class="separator"><span></span></div>
-            </div>
-            <div class="allSkills">
-                <div class="singleSkill">
-                    <!-- <img src="./assets/skillIcons/html5.svg" alt="html icon">
-                    <h5 class="visible" data-bigletter="H"><strong>HTML5</strong></h5> -->
+							<div class="split-mini-content">
+								<h5 class="title-minimal">My story</h5>
+								<p>I am a Front-End Web Developer who loves coding and learning more by solving new problems and facing new challenges.</p>
+								<p>Prior to <strong>Web-Development</strong>, I have background in <strong>electrical/mechanical</strong> engineering. During the years in these industries, I developed a strong attitude to work and creative approach to solve problems.</p>
+								<p>I have gone to web-development as it is a great place where I can to learn more, solve new interesting problems. Moreover, developing my own vision of things and bring new ideas into reality.</p>
+								<p>I gained <strong>Web Development Immersive Bootcamp Certificate</strong> at <strong>Juno College of Technology</strong>. It has been a wonderful journey of learning(still continues) where I went from creaing a simple web-page to builing complex real-world projects. Now, <strong>I am excited to apply my knowledge and skills in the working world</strong>.</p>
+								<p>In general, I love spending time outside, travelling, reading books, gaming.</p>
+							</div>
+						</div> <!-- END .split-right -->
+						
+						
+					</div> <!-- END .split-section -->
+					
+			</section>
+			<!-- ABOUT -->
+			
+			<!-- SKILLS -->
+			<section id="skills">
+				<div class="section-inner">
+					
+					
+					<div class="wrapper">
+						<div class="main-title align-center">
+							<h2 data-bigletter="S"><strong>Skills</strong></h2>
+							<div class="separator"><span></span></div>
+							<h5 class="alttitle title-minimal">Always keen on to learn more</h5>
+						</div>
+						
+						<div class="column-section">
+							<div class="align-center">
+								<i class="fab fa-html5 pe-4x" aria-hidden="true"></i>
 
-                    <i class="fab fa-html5 pe-4x"></i>
+								<h5 class="title-minimal" data-bigletter="H"><strong>HTML5</strong></h5>
+								<div class="separator-small"><span></span></div>
+							</div>
 
-                    <h5 class="title-minimal" data-bigletter="H"><strong>HTML5</strong></h5>
-                    <div class="separator-small"><span></span></div>
-                </div>
+							<div class="align-center">
+								<i class="fab fa-css3-alt pe-4x" aria-hidden="true"></i>
+								
+								<h5 class="title-minimal" data-bigletter="C"><strong>CSS3</strong></h5>
+								<div class="separator-small"><span></span></div>
+							</div>
 
-                <div class="singleSkill">
-                    <img src="./assets/skillIcons/css-3.svg" alt="css icon">
-                    <h5 class="visible" data-bigletter="C"><strong>CSS3</strong></h5>
-                </div>
+							<div class="align-center">
+								<i class="fab fa-sass pe-4x" aria-hidden="true"></i>
 
-                <div class="singleSkill">
-                    <img src="./assets/skillIcons/sass-1.svg" alt="sass icon">
-                    <h5 class="visible" data-bigletter="S"><strong>Sass</strong></h5>
-                </div>
+								<h5 class="title-minimal" data-bigletter="S"><strong>Sass</strong></h5>
+								<div class="separator-small"><span></span></div>
+							</div>
 
-                <div class="singleSkill">
-                    <img src="./assets/skillIcons/javascript-4.svg" alt="JavaScript icon">
-                    <h5 class="visible" data-bigletter="J"><strong>JavaScript</strong></h5>
-                </div>
+							<div class="align-center">
+								<i class="fab fa-js pe-4x" aria-hidden="true"></i>
 
-                <div class="singleSkill">
-                    <img src="./assets/skillIcons/jquery-1.svg" alt="jQuery icon">
-                    <h5 class="visible" data-bigletter="J"><strong>jQuery</strong></h5>
-                </div>
+								<h5 class="title-minimal" data-bigletter="J"><strong>JavaScript</strong></h5>
+								<div class="separator-small"><span></span></div>
 
-                <div class="singleSkill">
-                    <img src="./assets/skillIcons/react-2.svg" alt="React icon">
-                    <h5 class="visible" data-bigletter="R"><strong>React</strong></h5>
-                </div>
+							</div>
+							<div class="align-center">
+								<i class="devicon-jquery-plain pe-4x" aria-hidden="true"></i>
 
-                <div class="singleSkill">
-                    <img src="./assets/skillIcons/firebase-2.svg" alt="Firebase icon">
-                    <h5 class="visible" data-bigletter="F"><strong>Firebase</strong></h5>
-                </div>
+								<h5 class="title-minimal" data-bigletter="J"><strong>jQuery</strong></h5>
+								<div class="separator-small"><span></span></div>
 
-                <div class="singleSkill">
-                    <img src="./assets/skillIcons/git-icon.svg" alt="Git/GitHub icon">
-                    <h5 class="visible" data-bigletter="G"><strong>Git/GitHub</strong></h5>
-                </div>
-            </div>
-        </section>
-        <!-- SKILLS -->
+							</div>
+							<div class="align-center">
+								<i class="fab fa-react pe-4x" aria-hidden="true"></i>
 
-        <!-- PROJECTS STARTS -->
-        <section id="projects wrapper">
-            <div>
-                <h2 class="visible" data-bigletter="P"><strong>PROJECTS</strong></h2>
-                <div class="separator"><span></span></div>
-            </div>
+								<h5 class="title-minimal" data-bigletter="R"><strong>React</strong></h5>
+								<div class="separator-small"><span></span></div>
+							</div>
 
-            <ul class="allProjects wrapper">
-                <li class="singleProject">
-                    <img src="./assets/project5.png" alt="to do list project">
+							<div class="align-center">
+								<i class="fab fa-gripfire pe-4x" aria-hidden="true"></i>
 
-                    <div class="projectInfo">
-                        <h5>TO DO APP</h5>
-                        <div class="separator"><span></span></div>
-                        <p>Built an multilingual app that allows the user to add and remove items from the list using React and Firebase database</p>
+								<h5 class="title-minimal" data-bigletter="F"><strong>Firebase</strong></h5>
+								<div class="separator-small"><span></span></div>
+							</div>
 
-                        <div class="linksProjects">
-                            <a href="#">VIEW LIVE</a>
-                            <a href="#">VIEW ON GITHUB</a>
-                        </div>
-                    </div>
-                </li>
+							<div class="align-center">
+								<i class="devicon-git-plain pe-4x" aria-hidden="true"></i>
 
-                <li class="singleProject">
-                    <img src="./assets/project3.png" alt="meal generator project">
+								<h5 class="title-minimal" data-bigletter="G"><strong>Git/GitHub</strong></h5>
+								<div class="separator-small"><span></span></div>
+							</div>
 
-                    <div class="projectInfo">
-                        <h5>MEAL GENERATOR</h5>
-                        <div class="separator"><span></span></div>
-                        <p>Built an app that allows the user to create a meal with any ingredients based on user's choice.</p>
+							<div class="column one-third last-col align-center">
+								<i class="fas fa-mobile-alt pe-4x" aria-hidden="true"></i>
 
-                        <div class="linksProjects">
-                            <a href="#">VIEW LIVE</a>
-                            <a href="#">VIEW ON GITHUB</a>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="singleProject">
-                    <img src="./assets/project2_2.png" alt="find a movie project">
-
-                    <div class="projectInfo">
-                        <h5>FIND A MOVIE</h5>
-                        <div class="separator"><span></span></div>
-                        <p>The app lets the user find a movie based on its genre and(or) year released.</p>
-
-                        <div class="linksProjects">
-                            <a href="#">VIEW LIVE</a>
-                            <a href="#">VIEW ON GITHUB</a>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="singleProject">
-                    <img src="./assets/project2.png" alt="psd conversion project">
-
-                    <div class="projectInfo">
-                        <h5>Boat Ride Adventures</h5>
-                        <p>A multipage psd-conversion.</p>
-
-                        <div class="linksProjects">
-                            <a href="#">VIEW LIVE</a>
-                            <a href="#">VIEW ON GITHUB</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </section>
-        <!-- PROJECTS ENDS -->
-
-        <section class="contact wrapper">
+								<h5 class="title-minimal" data-bigletter="R"><strong>Responsive Design</strong></h5>
+								<div class="separator-small"><span></span></div>
+							</div>
+							
+						</div> <!-- END .column-section -->
+					</div> <!-- END .wrapper -->
+						
+					
+					<div class="backgroundImg align-center">
+						<p><strong>Life is the road</strong></p>
+					</div>
+					
+				</div> <!-- END .section-inner-->
+			</section> <!-- END SECTION #skills-->
+			<!-- SKILLS -->
+			
+			<!-- PORTFOLIO/WORK -->
+			<section id="projects">
+				<div class="section-inner">
 				
-                <div class="contactTitle">
-                    <h2 class="visible" data-bigletter="C"><strong>CONTACT</strong></h2>
-                    <div class="separator"><span></span></div>
-                    <h5 class="alttitle titleMinimal">Get in touch with me</h5>
-                </div>
-                
-                <form id="contactForm" class="checkform" action="http://www.focuspocus.io/magic/3b84de581148fea3a588b4b85035fb37" method="POST" >
-            
-                    <div class="formRow ">
-                        <label for="name" class="req srOnly">Name *</label>
-                        <input type="text" name="name" class="name" id="name" value="" placeholder="Name" />
-                    </div>
-                    
-                    <div class="formRow">
-                        <label for="email" class="req srOnly">Email *</label>
-                        <input type="text" name="email" class="email" id="email" value="" placeholder="Email"/>
-                    </div>
-                    
-                    <div class="formRow textbox">
-                        <label for="message" class="req srOnly">Message *</label>
-                        <textarea name="message" class="message" id="message"  placeholder="Message"></textarea>
-                    </div>
-                    
-                    <!-- <div id="formNote">
-                        <div class="alert alertError">
-                            <strong>Error</strong>: Please check your entries!
-                        </div>
-                    </div> -->
-                    
-                    <div class="formRow formSubmit">
-                        <input type="submit" name="submit_form" class="submit" value="SEND" />
-                    </div>
-                    
-                </form> 
-        </section>
-    </main>
+				
+					<div class="main-title wrapper align-center">
+						<h2 data-bigletter="P"><strong>Projects</strong></h2>
+						<div class="separator"><span></span></div>					
+						
+						<ul id="portfolio-filter" class="filter clearfix" data-related-grid="portfolio-grid">
+							<li><a class="active" href="#" data-option-value="*">All</a></li>
+							<li><a data-option-value=".javaScript" href="#" title="Branding">JavaScript</a></li>
+							<li><a data-option-value=".react" href="#" title="React projects">React</a></li>
+							<li><a data-option-value=".psdConversion" href="#" title="PSD conversion works">PSD Conversion</a></li>
+						</ul>
+					</div>
+					
+					
+					<div id="portfolio-grid" class="masonry portfolio-entries masonry-spaced clearfix" data-maxitemwidth="400">
+						<div class="portfolio-masonry-entry masonry-item javaScript">
+							<div class="entry-thumb portfolio-thumb">
+								<div class="imgoverlay overlay-dark overlay-transparent name-hidden">
+									<img src="img/findMovie.png" alt="project logo">
+									<div class="overlaycaption">
+										<h5 class="overlay-name title-minimal"><strong>Find a movie</strong></h5>
+										<div class="separator-small"><span></span></div>
+										<div class="alttitle">
+											<a class="alttitle" href="https://illia16.github.io/find-a-movie/">VIEW LIVE</a>
+											<a href="https://github.com/Illia16/find-a-movie">VIEW CODE</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div> <!-- END .portfolio-masonry-entry -->
+						
+						<div class="portfolio-masonry-entry masonry-item javaScript">
+							<div class="entry-thumb portfolio-thumb">
+								<div class="imgoverlay overlay-dark overlay-transparent name-hidden">
+									<img src="img/mealGenerator.png" alt="project logo">
+									<div class="overlaycaption">
+										<h5 class="overlay-name title-minimal"><strong>Meal Generator</strong></h5>
+										<div class="separator-small"><span></span></div>
+										<div class="alttitle">
+											<a href="https://illia16.github.io/MealGenerator/">VIEW LIVE</a>
+											<a href="https://github.com/Illia16/MealGenerator">VIEW CODE</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div> <!-- END .portfolio-masonry-entry -->
+						
+						<div class="portfolio-masonry-entry masonry-item react">
+							<div class="entry-thumb portfolio-thumb">
+								<div class="imgoverlay overlay-dark overlay-transparent name-hidden">
+									<img src="img/toDoApp.png" alt="project logo">
+									<div class="overlaycaption">
+										<h5 class="overlay-name title-minimal"><strong>To Do App</strong></h5>
+										<div class="separator-small"><span></span></div>
+										<div class="alttitle">
+											<a href="https://illia16.github.io/toDoApp/">VIEW LIVE</a>
+											<a href="https://github.com/Illia16/toDoApp">VIEW CODE</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div> <!-- END .portfolio-masonry-entry -->
+						
+						<div class="portfolio-masonry-entry masonry-item psdConversion">
+							<div class="entry-thumb portfolio-thumb">
+								<div class="imgoverlay overlay-dark overlay-transparent name-hidden">
+									<img src="img/boatPSD.png" alt="project logo">
+									<div class="overlaycaption">
+										<h5 class="overlay-name title-minimal"><strong>Boat Ride Adventures</strong></h5>
+										<div class="separator-small"><span></span></div>
+										<div class="alttitle">
+											<a href="https://illia16.github.io/BoatRideAdventuresPSD/">VIEW LIVE</a>
+											<a href="https://github.com/Illia16/BoatRideAdventuresPSD">VIEW CODE</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div> <!-- END .portfolio-masonry-entry -->
+						
+						<div class="portfolio-masonry-entry masonry-item psdConversion">
+							<div class="entry-thumb portfolio-thumb">
+								<div class="imgoverlay overlay-dark overlay-transparent name-hidden">
+									<img src="img/bagsPSD.png" alt="project logo">
+									<div class="overlaycaption">
+										<h5 class="overlay-name title-minimal"><strong>Galass Handbags</strong></h5>
+										<div class="separator-small"><span></span></div>
+										<div class="alttitle">
+											<a href="https://illia16.github.io/galass-handbags-PSD/">VIEW LIVE</a>
+											<a href="https://github.com/Illia16/galass-handbags-PSD">VIEW CODE</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div> <!-- END .portfolio-masonry-entry -->
+					</div> 
+					<!-- END #portfolio-grid -->
+				
+					<div class="backgroundImgTwo align-center">
+						<p><strong>The harder you work for something, the greater you’ll feel when you achieve it.</strong></p>
+					</div>
+				
+				</div> <!-- END .section-inner-->
+			</section> <!-- END SECTION #portfolio-->
+			<!-- PORTFOLIO --> 
+			
+			<!-- CONTACT --> 
+			<section id="contact" class="notoppadding">
+				<div class="section-inner">
+				
+					
+				
+					<div class="wrapper-small">
+					
+						<div class="main-title align-center">
+							<h3 data-bigletter="C"><strong>Contact</strong></h3>
+							<div class="separator"><span></span></div>
+							<h6 class="alttitle title-minimal">Get in touch with us</h6>
+						</div>
+
+						<form id="contact-form" class="checkform" action="http://www.focuspocus.io/magic/3b84de581148fea3a588b4b85035fb37" method="POST" >
+					
+							<div class="form-row clearfix">
+								<label for="name" class="req">Name *</label>
+								<input type="text" name="name" class="name" id="name" value="" placeholder="Name" required/>
+							</div>
+							
+							<div class="form-row clearfix">
+								<label for="email" class="req">Email *</label>
+								<input type="text" name="email" class="email" id="email" value="" placeholder="Email" required/>
+							</div>
+							
+							<div class="form-row clearfix textbox">
+								<label for="message" class="req">Message *</label>
+								<textarea name="message" class="message" id="message" rows="15" cols="50" placeholder="Message" required></textarea>
+							</div>
+							
+							
+							<div class="form-row form-submit">
+								<input type="submit" name="submit_form" class="submit" value="Send" />
+							</div>
+					
+							<input type="hidden" name="subject" value="Contact Subject Pond html" />
+							<input type="hidden" name="fields" value="name,email,message," />
+							<input type="hidden" name="sendto" value="spabrice@gmail.com" />  
+						</form> 
+					</div>
+				
+				
+				</div> <!-- END .section-inner-->
+			</section>
+			<!-- CONTACT -->
+			
+			<!-- FOOTER -->  
+			<footer>
+				<div class="footer-inner wrapper">
+					<a id="backtotop" href="#">To Top</a>
+					<ul class="socialmedia-widget left-float">
+						<li><a href="https://twitter.com/Illia__N"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+						<li><a href="https://www.linkedin.com/in/illia-nikitin-a4a637122/"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+						<li><a href="https://github.com/Illia16"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+						<li><a href="https://medium.com/@illia2143"><i class="fab fa-medium" aria-hidden="true"></i></a></li>
+						<li><a href="https://calendly.com/illianikitin/30-minutes-meeting"><i class="fas fa-calendar-week" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+			</footer>
+			<!-- FOOTER -->         
+			
+		</div> <!-- END .page-body -->
+		<!-- PAGEBODY -->
+		
+	</div> <!-- END #page-content -->
+	<!-- PAGE CONTENT -->
+
+	<!-- SCRIPTS -->
+	<script type='text/javascript' src='js/fixed-links.js'></script>
+	<script type='text/javascript' src='js/jquery.easing.1.3.js'></script>
+	<script type='text/javascript' src='js/jquery.easing.compatibility.js'></script>
+	<script type='text/javascript' src='js/jquery.isotope.min.js'></script>
+	<script type='text/javascript' src='js/jquery.scroll.min.js'></script>
+	<script type='text/javascript' src='js/jquery.visible.min.js'></script>
+	<script type='text/javascript' src='script.js'></script>
+	<!-- SCRIPTS -->
+
 </body>
 </html>
