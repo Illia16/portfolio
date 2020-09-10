@@ -1,0 +1,83 @@
+// Styles for body
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    letter-spacing: 0.15rem;
+    color: #4d4d4d;
+    line-height: 2.6rem;
+}
+
+:hover,
+:focus {
+    transition: all 0.5s;
+}
+
+textarea {
+    resize: none;
+}
+
+h1,
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    line-height: 8rem;
+}
+
+h1 { 
+    font-size: 7rem;
+    color: #ffffff;
+}
+
+header h2 {
+    color: #ffffff;
+}
+
+h2 { 
+    font-size: 5rem;
+    color: #0d0d0d;
+    text-align: center;
+}
+
+
+// NEW STUF
+.separator {
+    position: relative;
+	display:block;
+    margin: 50px 0;
+    height: 10px;
+}
+
+.separator span {  
+    position: absolute;
+	display: block;
+	width: 100px;
+    height: 1px;
+    margin: 1px;
+	line-height: 1px;
+    background: #0d0d0d;
+    left: calc(100%/2 - 50px);
+}
+
+
+[data-bigletter] {
+    position: relative; 
+    // z-index: 5;
+}
+
+[data-bigletter]:before {
+    position: absolute;
+	// z-index: -10;
+	content: attr(data-bigletter);
+	// font-weight: 700;
+    font-size: 8rem;
+    left: 45%;
+    top: -30%;
+    opacity: 0.1;
+
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}

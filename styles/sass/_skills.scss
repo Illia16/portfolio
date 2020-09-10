@@ -1,0 +1,30 @@
+// SECTION 2. SKILLS ///////////////////////////////////////////////////////////////////////////////
+.allSkills {
+    // display: grid;
+    // justify-content: center;
+    // grid-template-columns: repeat(4, minmax(100px, 1fr));
+    // grid-template-rows: repeat(2, 1fr);
+    // text-align: center;
+
+    // grid-gap: 1rem;
+    // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    // text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.singleSkill {
+    width: 25%;
+    min-width: 200px;
+    //flex: 0 0 100px;
+}
+.singleSkill img {
+    height: 25%;
+}
+
+h5 {
+    font-size: 3rem;
+}
+

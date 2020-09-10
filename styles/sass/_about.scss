@@ -1,0 +1,36 @@
+// SECTION 1. ABOUT ///////////////////////////////////////////////////////////////////////////////
+.about {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.about h2 {
+    flex: 1 0 100%;
+    font-weight: 700;
+}
+
+.myPhoto {
+    border-radius: 50%;
+    flex: 1 0 175px;
+    max-width: 300px;
+
+    padding: 10px;
+}
+
+.myPhoto img {
+    border-radius: 50%;
+} 
+
+.myStory {
+    //flex: 1 0 calc(100% - 175px - 60px);
+    flex: 1 0 calc(100% - 80px);
+    max-width: 750px;
+    padding: 0 25px;
+}
+
+.myStory span {
+    color: darkblue;
+    font-weight: 700;
+}

@@ -1,0 +1,146 @@
+header {
+    background: url(../img/nathan-anderson-iYO-EGosrCo-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerTop {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.headerBottom {
+    text-align: center;
+    margin-bottom: 25vh;
+}
+
+.logoInitials {
+    width: 70px;
+}
+
+// HAMBURGER MENU ///////////////////////////////////////////
+header .showNav {
+    position: relative;
+    border: none;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    background: transparent;
+    z-index: 20;
+
+    transition: all .3s ease-in-out;
+}
+
+.showNav span,
+.showNav span::before,
+.showNav span::after {
+    position: absolute;
+    display: block;
+    height: 3px;
+    background: white;
+}
+
+.showNav span {
+    left: 5px;
+    right: 5px;
+}
+
+.showNav span::before,
+.showNav span::after  {
+    content: "";
+    left: 0;
+    right: 0;
+    transition: all .3s ease-in-out;
+}
+
+.showNav span::before {
+    top: -17px;
+}
+
+.showNav span::after {
+    top: 17px;
+}
+
+.showNav:hover,
+.showNav:focus{
+    // transform: scale(1.2);
+    transform: rotateZ(90deg);
+    cursor: pointer;
+}
+
+// NAVIGATION MENU
+nav {
+    position: absolute;
+    top: -2000px;
+    transition: all .3s ease-in;
+}
+
+.openedNav {
+    background: rgba(10, 10, 10, 0.9);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5%;
+}
+
+.showNav span.clicked::before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.showNav span.clicked {
+    background: transparent;
+}
+
+.showNav span.clicked::before,
+.showNav span.clicked::after {
+    background: #ffffff;
+}
+
+.showNav span.clicked::after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 10px;
+    padding: 5px 10px;
+
+    a {
+        opacity: 0.8;
+        color: #ffffff;
+    }
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    opacity: 1;
+    transform: scale(1.2);
+}
