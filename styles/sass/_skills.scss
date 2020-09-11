@@ -1,30 +1,92 @@
 // SECTION 2. SKILLS ///////////////////////////////////////////////////////////////////////////////
 .allSkills {
-    // display: grid;
-    // justify-content: center;
-    // grid-template-columns: repeat(4, minmax(100px, 1fr));
-    // grid-template-rows: repeat(2, 1fr);
-    // text-align: center;
-
-    // grid-gap: 1rem;
-    // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    // text-align: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
+    padding: 40px;
 }
 
 .singleSkill {
-    width: 25%;
-    min-width: 200px;
-    //flex: 0 0 100px;
+    width: 15%;
+    min-width: 150px;
+    margin: 20px;
 }
-.singleSkill img {
-    height: 25%;
+.singleSkill i {
+    font-size: 8rem;
+    display: block;
 }
 
-h5 {
+// ICON COLORS  ////////////////////////////////////////////////////////
+
+.html i{
+    color: #F14A29;
+};
+
+.css i{
+    color: #2962ff;
+};
+
+.sass i {
+    color: #fd7e14;
+};
+
+.js i {
+    color: #f0db4f ;
+};
+
+.jquery i {
+    color: #0769ad;
+};
+
+.react i {
+    color: #61dbfb;
+};
+
+.responsive i {
+    color: #25201c;
+};
+
+.github i {
+    color: #211F1F;
+};
+
+.firebase i {
+    color: #F5820D;
+};
+
+.paired i {
+    color: #69625b;
+};
+
+// Background Image ////////////////////////////////////////
+.backgroundImgOne {
+    background: url(../img/diego-jimenez-A-NVHPka9Rk-unsplash.jpg);
+};
+
+.backgroundImgTwo {
+    background: url(../img/daniel-leone-v7daTKlZzaw-unsplash.jpg);
+};
+
+.backgroundImgOne,
+.backgroundImgTwo {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 50vh;
+
+    color: #ffffff;
     font-size: 3rem;
-}
+    line-height: 4rem;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        width: 70%;
+    }
+};
 

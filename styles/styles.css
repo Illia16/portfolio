@@ -242,7 +242,7 @@ html {
 
 .wrapper {
   margin: 0 auto;
-  padding: 40px;
+  padding: 80px;
 }
 
 img {
@@ -281,6 +281,16 @@ textarea {
   resize: none;
 }
 
+strong {
+  font-weight: 700;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #0d0d0d;
+  padding: 0;
+  margin: 0;
+}
+
 h1,
 h2 {
   font-family: 'Montserrat', sans-serif;
@@ -298,27 +308,64 @@ header h2 {
 }
 
 h2 {
+  display: inline-block;
   font-size: 5rem;
   color: #0d0d0d;
   text-align: center;
 }
 
-.separator {
+h3 {
+  font-weight: 300;
+}
+
+h4 {
+  font-size: 2rem;
+  display: inline-block;
+  margin: 20px 0;
+}
+
+section h2 {
+  font-weight: 700;
+  margin: 0;
+}
+
+.sectionHeading {
+  text-align: center;
+}
+
+.separator,
+.separator span {
   position: relative;
   display: block;
-  margin: 50px 0;
+}
+
+.separator {
+  margin: 10px 0;
   height: 10px;
 }
 
 .separator span {
-  position: absolute;
-  display: block;
-  width: 100px;
-  height: 1px;
-  margin: 1px;
-  line-height: 1px;
+  width: 5px;
+  height: 5px;
+  margin: 0 auto;
+  border-radius: 50%;
   background: #0d0d0d;
-  left: calc(100%/2 - 50px);
+}
+
+.separator span::before,
+.separator span::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 30px;
+  height: 2px;
+  border-bottom: 1px solid #0d0d0d;
+  top: 1px;
+  right: 10px;
+}
+
+.separator span::after {
+  left: 10px;
 }
 
 [data-bigletter] {
@@ -328,12 +375,79 @@ h2 {
 [data-bigletter]:before {
   position: absolute;
   content: attr(data-bigletter);
-  font-size: 8rem;
-  left: 45%;
-  top: -30%;
+  font-size: 2em;
+  left: 26%;
+  right: 26%;
+  top: -2%;
   opacity: 0.1;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+}
+
+.topPartSection {
+  text-align: center;
+}
+
+.borderLeft,
+.borderRight,
+.borderTop,
+.borderBottom {
+  background: #f0f0f0;
+  position: fixed;
+  z-index: 50;
+}
+
+.borderLeft,
+.borderRight {
+  top: 0;
+  bottom: 0;
+  width: 40px;
+}
+
+.borderTop,
+.borderBottom {
+  left: 0;
+  right: 0;
+  height: 40px;
+}
+
+.borderRight {
+  right: 0;
+}
+
+.borderLeft {
+  left: 0;
+}
+
+.borderTop {
+  top: 0;
+}
+
+.borderBottom {
+  bottom: 0;
+}
+
+.borderBottom .socialMedia {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.borderBottom .socialMedia a {
+  color: #0d0d0d;
+  opacity: 1;
+}
+
+.borderBottom .socialMedia a :hover,
+.borderBottom .socialMedia a :focus {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 header {
@@ -379,8 +493,8 @@ header {
 header .showNav {
   position: relative;
   border: none;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   padding: 0;
   background: transparent;
   z-index: 20;
@@ -393,7 +507,7 @@ header .showNav {
 .showNav span::after {
   position: absolute;
   display: block;
-  height: 3px;
+  height: 1.5px;
   background: white;
 }
 
@@ -412,17 +526,17 @@ header .showNav {
 }
 
 .showNav span::before {
-  top: -17px;
+  top: -15px;
 }
 
 .showNav span::after {
-  top: 17px;
+  top: 15px;
 }
 
 .showNav:hover,
 .showNav:focus {
-  -webkit-transform: rotateZ(90deg);
-          transform: rotateZ(90deg);
+  -webkit-transform: rotateZ(180deg);
+          transform: rotateZ(180deg);
   cursor: pointer;
 }
 
@@ -490,14 +604,20 @@ nav ul {
       flex-wrap: wrap;
 }
 
-nav ul li {
+nav .scrollTo,
+.socialMedia a {
+  opacity: 0.8;
+  color: #ffffff;
+}
+
+nav .scrollTo {
   margin: 10px;
   padding: 5px 10px;
 }
 
-nav ul li a {
-  opacity: 0.8;
-  color: #ffffff;
+.socialMedia a {
+  margin: 5px;
+  padding: 5px;
 }
 
 nav ul li a:hover,
@@ -521,11 +641,10 @@ nav ul li a:focus {
           justify-content: center;
 }
 
-.about h2 {
+.about .sectionHeading {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 100%;
           flex: 1 0 100%;
-  font-weight: 700;
 }
 
 .myPhoto {
@@ -549,9 +668,8 @@ nav ul li a:focus {
   padding: 0 25px;
 }
 
-.myStory span {
+.myStory strong {
   color: darkblue;
-  font-weight: 700;
 }
 
 .allSkills {
@@ -564,19 +682,93 @@ nav ul li a:focus {
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
+  padding: 40px;
 }
 
 .singleSkill {
-  width: 25%;
-  min-width: 200px;
+  width: 15%;
+  min-width: 150px;
+  margin: 20px;
 }
 
-.singleSkill img {
-  height: 25%;
+.singleSkill i {
+  font-size: 8rem;
+  display: block;
 }
 
-h5 {
+.html i {
+  color: #F14A29;
+}
+
+.css i {
+  color: #2962ff;
+}
+
+.sass i {
+  color: #fd7e14;
+}
+
+.js i {
+  color: #f0db4f;
+}
+
+.jquery i {
+  color: #0769ad;
+}
+
+.react i {
+  color: #61dbfb;
+}
+
+.responsive i {
+  color: #25201c;
+}
+
+.github i {
+  color: #211F1F;
+}
+
+.firebase i {
+  color: #F5820D;
+}
+
+.paired i {
+  color: #69625b;
+}
+
+.backgroundImgOne {
+  background: url(../img/diego-jimenez-A-NVHPka9Rk-unsplash.jpg);
+}
+
+.backgroundImgTwo {
+  background: url(../img/daniel-leone-v7daTKlZzaw-unsplash.jpg);
+}
+
+.backgroundImgOne,
+.backgroundImgTwo {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 50vh;
+  color: #ffffff;
   font-size: 3rem;
+  line-height: 4rem;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.backgroundImgOne p,
+.backgroundImgTwo p {
+  width: 70%;
 }
 
 .allProjects {
@@ -660,73 +852,129 @@ h5 {
   visibility: visible;
 }
 
-.contactTitle {
+form {
+  padding: 20px;
+}
+
+.formInner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 550px;
 }
 
-.contactTitle .separator {
-  margin: 0;
-}
-
-form {
+.formEl {
+  margin: 10px;
+  width: 100%;
   text-align: center;
 }
 
-form > * {
-  margin-top: 35px;
-  width: 100%;
+.formEl:nth-child(1),
+.formEl:nth-child(2) {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 150px;
+          flex: 1 0 150px;
 }
 
-form input[type="text"],
-form textarea {
+form label {
+  color: #0d0d0d;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.formEl input[type="text"],
+.formEl input[type="email"],
+.formEl textarea {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 5px 10px;
   border: none;
-  border-bottom: 1px solid rgba(112, 112, 112, 0.5);
+  border-bottom: 1px solid #d9d9d9;
+  color: #0d0d0d;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+.formEl input[type="text"]:focus,
+.formEl input[type="email"]:focus,
+.formEl textarea:focus {
+  border-color: #0d0d0d;
+  outline: none;
+}
+
+textarea {
+  line-height: 2.5rem;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+input:required {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+input[type="submit"] {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+input[type="submit"],
+.toTopLink a {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  padding: 10px 30px;
+  color: #0d0d0d;
+  background: none;
+  cursor: pointer;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+.toTopLink {
+  margin: 40px 0;
+  text-align: center;
+  position: fixed;
+  right: 40px;
+  bottom: -45px;
+  z-index: 55;
+}
+
+.toTopLink a {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
-form input[type="text"]:focus,
-form textarea:focus {
-  border-bottom: 1px solid black;
+.toTopLink a span {
+  position: relative;
+  display: block;
+  height: 1px;
 }
 
-.formRow > * {
-  width: 70%;
-}
-
-.formRow input[type="text"],
-.formSubmit input[type="submit"],
-form textarea {
-  padding: 10px;
-}
-
-.formRow textarea {
-  height: 250px;
-}
-
-.formSubmit {
-  width: 200px;
-  margin: 35px auto;
-}
-
-.formSubmit input[type="submit"] {
-  background: none;
-  border: 1px solid black;
+.toTopLink a span::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  bottom: 0;
   color: black;
 }
 
-.formSubmit input[type="submit"]:hover,
-.formSubmit input[type="submit"]:focus {
-  background: black;
-  border: 1px solid black;
-  color: white;
+.toTopLink a:hover span::before,
+.toTopLink a:focus span::before {
+  border-bottom: 1px solid #0d0d0d;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  background: #0d0d0d;
+  color: #ffffff;
+  border-color: #0d0d0d;
 }

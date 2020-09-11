@@ -30,8 +30,8 @@ header {
 header .showNav {
     position: relative;
     border: none;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     padding: 0;
     background: transparent;
     z-index: 20;
@@ -44,7 +44,7 @@ header .showNav {
 .showNav span::after {
     position: absolute;
     display: block;
-    height: 3px;
+    height: 1.5px;
     background: white;
 }
 
@@ -62,17 +62,17 @@ header .showNav {
 }
 
 .showNav span::before {
-    top: -17px;
+    top: -15px;
 }
 
 .showNav span::after {
-    top: 17px;
+    top: 15px;
 }
 
 .showNav:hover,
 .showNav:focus{
     // transform: scale(1.2);
-    transform: rotateZ(90deg);
+    transform: rotateZ(180deg);
     cursor: pointer;
 }
 
@@ -129,14 +129,20 @@ nav ul {
     flex-wrap: wrap;
 }
 
-nav ul li {
+nav .scrollTo,
+.socialMedia a {
+    opacity: 0.8;
+    color: #ffffff;
+} 
+
+nav .scrollTo {
     margin: 10px;
     padding: 5px 10px;
+}
 
-    a {
-        opacity: 0.8;
-        color: #ffffff;
-    }
+.socialMedia a {
+    margin: 5px;
+    padding: 5px;
 }
 
 nav ul li a:hover,

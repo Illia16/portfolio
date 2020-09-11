@@ -1,62 +1,116 @@
-.contactTitle {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.contactTitle .separator {
-    margin: 0;
-}
-
 form {
-    text-align: center;
-}
+    padding: 20px;
+};
 
-form > * {
-    margin-top: 35px;
+.formInner {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    margin: 0 auto;
+    max-width: 550px;
+};
+
+.formEl {
+    margin: 10px;
     width: 100%;
+    text-align: center;
+};
+
+.formEl:nth-child(1),
+.formEl:nth-child(2) {
+    flex: 1 0 150px;
 }
 
-form input[type="text"],
-form textarea {
+form label {
+    color: #0d0d0d;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+};
+
+.formEl input[type="text"],
+.formEl input[type="email"],
+.formEl textarea {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+
+    width: 100%;
+    padding: 5px 10px;
     border: none;
-    border-bottom: 1px solid rgba(112, 112, 112, 0.5);
-    transition: all 0.3s;
+    border-bottom: 1px solid #d9d9d9;
+    color: #0d0d0d;
+    transition: all .2s linear;
+};
+
+.formEl input[type="text"]:focus,
+.formEl input[type="email"]:focus,
+.formEl textarea:focus {
+    border-color: #0d0d0d;
+    outline: none;
+};
+
+textarea {
+    line-height: 2.5rem;
+    box-shadow:none;
+};
+
+input:required {
+    box-shadow:none;
+};
+
+input[type="submit"] {
+    border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-form input[type="text"]:focus,
-form textarea:focus {
-    border-bottom: 1px solid black;
-}
-
-.formRow > * {
-    width: 70%;
-}
-
-.formRow input[type="text"],
-.formSubmit input[type="submit"],
-form textarea {
-    padding: 10px;
-}
-
-.formRow textarea {
-    height: 250px;
-}
-
-.formSubmit {
-    width: 200px;
-    margin: 35px auto;
-}
-
-.formSubmit input[type="submit"] {
+input[type="submit"],
+.toTopLink a {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    padding: 10px 30px;
+    color: #0d0d0d;
     background: none;
-    border: 1px solid black;
-    color: black;
-}
+    cursor: pointer;
+    transition: all .2s linear;
+};
 
-.formSubmit input[type="submit"]:hover,
-.formSubmit input[type="submit"]:focus {
-    background: black;
-    border: 1px solid black;
-    color: white;
-}
+.toTopLink {
+    margin: 40px 0;
+    text-align: center;
+    position: fixed;
+    right: 40px;
+    bottom: -45px;
+    z-index: 55;
+
+    a {
+        transition: all 0.3s;
+    }
+    
+    a span {
+        position: relative;
+        display: block;
+        height: 1px;
+    }
+
+    a span::before {
+        position: absolute;
+        content: "";
+        left: 0;
+        right: 0;
+        bottom: 0;
+        color: black;
+    }
+
+    a:hover span::before,
+    a:focus span::before{
+        border-bottom: 1px solid #0d0d0d;
+    };
+};
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+    background: #0d0d0d;
+    color: #ffffff;
+    border-color: #0d0d0d;
+};

@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,300&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/7daad3ad0b.js" crossorigin="anonymous"></script>
@@ -47,14 +47,14 @@
             </div>
 
             <ul>
-                <li><a href="#home">HOME</a></li>
-                <li><a href="#about">ABOUT</a></li>
-                <li><a href="#skills">SKILLS</a></li>
-                <li><a href="#projects">PROJECTS</a></li>
-                <li><a href="#contact">CONTACT</a></li>
+                <li><a href="header" class="scrollTo">HOME</a></li>
+                <li><a href="#about" class="scrollTo">ABOUT</a></li>
+                <li><a href="#skill" class="scrollTo">SKILLS</a></li>
+                <li><a href="#project" class="scrollTo">PROJECTS</a></li>
+                <li><a href="#contact" class="scrollTo">CONTACT</a></li>
             </ul>
 
-            <ul>
+            <ul class="socialMedia">
                 <li><a href="https://github.com/Illia16" aria-label="my github"><i class="fab fa-github" aria-hidden="true"></i></a></li>
                 
                 <li><a href="https://twitter.com/Illia__N" aria-label="my twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
@@ -77,7 +77,10 @@
 
     <main>
         <section id="about" class="about wrapper">
-            <h2 data-bigletter="A">About</h2>
+            <div class="sectionHeading">
+                <h2 data-bigletter="A"><span>About</span></h2>
+                <div class="separator"><span></span></div>
+            </div>
 
             <div class="myPhoto">
                 <img src="img/myPhoto.jpg" alt="my photo">
@@ -85,10 +88,146 @@
             
             <div class="myStory">
                 <p>I am a Front-End Developer who loves to code and learn more by solving problems and facing new challenges. Prior to web development, I have a background in electrical/mechanical engineering.</p>
-                <p>I have recently gained my <span>Web Development Immersive Bootcamp Certificate at Juno College of Technology.</span> It has been a wonderful journey of (continuous) learning where I transitioned from creating simple web pages to building complex real-world projects. I am excited to apply my newfound knowledge and skills in the working world. Outside of web development, I love spending time outdoors, travelling, reading books and gaming.</p>
+                <p>I have recently gained my <strong>Web Development Immersive Bootcamp Certificate at Juno College of Technology.</strong> It has been a wonderful journey of (continuous) learning where I transitioned from creating simple web pages to building complex real-world projects. I am excited to apply my newfound knowledge and skills in the working world. Outside of web development, I love spending time outdoors, travelling, reading books and gaming.</p>
+            </div>
+        </section>
+
+        <section id="skill" class="skill wrapper">
+            <div class="topPartSection">
+                <div class="sectionHeading">
+                    <h2 data-bigletter="S"><span>Skills</span></h2>
+                </div>
+                <div class="separator"><span></span></div>
+                <h3>Always keen on to learn more</h3>
+            </div>
+
+            <div class="allSkills">
+                <div class="singleSkill html">
+                    <i class="fab fa-html5"></i>
+                    <h4 class="skillName" data-bigletter="H"><strong>HTML5</strong></h4>
+                </div> 
+
+                <div class="singleSkill css">
+                    <i class="fab fa-css3-alt"></i>
+                    <h4 class="skillName" data-bigletter="C"><strong>CSS3</strong></h4>
+                </div>
+
+                <div class="singleSkill sass">
+                    <i class="fab fa-sass"></i>
+                    <h4 class="skillName" data-bigletter="S"><strong>SASS</strong></h4>
+                </div>
+
+                <div class="singleSkill js">
+                    <i class="fab fa-js"></i>
+                    <h4 class="skillName" data-bigletter="J"><strong>JavaScript</strong></h4>
+                </div>
+
+                <div class="singleSkill jquery">
+                    <i class="devicon-jquery-plain"></i>
+                    <h4 class="skillName" data-bigletter="J"><strong>JQuery</strong></h4>
+                </div>
+
+                <div class="singleSkill react">
+                    <i class="fab fa-react"></i>
+                    <h4 class="skillName" data-bigletter="R"><strong>React</strong></h4>
+                </div>
+
+                <div class="singleSkill responsive">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h4 class="skillName" data-bigletter="R"><strong>Responsive design</strong></h4>
+                </div>
+
+                <div class="singleSkill github">
+                    <i class="devicon-git-plain" aria-hidden="true"></i>
+                    <h4 class="skillName" data-bigletter="G"><strong>Github</strong></h4>
+                </div>
+
+                <div class="singleSkill firebase">
+                    <i class="fab fa-gripfire"></i>
+                    <h4 class="skillName" data-bigletter="F"><strong>Firebase</strong></h4>
+                </div>
+
+                <div class="singleSkill paired">
+                    <i class="far fa-handshake"></i>
+                    <h4 class="skillName" data-bigletter="P"><strong>Paired programming</strong></h4>
+                </div>
+            </div>
+
+            <div class="backgroundImgOne">
+                <p><strong>There are no secrets to success. It is the result of preparation, hard work, and learning from failure.</strong></p>
+            </div>
+        </section>
+
+        <section id="project" class="project wrapper">
+            <div class="topPartSection">
+                <div class="sectionHeading">
+                    <h2 data-bigletter="P"><span>Project</span></h2>
+                </div>
+                <div class="separator"><span></span></div>
+            </div>
+
+
+            <div class="backgroundImgTwo">
+                <p><strong>The harder you work for something, the greater you’ll feel when you achieve it.</strong></p>
+            </div>
+        </section>
+
+        <section id="contact" class="contact wrapper">
+            <div class="topPartSection">
+                <div class="sectionHeading">
+                    <h2 data-bigletter="C"><span>Contact</span></h2>
+                </div>
+                <div class="separator"><span></span></div>
+                <h3>Get in touch with me</h3>
+            </div>
+
+            <form action="http://www.focuspocus.io/magic/3b84de581148fea3a588b4b85035fb37" method="POST" class="contactForm">
+                <div class="formInner">
+                    <div class="formEl">
+                        <label for="name">NAME</label>
+                        <input type="text" name="name" id="name" placeholder="Name" required>
+                    </div>
+
+                    <div class="formEl">
+                        <label for="email">EMAIL</label>
+                        <input type="email" name="email" id="email" placeholder="Email" required>
+                    </div>
+
+                    <div class="formEl">
+                        <label for="message">MESSAGE</label>
+                        <textarea name="message" id="message" rows="7" placeholder="Message" maxlength="700" required></textarea>
+                    </div>
+
+                    <div class="formEl">
+                        <input type="submit" name="submitForm" value="SEND">
+                    </div>
+                </div>
+            </form>
+
+            <div class="toTopLink">
+                <a href="header" class="scrollTo">TO TOP<span></span></a>
             </div>
         </section>
     </main>
+
+    <div class="borderLeft"></div>
+    <div class="borderRight"></div>
+    <div class="borderTop"></div>
+    <div class="borderBottom">
+            <ul class="socialMedia">
+                <li><a href="https://github.com/Illia16" aria-label="my github"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+                
+                <li><a href="https://twitter.com/Illia__N" aria-label="my twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                
+                <li><a href="https://www.linkedin.com/in/illia-nikitin-a4a637122/" aria-label="my linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+
+                <li><a href="https://medium.com/@illia2143" aria-label="my medium"><i class="fab fa-medium-m" aria-hidden="true"></i></a></li>
+
+                <li><a href="mailto:illia2143@gmail.com" aria-label="my email"><i class="fas fa-envelope" aria-hidden="true"></i></a></li>
+
+                <li><a href="https://calendly.com/illianikitin/30-minutes-meeting" aria-label="schedule a meeting with me"><i class="fas fa-calendar-day" aria-hidden="true"></i></a></li>
+            </ul>
+    </div>
 
     <script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
     <script src="script.js"></script>

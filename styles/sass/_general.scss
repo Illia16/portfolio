@@ -17,6 +17,16 @@ textarea {
     resize: none;
 }
 
+strong {
+    font-weight: 700;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #0d0d0d;
+    padding: 0;
+    margin: 0;
+}
+
 h1,
 h2 {
     font-family: 'Montserrat', sans-serif;
@@ -33,46 +43,81 @@ header h2 {
     color: #ffffff;
 }
 
-h2 { 
+h2 {
+    display: inline-block;
     font-size: 5rem;
     color: #0d0d0d;
     text-align: center;
 }
 
+h3 {
+    font-weight: 300;
+}
 
-// NEW STUF
-.separator {
+h4 {
+    font-size: 2rem;
+    display: inline-block;
+    margin: 20px 0;
+}
+
+section h2 { 
+    font-weight: 700;
+    margin: 0;
+}
+
+.sectionHeading {
+    text-align: center;
+}
+
+// SEPARATOR ////////////////////////
+.separator,
+.separator span {
     position: relative;
-	display:block;
-    margin: 50px 0;
+	display: block;
+}
+
+.separator {
+    margin: 10px 0;
     height: 10px;
 }
 
-.separator span {  
-    position: absolute;
-	display: block;
-	width: 100px;
-    height: 1px;
-    margin: 1px;
-	line-height: 1px;
+.separator span {
+	width: 5px;
+    height: 5px;
+    margin: 0 auto;
+    border-radius: 50%;
     background: #0d0d0d;
-    left: calc(100%/2 - 50px);
+}
+
+.separator span::before,
+.separator span::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 30px;
+    height: 2px;
+    border-bottom: 1px solid #0d0d0d;
+    top: 1px;
+    right: 10px;
+}
+
+.separator span::after {
+    left: 10px;
 }
 
 
+// HEADINGS BACKGROUND ////////////////////////
 [data-bigletter] {
     position: relative; 
-    // z-index: 5;
 }
 
 [data-bigletter]:before {
     position: absolute;
-	// z-index: -10;
 	content: attr(data-bigletter);
-	// font-weight: 700;
-    font-size: 8rem;
-    left: 45%;
-    top: -30%;
+    font-size: 2em;
+    left: 26%;
+    right: 26%;
+    top: -2%;
     opacity: 0.1;
 
     -webkit-transition: all 0.5s ease;
@@ -81,3 +126,68 @@ h2 {
     -ms-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
+
+// TOP PART OF SKILLS + PROJECT + CONTACT
+
+.topPartSection {
+    text-align: center;
+}
+
+
+
+// BORDERS //////////////////////////////////////////////////////////// 
+.borderLeft,
+.borderRight,
+.borderTop,
+.borderBottom {
+    background: #f0f0f0;
+    position: fixed;
+    z-index: 50;
+};
+
+.borderLeft,
+.borderRight {
+    top: 0;
+    bottom: 0;
+    width: 40px;
+};
+
+.borderTop,
+.borderBottom {
+    left: 0;
+    right: 0;
+    height: 40px;
+};
+
+.borderRight {
+    right: 0;
+};
+
+.borderLeft {
+    left: 0;
+};
+
+.borderTop {
+    top: 0;
+};
+
+.borderBottom {
+    bottom: 0;
+};
+
+// SOCAIL MEDIA ON THE BOTTOM BORDER ////////////////////////////
+.borderBottom .socialMedia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+        color: #0d0d0d;
+        opacity: 1;
+
+        :hover,
+        :focus {
+            transform: scale(1.1);
+        };
+    };
+};

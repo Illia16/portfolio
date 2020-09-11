@@ -6,9 +6,8 @@
     justify-content: center;
 }
 
-.about h2 {
+.about .sectionHeading {
     flex: 1 0 100%;
-    font-weight: 700;
 }
 
 .myPhoto {
@@ -30,7 +29,6 @@
     padding: 0 25px;
 }
 
-.myStory span {
+.myStory strong {
     color: darkblue;
-    font-weight: 700;
 }
