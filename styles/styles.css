@@ -318,10 +318,18 @@ h3 {
   font-weight: 300;
 }
 
-h4 {
-  font-size: 2rem;
+h4,
+h5 {
   display: inline-block;
   margin: 20px 0;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+h5 {
+  font-size: 1.8rem;
 }
 
 section h2 {
@@ -376,6 +384,7 @@ section h2 {
   position: absolute;
   content: attr(data-bigletter);
   font-size: 2em;
+  font-weight: 700;
   left: 26%;
   right: 26%;
   top: -2%;
@@ -431,12 +440,13 @@ section h2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 0 40px;
 }
 
 .borderBottom .socialMedia a {
@@ -444,10 +454,10 @@ section h2 {
   opacity: 1;
 }
 
-.borderBottom .socialMedia a :hover,
-.borderBottom .socialMedia a :focus {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+.socialMedia a:hover,
+.socialMedia a:focus {
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
 }
 
 header {
@@ -535,16 +545,18 @@ header .showNav {
 
 .showNav:hover,
 .showNav:focus {
-  -webkit-transform: rotateZ(180deg);
-          transform: rotateZ(180deg);
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
   cursor: pointer;
 }
 
 nav {
-  position: absolute;
+  position: fixed;
   top: -2000px;
-  -webkit-transition: all .3s ease-in;
-  transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  z-index: 5;
+  width: 100%;
 }
 
 .openedNav {
@@ -566,7 +578,7 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 5%;
+  padding: 80px;
 }
 
 .showNav span.clicked::before {
@@ -613,18 +625,26 @@ nav .scrollTo,
 nav .scrollTo {
   margin: 10px;
   padding: 5px 10px;
+  width: 100%;
+  text-align: center;
+}
+
+nav [data-bigletter]:before {
+  top: 10%;
+  opacity: 0;
+  font-size: 3em;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.scrollTo:hover:before,
+.scrollTo:focus:before {
+  opacity: 0.3;
 }
 
 .socialMedia a {
   margin: 5px;
   padding: 5px;
-}
-
-nav ul li a:hover,
-nav ul li a:focus {
-  opacity: 1;
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
 }
 
 .about {
@@ -771,32 +791,80 @@ nav ul li a:focus {
   width: 70%;
 }
 
-.allProjects {
+.sortButtons {
+  margin-top: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.singleProject {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 calc(50% - 20px);
-          flex: 1 0 calc(50% - 20px);
-  min-width: 250px;
-  margin: 10px;
+.sortButtons button {
+  border: none;
+  margin: 5px;
+  padding: 5px 10px;
+}
+
+.sortButtons button:after {
+  display: block;
+  content: "";
+  background: #0d0d0d;
+  width: 0%;
+  margin: 3px auto;
+  height: 1px;
+  -webkit-transition: width .3s ease-in-out;
+  transition: width .3s ease-in-out;
+}
+
+.sortButtons button:hover::after,
+.sortButtons button:focus::after {
+  width: 100%;
+}
+
+.sortButtons button,
+.projectInfo a {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  color: #0d0d0d;
+  background: none;
+  cursor: pointer;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+.projectsList {
+  margin: 40px 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(150px, 400px))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(150px, 400px));
+  grid-gap: 20px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.projectsList li {
   position: relative;
 }
 
 .projectInfo {
   position: absolute;
-  left: 0;
-  right: 0;
   top: 0;
   bottom: 0;
-  visibility: hidden;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 15;
+  background: #ffffff;
+  text-align: center;
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -804,55 +872,46 @@ nav ul li a:focus {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  text-align: center;
-  padding: 10px;
 }
 
-.projectInfo > *,
-.linksProjects > * {
-  color: white;
-  margin: 0;
-}
-
-.linksProjects a {
-  padding: 10px;
-  margin: 5px;
-  background: black;
-}
-
-.linksProjects a:hover,
-.linksProjects a:focus {
-  background: white;
-  color: black;
-}
-
-.projectInfo h5 {
-  margin: 0;
-}
-
-.projectInfo .separator {
-  width: 50%;
-}
-
-.projectInfo span {
-  background: white;
-}
-
-.singleProject:hover .projectInfo,
-.singleProject:focus .projectInfo {
-  background-color: rgba(0, 0, 0, 0.75);
+.projectsList li:hover .projectInfo,
+.projectInfo:focus-within {
   opacity: 1;
-  z-index: 10;
-  visibility: visible;
 }
 
-form {
+.projectInfo .projectLinks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.projectInfo a {
+  margin: 10px;
+  padding: 5px 10px;
+  line-height: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.projectInfo a:hover,
+.projectInfo a:focus {
+  background: #0d0d0d;
+  color: #ffffff;
+  border-color: #0d0d0d;
+}
+
+form,
+.contact .topPartSection {
   padding: 20px;
 }
 
@@ -878,8 +937,8 @@ form {
 .formEl:nth-child(1),
 .formEl:nth-child(2) {
   -webkit-box-flex: 1;
-      -ms-flex: 1 0 150px;
-          flex: 1 0 150px;
+      -ms-flex: 1 0 calc(100%/2 - 40px);
+          flex: 1 0 calc(100%/2 - 40px);
 }
 
 form label {
@@ -929,8 +988,8 @@ input[type="submit"],
 .toTopLink a {
   font-family: 'Lato', sans-serif;
   font-size: 1.2rem;
+  padding: 10px 20px;
   letter-spacing: 2px;
-  padding: 10px 30px;
   color: #0d0d0d;
   background: none;
   cursor: pointer;
@@ -942,34 +1001,25 @@ input[type="submit"],
   margin: 40px 0;
   text-align: center;
   position: fixed;
-  right: 40px;
+  right: 20px;
   bottom: -45px;
   z-index: 55;
 }
 
-.toTopLink a {
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-.toTopLink a span {
-  position: relative;
+.toTopLink a::after {
   display: block;
-  height: 1px;
-}
-
-.toTopLink a span::before {
-  position: absolute;
   content: "";
-  left: 0;
-  right: 0;
-  bottom: 0;
-  color: black;
+  background: #0d0d0d;
+  width: 0%;
+  margin: auto;
+  height: .5px;
+  -webkit-transition: width .3s ease-in-out;
+  transition: width .3s ease-in-out;
 }
 
-.toTopLink a:hover span::before,
-.toTopLink a:focus span::before {
-  border-bottom: 1px solid #0d0d0d;
+.toTopLink a:hover::after,
+.toTopLink a:focus::after {
+  width: 100%;
 }
 
 input[type="submit"]:hover,
@@ -977,4 +1027,25 @@ input[type="submit"]:focus {
   background: #0d0d0d;
   color: #ffffff;
   border-color: #0d0d0d;
+}
+
+@media (max-width: 700px) {
+  .projectInfo {
+    position: static;
+    opacity: 1;
+  }
+  .formEl:nth-child(1),
+  .formEl:nth-child(2) {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 100%;
+            flex: 1 0 100%;
+  }
+  .toTopLink {
+    position: static;
+  }
+  .borderBottom .socialMedia {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }

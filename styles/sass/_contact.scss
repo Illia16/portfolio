@@ -1,4 +1,5 @@
-form {
+form,
+.contact .topPartSection {
     padding: 20px;
 };
 
@@ -19,7 +20,8 @@ form {
 
 .formEl:nth-child(1),
 .formEl:nth-child(2) {
-    flex: 1 0 150px;
+    //flex: 1 0 150px;
+    flex: 1 0 calc(100%/2 - 40px)
 }
 
 form label {
@@ -67,8 +69,8 @@ input[type="submit"],
 .toTopLink a {
     font-family: 'Lato', sans-serif;
     font-size: 1.2rem;
+    padding: 10px 20px;
     letter-spacing: 2px;
-    padding: 10px 30px;
     color: #0d0d0d;
     background: none;
     cursor: pointer;
@@ -76,35 +78,27 @@ input[type="submit"],
 };
 
 .toTopLink {
+    // display: none;
     margin: 40px 0;
     text-align: center;
     position: fixed;
-    right: 40px;
+    right: 20px;
     bottom: -45px;
     z-index: 55;
 
-    a {
-        transition: all 0.3s;
-    }
-    
-    a span {
-        position: relative;
+    a::after {
         display: block;
-        height: 1px;
-    }
-
-    a span::before {
-        position: absolute;
         content: "";
-        left: 0;
-        right: 0;
-        bottom: 0;
-        color: black;
-    }
+        background: #0d0d0d;
+        width: 0%;
+        margin: auto;
+        height: .5px;
+        transition: width .3s ease-in-out;
+    };
 
-    a:hover span::before,
-    a:focus span::before{
-        border-bottom: 1px solid #0d0d0d;
+    a:hover::after,
+    a:focus::after {
+        width: 100%;
     };
 };
 

@@ -31,7 +31,7 @@
 <body>
     <!-- HEADER -->
     <header class="wrapper">
-        <div class="headerTop">
+        <div class="headerTop" id="headerTop">
             <div class="logoInitials">
                 <a href="#"><img src="./img/logoWhite.png" alt="logo initials I.N."></a>
             </div>
@@ -47,11 +47,11 @@
             </div>
 
             <ul>
-                <li><a href="header" class="scrollTo">HOME</a></li>
-                <li><a href="#about" class="scrollTo">ABOUT</a></li>
-                <li><a href="#skill" class="scrollTo">SKILLS</a></li>
-                <li><a href="#project" class="scrollTo">PROJECTS</a></li>
-                <li><a href="#contact" class="scrollTo">CONTACT</a></li>
+                <li><a href="header" class="scrollTo" data-bigletter="H">HOME</a></li>
+                <li><a href="#about" class="scrollTo" data-bigletter="A">ABOUT</a></li>
+                <li><a href="#skill" class="scrollTo" data-bigletter="S">SKILLS</a></li>
+                <li><a href="#project" class="scrollTo" data-bigletter="P">PROJECTS</a></li>
+                <li><a href="#contact" class="scrollTo" data-bigletter="C">CONTACT</a></li>
             </ul>
 
             <ul class="socialMedia">
@@ -79,7 +79,7 @@
         <section id="about" class="about wrapper">
             <div class="sectionHeading">
                 <h2 data-bigletter="A"><span>About</span></h2>
-                <div class="separator"><span></span></div>
+                <div class="separator" aria-hidden="true"><span></span></div>
             </div>
 
             <div class="myPhoto">
@@ -97,43 +97,43 @@
                 <div class="sectionHeading">
                     <h2 data-bigletter="S"><span>Skills</span></h2>
                 </div>
-                <div class="separator"><span></span></div>
+                <div class="separator" aria-hidden="true"><span></span></div>
                 <h3>Always keen on to learn more</h3>
             </div>
 
             <div class="allSkills">
                 <div class="singleSkill html">
-                    <i class="fab fa-html5"></i>
+                    <i class="fab fa-html5" aria-hidden="true"></i>
                     <h4 class="skillName" data-bigletter="H"><strong>HTML5</strong></h4>
                 </div> 
 
                 <div class="singleSkill css">
-                    <i class="fab fa-css3-alt"></i>
+                    <i class="fab fa-css3-alt" aria-hidden="true"></i>
                     <h4 class="skillName" data-bigletter="C"><strong>CSS3</strong></h4>
                 </div>
 
                 <div class="singleSkill sass">
-                    <i class="fab fa-sass"></i>
+                    <i class="fab fa-sass" aria-hidden="true"></i>
                     <h4 class="skillName" data-bigletter="S"><strong>SASS</strong></h4>
                 </div>
 
                 <div class="singleSkill js">
-                    <i class="fab fa-js"></i>
+                    <i class="fab fa-js" aria-hidden="true"></i>
                     <h4 class="skillName" data-bigletter="J"><strong>JavaScript</strong></h4>
                 </div>
 
                 <div class="singleSkill jquery">
-                    <i class="devicon-jquery-plain"></i>
+                    <i class="devicon-jquery-plain" aria-hidden="true"></i>
                     <h4 class="skillName" data-bigletter="J"><strong>JQuery</strong></h4>
                 </div>
 
                 <div class="singleSkill react">
-                    <i class="fab fa-react"></i>
+                    <i class="fab fa-react" aria-hidden="true"></i>
                     <h4 class="skillName" data-bigletter="R"><strong>React</strong></h4>
                 </div>
 
                 <div class="singleSkill responsive">
-                    <i class="fas fa-mobile-alt"></i>
+                    <i class="fas fa-mobile-alt" aria-hidden="true"></i>
                     <h4 class="skillName" data-bigletter="R"><strong>Responsive design</strong></h4>
                 </div>
 
@@ -143,12 +143,12 @@
                 </div>
 
                 <div class="singleSkill firebase">
-                    <i class="fab fa-gripfire"></i>
+                    <i class="fab fa-gripfire" aria-hidden="true"></i>
                     <h4 class="skillName" data-bigletter="F"><strong>Firebase</strong></h4>
                 </div>
 
                 <div class="singleSkill paired">
-                    <i class="far fa-handshake"></i>
+                    <i class="far fa-handshake" aria-hidden="true"></i>
                     <h4 class="skillName" data-bigletter="P"><strong>Paired programming</strong></h4>
                 </div>
             </div>
@@ -161,11 +161,103 @@
         <section id="project" class="project wrapper">
             <div class="topPartSection">
                 <div class="sectionHeading">
-                    <h2 data-bigletter="P"><span>Project</span></h2>
+                    <h2 data-bigletter="P"><span>Projects</span></h2>
                 </div>
-                <div class="separator"><span></span></div>
+                <div class="separator" aria-hidden="true"><span></span></div>
             </div>
 
+            <div class="sortButtons">
+                <button>All</button>
+                <button>JavaScript/jQuery</button>
+                <button>React</button>
+                <button>HTML/CSS</button>
+            </div>
+
+            <ul class="projectsList">
+                <li>
+                    <div class="projectImage"><img src="./img/exploreSpace.png" alt="space app project logo"></div>
+
+                    <div class="projectInfo">
+                        <h5><span>Explore Space</span></h5>
+                        <div class="separator" aria-hidden="true"><span></span></div>
+                        <p>Search space photos of the day, Mars rover photos, other space data.</p>
+                        <div class="projectLinks">
+                            <a href="https://illia16.github.io/spaceApp/">VIEW LIVE</a>
+                            <a href="https://github.com/Illia16/spaceApp">VIEW CODE</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="projectImage"><img src="./img/toDoApp.png" alt="to do app project logo"></div>
+
+                    <div class="projectInfo">
+                        <h5><span>To Do App</span></h5>
+                        <div class="separator" aria-hidden="true"><span></span></div>
+                        <p>A multilanguage app that allows user to add/remove items from the list.</p>
+                        <div class="projectLinks">
+                            <a href="https://illia16.github.io/toDoApp/">VIEW LIVE</a>
+                            <a href="https://github.com/Illia16/toDoApp">VIEW CODE</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="projectImage"><img src="./img/findMovie.png" alt="find movie project logo"></div>
+
+                    <div class="projectInfo">
+                        <h5><span>Find a movie</span></h5>
+                        <div class="separator" aria-hidden="true"><span></span></div>
+                        <p>Find a movie based on genre(s) and/or release year.</p>
+                        <div class="projectLinks">
+                            <a href="https://illia16.github.io/find-a-movie/">VIEW LIVE</a>
+                            <a href="https://github.com/Illia16/find-a-movie">VIEW CODE</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="projectImage"><img src="./img/mealGenerator.png" alt="meal generator project logo"></div>
+
+                    <div class="projectInfo">
+                        <h5><span>Meal Generator</span></h5>
+                        <div class="separator" aria-hidden="true"><span></span></div>
+                        <p>Cook meals, add your own meals and ingridients.</p>
+                        <div class="projectLinks">
+                            <a href="https://illia16.github.io/MealGenerator/">VIEW LIVE</a>
+                            <a href="https://github.com/Illia16/MealGenerator">VIEW CODE</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="projectImage"><img src="./img/boatPSD.png" alt="boat ride adventures PSD project logo"></div>
+
+                    <div class="projectInfo">
+                        <h5><span>Boat Ride Adventures</span></h5>
+                        <div class="separator" aria-hidden="true"><span></span></div>
+                        <p>A multipage website PDS conversion.</p>
+                        <div class="projectLinks">
+                            <a href="https://illia16.github.io/BoatRideAdventuresPSD/">VIEW LIVE</a>
+                            <a href="https://github.com/Illia16/BoatRideAdventuresPSD">VIEW CODE</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="projectImage"><img src="./img/bagsPSD.png" alt="Galass Handbags PSD project logo"></div>
+
+                    <div class="projectInfo">
+                        <h5><span>Galass Handbags</span></h5>
+                        <div class="separator" aria-hidden="true"><span></span></div>
+                        <p>A single page PDS conversion using only floats.</p>
+                        <div class="projectLinks">
+                            <a href="https://illia16.github.io/galass-handbags-PSD/">VIEW LIVE</a>
+                            <a href="https://github.com/Illia16/galass-handbags-PSD">VIEW CODE</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
 
             <div class="backgroundImgTwo">
                 <p><strong>The harder you work for something, the greater you’ll feel when you achieve it.</strong></p>
@@ -177,7 +269,7 @@
                 <div class="sectionHeading">
                     <h2 data-bigletter="C"><span>Contact</span></h2>
                 </div>
-                <div class="separator"><span></span></div>
+                <div class="separator" aria-hidden="true"><span></span></div>
                 <h3>Get in touch with me</h3>
             </div>
 
@@ -204,17 +296,17 @@
                 </div>
             </form>
 
-            <div class="toTopLink">
-                <a href="header" class="scrollTo">TO TOP<span></span></a>
+            <div class="toTopLink" id="toTopLink">
+                <a href="header" class="scrollTo">TO TOP</a>
             </div>
         </section>
     </main>
 
-    <div class="borderLeft"></div>
-    <div class="borderRight"></div>
-    <div class="borderTop"></div>
+    <div class="borderLeft" aria-hidden="true"></div>
+    <div class="borderRight" aria-hidden="true"></div>
+    <div class="borderTop" aria-hidden="true"></div>
     <div class="borderBottom">
-            <ul class="socialMedia">
+            <ul class="socialMedia" id="bottomSocialMedia">
                 <li><a href="https://github.com/Illia16" aria-label="my github"><i class="fab fa-github" aria-hidden="true"></i></a></li>
                 
                 <li><a href="https://twitter.com/Illia__N" aria-label="my twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>

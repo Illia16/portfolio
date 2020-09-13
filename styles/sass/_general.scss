@@ -54,10 +54,18 @@ h3 {
     font-weight: 300;
 }
 
-h4 {
-    font-size: 2rem;
+h4, 
+h5 {
     display: inline-block;
     margin: 20px 0;
+}
+
+h4 {
+    font-size: 2rem;
+}
+
+h5 {
+    font-size: 1.8rem;
 }
 
 section h2 { 
@@ -115,6 +123,7 @@ section h2 {
     position: absolute;
 	content: attr(data-bigletter);
     font-size: 2em;
+    font-weight: 700;
     left: 26%;
     right: 26%;
     top: -2%;
@@ -177,17 +186,19 @@ section h2 {
 
 // SOCAIL MEDIA ON THE BOTTOM BORDER ////////////////////////////
 .borderBottom .socialMedia {
+    // display: none;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    margin: 0 40px;
 
     a {
         color: #0d0d0d;
         opacity: 1;
-
-        :hover,
-        :focus {
-            transform: scale(1.1);
-        };
     };
-};
+}
+
+.socialMedia a:hover,
+.socialMedia a:focus {
+    transform: scale(1.25);
+}

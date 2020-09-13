@@ -71,16 +71,18 @@ header .showNav {
 
 .showNav:hover,
 .showNav:focus{
-    // transform: scale(1.2);
-    transform: rotateZ(180deg);
+    transform: scale(1.25);
+    //transform: rotateZ(180deg);
     cursor: pointer;
 }
 
 // NAVIGATION MENU
 nav {
-    position: absolute;
+    position: fixed;
     top: -2000px;
-    transition: all .3s ease-in;
+    transition: all .3s ease-in-out;
+    z-index: 5;
+    width: 100%;
 }
 
 .openedNav {
@@ -94,7 +96,7 @@ nav {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 5%;
+    padding: 80px;
 }
 
 .showNav span.clicked::before {
@@ -138,15 +140,23 @@ nav .scrollTo,
 nav .scrollTo {
     margin: 10px;
     padding: 5px 10px;
+    width: 100%;
+    text-align: center;
+}
+
+nav [data-bigletter]:before {
+    top: 10%;
+    opacity: 0;
+    font-size: 3em;
+    transition: all 0.3s ease-in;
+}
+
+.scrollTo:hover:before ,
+.scrollTo:focus:before {
+    opacity: 0.3;
 }
 
 .socialMedia a {
     margin: 5px;
     padding: 5px;
-}
-
-nav ul li a:hover,
-nav ul li a:focus {
-    opacity: 1;
-    transform: scale(1.2);
 }
