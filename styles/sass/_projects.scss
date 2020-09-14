@@ -2,7 +2,7 @@
 
 // styles of sorting buttons ////////////////////////////////////////////////////////////////
 .sortButtons {
-    margin-top: 40px;
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -40,14 +40,20 @@
     transition: all .2s linear;
 };
 
+.hiddenProjects {
+    display: none;
+};
+
 // LIST OF PROJECTS ////////////////////////////////////////////////////////////////
 .projectsList {
-    margin: 40px 0;
+    margin: 20px 0;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 400px));
+    grid-template-columns: repeat(auto-fit, minmax(150px, calc(50% - 20px)));
     grid-gap: 20px;
     justify-content: center;
+
+    min-height: 30vh;
 };
 
 .projectsList li {
@@ -64,7 +70,7 @@
     z-index: 15;
     background: #ffffff;
 
-    // border: 1px solid #000000;
+    //border: 1px solid #000000;
     text-align: center;
 
     transition: all .3s ease-in;
@@ -87,6 +93,10 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+    }
+
+    p {
+        margin: 0;
     }
 
     a {

@@ -69,7 +69,7 @@
             </ul>
         </nav>
 
-        <div class="headerBottom">
+        <div id="headerBottom" class="headerBottom">
             <h1>Hello, I'm Illia Nikitin</h1>
             <h2>A Front-End Web Developer</h2>
         </div>
@@ -117,7 +117,7 @@
                     <h4 class="skillName" data-bigletter="S"><strong>SASS</strong></h4>
                 </div>
 
-                <div class="singleSkill js">
+                <div class="singleSkill jsIcon">
                     <i class="fab fa-js" aria-hidden="true"></i>
                     <h4 class="skillName" data-bigletter="J"><strong>JavaScript</strong></h4>
                 </div>
@@ -127,7 +127,7 @@
                     <h4 class="skillName" data-bigletter="J"><strong>JQuery</strong></h4>
                 </div>
 
-                <div class="singleSkill react">
+                <div class="singleSkill reactIcon">
                     <i class="fab fa-react" aria-hidden="true"></i>
                     <h4 class="skillName" data-bigletter="R"><strong>React</strong></h4>
                 </div>
@@ -167,14 +167,14 @@
             </div>
 
             <div class="sortButtons">
-                <button>All</button>
-                <button>JavaScript/jQuery</button>
-                <button>React</button>
-                <button>HTML/CSS</button>
+                <button id="showAllProjects" value="all">All</button>
+                <button id="showJsProjects" value="js">JavaScript/jQuery</button>
+                <button id="showReactProjects" value="react">React</button>
+                <button id="showPsdProjects" value="psd">HTML/CSS</button>
             </div>
 
             <ul class="projectsList">
-                <li>
+                <li class="react">
                     <div class="projectImage"><img src="./img/exploreSpace.png" alt="space app project logo"></div>
 
                     <div class="projectInfo">
@@ -188,7 +188,7 @@
                     </div>
                 </li>
 
-                <li>
+                <li class="react">
                     <div class="projectImage"><img src="./img/toDoApp.png" alt="to do app project logo"></div>
 
                     <div class="projectInfo">
@@ -202,7 +202,7 @@
                     </div>
                 </li>
 
-                <li>
+                <li class="js">
                     <div class="projectImage"><img src="./img/findMovie.png" alt="find movie project logo"></div>
 
                     <div class="projectInfo">
@@ -216,7 +216,7 @@
                     </div>
                 </li>
 
-                <li>
+                <li class="js">
                     <div class="projectImage"><img src="./img/mealGenerator.png" alt="meal generator project logo"></div>
 
                     <div class="projectInfo">
@@ -230,7 +230,7 @@
                     </div>
                 </li>
 
-                <li>
+                <li class="psd">
                     <div class="projectImage"><img src="./img/boatPSD.png" alt="boat ride adventures PSD project logo"></div>
 
                     <div class="projectInfo">
@@ -244,7 +244,7 @@
                     </div>
                 </li>
 
-                <li>
+                <li class="psd">
                     <div class="projectImage"><img src="./img/bagsPSD.png" alt="Galass Handbags PSD project logo"></div>
 
                     <div class="projectInfo">

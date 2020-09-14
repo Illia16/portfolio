@@ -321,15 +321,16 @@ h3 {
 h4,
 h5 {
   display: inline-block;
-  margin: 20px 0;
 }
 
 h4 {
   font-size: 2rem;
+  margin: 20px 0;
 }
 
 h5 {
   font-size: 1.8rem;
+  margin: 10px 0;
 }
 
 section h2 {
@@ -460,6 +461,13 @@ section h2 {
           transform: scale(1.25);
 }
 
+.borderBottom .socialMedia,
+.toTopLink {
+  display: none;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
 header {
   background: url(../img/nathan-anderson-iYO-EGosrCo-unsplash.jpg);
   background-repeat: no-repeat;
@@ -489,15 +497,54 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 55;
+}
+
+.toggleOpacity {
+  opacity: 0;
+}
+
+.headerTopFixed {
+  position: fixed;
+  top: 5px;
+  z-index: 55;
+  width: calc(100% - 80px);
+}
+
+.headerTopFixed .logoInitials {
+  width: 50px;
+}
+
+.headerTopFixed .showNav {
+  width: 30px;
+  height: 30px;
+}
+
+.headerTopFixed .showNav span::before {
+  top: -10px;
+}
+
+.headerTopFixed .showNav span::after {
+  top: 10px;
+}
+
+.headerTopFixed .showNav span,
+.headerTopFixed .showNav span::before,
+.headerTopFixed .showNav span::after {
+  background: #0d0d0d;
 }
 
 .headerBottom {
   text-align: center;
-  margin-bottom: 25vh;
+  margin: auto;
 }
 
 .logoInitials {
   width: 70px;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 header .showNav {
@@ -518,7 +565,7 @@ header .showNav {
   position: absolute;
   display: block;
   height: 1.5px;
-  background: white;
+  background: #ffffff;
 }
 
 .showNav span {
@@ -589,11 +636,6 @@ nav {
 
 .showNav span.clicked {
   background: transparent;
-}
-
-.showNav span.clicked::before,
-.showNav span.clicked::after {
-  background: #ffffff;
 }
 
 .showNav span.clicked::after {
@@ -702,13 +744,13 @@ nav [data-bigletter]:before {
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
-  padding: 40px;
+  padding: 40px 0;
 }
 
 .singleSkill {
   width: 15%;
   min-width: 150px;
-  margin: 20px;
+  margin: 10px;
 }
 
 .singleSkill i {
@@ -728,7 +770,7 @@ nav [data-bigletter]:before {
   color: #fd7e14;
 }
 
-.js i {
+.jsIcon i {
   color: #f0db4f;
 }
 
@@ -736,7 +778,7 @@ nav [data-bigletter]:before {
   color: #0769ad;
 }
 
-.react i {
+.reactIcon i {
   color: #61dbfb;
 }
 
@@ -789,10 +831,11 @@ nav [data-bigletter]:before {
 .backgroundImgOne p,
 .backgroundImgTwo p {
   width: 70%;
+  text-shadow: 2px 2px #0d0d0d;
 }
 
 .sortButtons {
-  margin-top: 40px;
+  margin-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -837,16 +880,21 @@ nav [data-bigletter]:before {
   transition: all .2s linear;
 }
 
+.hiddenProjects {
+  display: none;
+}
+
 .projectsList {
-  margin: 40px 0;
+  margin: 20px 0;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(150px, 400px))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(150px, 400px));
+  -ms-grid-columns: (minmax(150px, calc(50% - 20px)))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(150px, calc(50% - 20px)));
   grid-gap: 20px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  min-height: 30vh;
 }
 
 .projectsList li {
@@ -896,6 +944,10 @@ nav [data-bigletter]:before {
           justify-content: center;
 }
 
+.projectInfo p {
+  margin: 0;
+}
+
 .projectInfo a {
   margin: 10px;
   padding: 5px 10px;
@@ -912,7 +964,7 @@ nav [data-bigletter]:before {
 
 form,
 .contact .topPartSection {
-  padding: 20px;
+  padding: 20px 0;
 }
 
 .formInner {
@@ -1029,6 +1081,20 @@ input[type="submit"]:focus {
   border-color: #0d0d0d;
 }
 
+@media (min-width: 1300px) {
+  .projectsList {
+    -ms-grid-columns: (minmax(150px, calc(100%/3 - 20px)))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(150px, calc(100%/3 - 20px)));
+  }
+}
+
+@media (max-width: 900px) {
+  .projectsList {
+    -ms-grid-columns: (minmax(150px, 100%))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(150px, 100%));
+  }
+}
+
 @media (max-width: 700px) {
   .projectInfo {
     position: static;
@@ -1047,5 +1113,29 @@ input[type="submit"]:focus {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .headerBottom {
+    margin: 0 0 auto;
+  }
+  .headerBottom h1 {
+    font-size: 4rem;
+    line-height: 5.5rem;
+    margin-top: 30px;
+  }
+  .headerBottom h2 {
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+    margin-top: 30px;
+  }
+  .backgroundImgOne,
+  .backgroundImgTwo {
+    font-size: 1.4rem;
+    line-height: inherit;
+  }
+  h2 {
+    font-size: 3.5rem;
   }
 }

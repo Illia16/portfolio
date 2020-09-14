@@ -15,15 +15,55 @@ header {
     width: 100%;
     display: flex;
     justify-content: space-between;
+
+    position: sticky;
+    z-index: 55;
 }
 
+.toggleOpacity {
+    opacity: 0;
+}
+
+// FIXED HAMBURGER //////////////////////////////////////////////////////////////////////////////////
+.headerTopFixed {
+    position: fixed;
+    top: 5px;
+    z-index: 55;
+    width: calc(100% - 80px);
+
+    .logoInitials {
+        width: 50px;
+    }
+
+    .showNav {
+        width: 30px;
+        height: 30px;
+    }
+    .showNav span::before {
+        top: -10px;
+    }
+
+    .showNav span::after {
+        top: 10px;
+    }
+
+    .showNav span,
+    .showNav span::before,
+    .showNav span::after {
+        background: #0d0d0d;
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////////
 .headerBottom {
     text-align: center;
-    margin-bottom: 25vh;
+    margin: auto;
+    //margin-bottom: 25vh;
 }
 
 .logoInitials {
     width: 70px;
+    transition: all 0.3s ease-in;
 }
 
 // HAMBURGER MENU ///////////////////////////////////////////
@@ -45,7 +85,7 @@ header .showNav {
     position: absolute;
     display: block;
     height: 1.5px;
-    background: white;
+    background: #ffffff;
 }
 
 .showNav span {
@@ -111,10 +151,10 @@ nav {
     background: transparent;
 }
 
-.showNav span.clicked::before,
-.showNav span.clicked::after {
-    background: #ffffff;
-}
+// .showNav span.clicked::before,
+// .showNav span.clicked::after {
+//     background: #ffffff;
+// }
 
 .showNav span.clicked::after {
     -webkit-transform: rotate(-45deg);

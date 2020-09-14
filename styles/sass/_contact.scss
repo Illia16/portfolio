@@ -1,6 +1,6 @@
 form,
 .contact .topPartSection {
-    padding: 20px;
+    padding: 20px 0;
 };
 
 .formInner {
@@ -54,11 +54,11 @@ form label {
 
 textarea {
     line-height: 2.5rem;
-    box-shadow:none;
+    box-shadow: none;
 };
 
 input:required {
-    box-shadow:none;
+    box-shadow: none;
 };
 
 input[type="submit"] {
