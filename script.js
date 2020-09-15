@@ -5,7 +5,9 @@ $(document).ready(function(){
         $('#nav').toggleClass('openedNav');
         $(`.showNav span`).toggleClass('clicked');
 
-        $(`.headerTop .logoInitials`).toggleClass('toggleOpacity');
+        $(`.showNav span`).hasClass('clicked') 
+        ? $(`.headerTop .logoInitials`).addClass('toggleOpacity')
+        : $(`.headerTop .logoInitials`).removeClass('toggleOpacity')
     });
 
     // WHEN CLICKING ON A CERTAIN LINK WE GO TO the #element
@@ -17,8 +19,7 @@ $(document).ready(function(){
         $(`.showNav span`).removeClass('clicked');
 
         // bringing back our logo initials to 1(visible)
-        $(`.headerTop .logoInitials`).toggleClass('toggleOpacity');
-        //$(`.headerTop .logoInitials`).css({'opacity': '1'});
+        $(`.headerTop .logoInitials`).removeClass('toggleOpacity');
     });
 
     $(".sortButtons button").click(function () {
@@ -46,6 +47,7 @@ $(document).ready(function(){
         }
         else {
             //console.log("fully intersects with screen");
+            $(`.showNav span`).hasClass('clicked') && $(`.headerTop .logoInitials`).addClass('toggleOpacity')
 
             $(`.headerTop`).removeClass('headerTopFixed');
             $(`.headerTop .logoInitials a`).empty();
@@ -57,16 +59,4 @@ $(document).ready(function(){
     }, { threshold: [0,1] });
     
     observeEl.observe(document.querySelector("#headerBottom"));
-    
-    // WORKS BUT I THINK IT'S TOO MUCH LOAD ON THE SYSTEM
-    // window.onscroll = () => {
-    //     if (window.scrollY > 695) {
-    //         $('#bottomSocialMedia').css({'display': 'flex'});
-    //         $('#toTopLink').css({'display': 'block'});
-    //     } else {
-    //         $('#bottomSocialMedia').css({'display': 'none'});
-    //         $('#toTopLink').css({'display': 'none'});
-    //     }
-    // };
-
 });
