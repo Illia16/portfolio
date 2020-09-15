@@ -330,7 +330,6 @@ h4 {
 
 h5 {
   font-size: 1.8rem;
-  margin: 10px 0;
 }
 
 section h2 {
@@ -396,6 +395,19 @@ section h2 {
 
 .topPartSection {
   text-align: center;
+}
+
+.resumeLink a,
+.sortButtons button,
+.projectInfo a {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  color: #0d0d0d;
+  background: none;
+  cursor: pointer;
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
 }
 
 .borderLeft,
@@ -466,6 +478,21 @@ section h2 {
   display: none;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
+}
+
+.resumeLink a::after,
+.projectInfo a::after,
+.formEl button::after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  background: #0d0d0d;
+  height: 0;
+  -webkit-transition: height .2s ease;
+  transition: height .2s ease;
 }
 
 header {
@@ -734,6 +761,35 @@ nav [data-bigletter]:before {
   color: darkblue;
 }
 
+.resumeLink {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 100%;
+          flex: 1 0 100%;
+  text-align: center;
+}
+
+.resumeLink a {
+  position: relative;
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+  z-index: 5;
+  margin-top: 30px;
+  padding: 15px 25px;
+  line-height: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.resumeLink a:hover,
+.resumeLink a:focus {
+  color: #ffffff;
+  border: 1px solid transparent;
+}
+
+.resumeLink a:hover::after,
+.resumeLink a:focus::after {
+  height: 100%;
+}
+
 .allSkills {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -868,18 +924,6 @@ nav [data-bigletter]:before {
   width: 100%;
 }
 
-.sortButtons button,
-.projectInfo a {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-  color: #0d0d0d;
-  background: none;
-  cursor: pointer;
-  -webkit-transition: all .2s linear;
-  transition: all .2s linear;
-}
-
 .hiddenProjects {
   display: none;
 }
@@ -888,8 +932,8 @@ nav [data-bigletter]:before {
   margin: 20px 0;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(150px, calc(50% - 20px)))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(150px, calc(50% - 20px)));
+  -ms-grid-columns: (minmax(150px, calc(50% - 10px)))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(150px, calc(50% - 10px)));
   grid-gap: 20px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -945,10 +989,15 @@ nav [data-bigletter]:before {
 }
 
 .projectInfo p {
-  margin: 0;
+  margin: 0 10%;
+  line-height: 1.8rem;
 }
 
 .projectInfo a {
+  position: relative;
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+  z-index: 5;
   margin: 10px;
   padding: 5px 10px;
   line-height: 1.5rem;
@@ -957,9 +1006,13 @@ nav [data-bigletter]:before {
 
 .projectInfo a:hover,
 .projectInfo a:focus {
-  background: #0d0d0d;
   color: #ffffff;
-  border-color: #0d0d0d;
+  border: 1px solid transparent;
+}
+
+.projectInfo a:hover::after,
+.projectInfo a:focus::after {
+  height: 100%;
 }
 
 form,
@@ -1032,11 +1085,14 @@ input:required {
           box-shadow: none;
 }
 
-input[type="submit"] {
+.formEl button {
   border: 1px solid rgba(0, 0, 0, 0.2);
+  position: relative;
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
 }
 
-input[type="submit"],
+.formEl button,
 .toTopLink a {
   font-family: 'Lato', sans-serif;
   font-size: 1.2rem;
@@ -1074,17 +1130,21 @@ input[type="submit"],
   width: 100%;
 }
 
-input[type="submit"]:hover,
-input[type="submit"]:focus {
-  background: #0d0d0d;
+.formEl button:hover,
+.formEl button:focus {
   color: #ffffff;
-  border-color: #0d0d0d;
+  border: 1px solid transparent;
+}
+
+.formEl button:hover::after,
+.formEl button:focus::after {
+  height: 100%;
 }
 
 @media (min-width: 1300px) {
   .projectsList {
-    -ms-grid-columns: (minmax(150px, calc(100%/3 - 20px)))[auto-fit];
-        grid-template-columns: repeat(auto-fit, minmax(150px, calc(100%/3 - 20px)));
+    -ms-grid-columns: (minmax(150px, calc(100%/3 - 40px/3)))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(150px, calc(100%/3 - 40px/3)));
   }
 }
 
@@ -1099,6 +1159,12 @@ input[type="submit"]:focus {
   .projectInfo {
     position: static;
     opacity: 1;
+  }
+  .projectInfo h5 {
+    margin: 10px 0;
+  }
+  .projectInfo p {
+    margin: 10px 10%;
   }
   .formEl:nth-child(1),
   .formEl:nth-child(2) {

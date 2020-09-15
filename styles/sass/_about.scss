@@ -32,3 +32,31 @@
 .myStory strong {
     color: darkblue;
 }
+
+// RESUME //
+.resumeLink {
+    flex: 1 0 100%;
+    text-align: center;
+
+    a {
+        position: relative;
+        transition: all .3s ease-in;
+        z-index: 5;
+
+        margin-top: 30px;
+        padding: 15px 25px;
+        line-height: 1.5rem;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+};
+
+.resumeLink a:hover,
+.resumeLink a:focus {
+    color: #ffffff;
+    border: 1px solid transparent;
+}
+
+.resumeLink a:hover::after,
+.resumeLink a:focus::after {
+    height: 100%;
+};

@@ -61,11 +61,13 @@ input:required {
     box-shadow: none;
 };
 
-input[type="submit"] {
+.formEl button {
     border: 1px solid rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: all .3s ease-in;
 }
 
-input[type="submit"],
+.formEl button,
 .toTopLink a {
     font-family: 'Lato', sans-serif;
     font-size: 1.2rem;
@@ -78,7 +80,6 @@ input[type="submit"],
 };
 
 .toTopLink {
-    // display: none;
     margin: 40px 0;
     text-align: center;
     position: fixed;
@@ -102,9 +103,14 @@ input[type="submit"],
     };
 };
 
-input[type="submit"]:hover,
-input[type="submit"]:focus {
-    background: #0d0d0d;
+
+.formEl button:hover,
+.formEl button:focus {
     color: #ffffff;
-    border-color: #0d0d0d;
+    border: 1px solid transparent;
+}
+
+.formEl button:hover::after,
+.formEl button:focus::after {
+    height: 100%;
 };
