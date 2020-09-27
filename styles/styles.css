@@ -626,11 +626,6 @@ section h2 {
   bottom: 100%;
 }
 
-.removeScroll {
-  height: 100%;
-  overflow: hidden;
-}
-
 header {
   background: url(../img/nathan-anderson-iYO-EGosrCo-unsplash.jpg);
   background-repeat: no-repeat;

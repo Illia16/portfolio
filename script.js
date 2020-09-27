@@ -7,7 +7,7 @@ $(document).ready(function(){
             $("#loadingPage").css({'display': 'none'});
         }, 1500);
 
-        $('body').removeClass('removeScroll');
+        // $('body').removeClass('removeScroll');
 
     }, 1250);
 

@@ -326,7 +326,8 @@ section h2 {
     bottom: 100%;
 }
 
-.removeScroll {
-    height: 100%;
-    overflow: hidden;
-}
+// to remove scroll while page is loading put this class on body
+// .removeScroll {
+//     height: 100%;
+//     overflow: hidden;
+// }
