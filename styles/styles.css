@@ -697,6 +697,9 @@ header {
 .headerBottom {
   text-align: center;
   margin: auto;
+  -webkit-box-ordinal-group: 16;
+      -ms-flex-order: 15;
+          order: 15;
 }
 
 .logoInitials {

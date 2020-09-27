@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    setTimeout(function() { 
+    setTimeout(function() {
         $("#loadingPage").addClass('welcomeUp');
 
         setTimeout(() => {
