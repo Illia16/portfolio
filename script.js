@@ -1,5 +1,16 @@
 $(document).ready(function(){
 
+    setTimeout(function() { 
+        $("#loadingPage").addClass('welcomeUp');
+
+        setTimeout(() => {
+            $("#loadingPage").css({'display': 'none'});
+        }, 1500);
+
+        $('body').removeClass('removeScroll');
+
+    }, 1250);
+
     // OPEN NAVIGATION MENU
     $('#openNav').click(function() {
         $('#nav').toggleClass('openedNav');
