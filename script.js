@@ -9,7 +9,7 @@ $(document).ready(function(){
 
         // $('body').removeClass('removeScroll');
 
-    }, 1250);
+    }, 1500);
 
     // OPEN NAVIGATION MENU
     $('#openNav').click(function() {

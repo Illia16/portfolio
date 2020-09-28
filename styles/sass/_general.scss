@@ -264,7 +264,6 @@ section h2 {
         span:nth-child(4) {
             position: absolute;
             background: white;
-
         }
 
         span:nth-child(1),
@@ -277,12 +276,14 @@ section h2 {
             left: -100%;
             top: 0;
             animation: moveRight 1s linear forwards;
+            animation-delay: .5s;
         }
 
         span:nth-child(3) {
             left: 100%;
             bottom: 0;
             animation: moveLeft 1s linear forwards;
+            animation-delay: .5s;
         }
 
         span:nth-child(2),
@@ -295,29 +296,35 @@ section h2 {
             right: 0;
             top: 100%;
             animation: moveTop 1s linear forwards;
+            animation-delay: .5s;
         }
 
         span:nth-child(4) {
             left: 0;
             top: -100%;
             animation: moveBottom 1s linear forwards;
+            animation-delay: .5s;
         }
     }
 }
 
 @keyframes moveRight {
+    // 50% { left: -100%; }
     100% { left: 0 };
 }
 
 @keyframes moveBottom {
+    // 50% { top: -100%; }
     100% { top: 0; }
 }
 
 @keyframes moveLeft {
+    // 50% { left: 100% };
     100% { left: 0 };
 }
 
 @keyframes moveTop {
+    // 90% { top: 100%; }
     100% { top: 0; }
 }
 
