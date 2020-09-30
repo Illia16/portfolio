@@ -83,11 +83,17 @@
     }
 
     .singleSkill {
-        min-width: 90px;
+        min-width: 50px;
+        i {
+            font-size: 5rem;
+        }
     }
 
     h4 {
-        font-size: 1.2rem;
+        // font-size: 1.2rem;
+        font-size: 0.8rem;
+        margin: 10px 0;
+        line-height: 1rem;
     }
 
     .about.wrapper,
@@ -95,20 +101,24 @@
     .project.wrapper {
         padding: 40px;
     }
+
+    .redux svg {
+        max-height: 50px;
+    }
 };
 
 
-@media (max-width: 325px) {
-    .singleSkill  {
-        min-width: 60px;
-        i {
-            font-size: 5rem;
-        }
-    }
+// @media (max-width: 325px) {
+//     .singleSkill  {
+//         min-width: 60px;
+//         i {
+//             font-size: 5rem;
+//         }
+//     }
 
-    h4 {
-        font-size: 0.8rem;
-        margin: 10px 0;
-        line-height: 1rem;
-    }
-}
+//     h4 {
+//         font-size: 0.8rem;
+//         margin: 10px 0;
+//         line-height: 1rem;
+//     }
+// }
