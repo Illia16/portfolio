@@ -73,6 +73,15 @@
         font-size: 3.5rem;
     }
 
+    // SKILLS SECTION
+    .topPartSection {
+        padding: 0 25px;
+    }
+
+    .allSkills {
+        justify-content: space-evenly;
+    }
+
     .singleSkill {
         min-width: 90px;
     }
@@ -80,4 +89,26 @@
     h4 {
         font-size: 1.2rem;
     }
+
+    .about.wrapper,
+    .skill.wrapper,
+    .project.wrapper {
+        padding: 40px;
+    }
 };
+
+
+@media (max-width: 325px) {
+    .singleSkill  {
+        min-width: 60px;
+        i {
+            font-size: 5rem;
+        }
+    }
+
+    h4 {
+        font-size: 0.8rem;
+        margin: 10px 0;
+        line-height: 1rem;
+    }
+}

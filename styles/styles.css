@@ -1003,7 +1003,7 @@ nav [data-bigletter]:before {
 }
 
 .redux svg {
-  height: 80px;
+  max-height: 80px;
   display: block;
   margin: 0 auto;
 }
@@ -1363,10 +1363,37 @@ input:required {
   h2 {
     font-size: 3.5rem;
   }
+  .topPartSection {
+    padding: 0 25px;
+  }
+  .allSkills {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
   .singleSkill {
     min-width: 90px;
   }
   h4 {
     font-size: 1.2rem;
+  }
+  .about.wrapper,
+  .skill.wrapper,
+  .project.wrapper {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 325px) {
+  .singleSkill {
+    min-width: 60px;
+  }
+  .singleSkill i {
+    font-size: 5rem;
+  }
+  h4 {
+    font-size: 0.8rem;
+    margin: 10px 0;
+    line-height: 1rem;
   }
 }
