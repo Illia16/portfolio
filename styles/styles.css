@@ -994,6 +994,20 @@ nav [data-bigletter]:before {
   color: #69625b;
 }
 
+.accessibility i {
+  color: #1e90ff;
+}
+
+.nodeJs i {
+  color: #3c873a;
+}
+
+.redux svg {
+  height: 80px;
+  display: block;
+  margin: 0 auto;
+}
+
 .backgroundImgOne {
   background: url(../img/diego-jimenez-A-NVHPka9Rk-unsplash.jpg);
 }
@@ -1348,5 +1362,11 @@ input:required {
   }
   h2 {
     font-size: 3.5rem;
+  }
+  .singleSkill {
+    min-width: 90px;
+  }
+  h4 {
+    font-size: 1.2rem;
   }
 }
