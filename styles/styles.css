@@ -1372,7 +1372,7 @@ input:required {
             justify-content: space-evenly;
   }
   .singleSkill {
-    min-width: 50px;
+    min-width: 75px;
   }
   .singleSkill i {
     font-size: 5rem;
