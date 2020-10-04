@@ -635,7 +635,7 @@ section h2 {
 }
 
 header {
-  background: url(../img/nathan-anderson-iYO-EGosrCo-unsplash.webp);
+  background: url(../img/nathan-anderson-iYO-EGosrCo-unsplash.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -1013,11 +1013,11 @@ nav [data-bigletter]:before {
 }
 
 .backgroundImgOne {
-  background: url(../img/diego-jimenez-A-NVHPka9Rk-unsplash.webp);
+  background: url(../img/diego-jimenez-A-NVHPka9Rk-unsplash.jpg);
 }
 
 .backgroundImgTwo {
-  background: url(../img/daniel-leone-v7daTKlZzaw-unsplash.webp);
+  background: url(../img/daniel-leone-v7daTKlZzaw-unsplash.jpg);
 }
 
 .backgroundImgOne,
