@@ -5,6 +5,10 @@
 };
 
 @media (max-width: 900px) {
+    .headerBottom {
+        margin: 0 0 auto 0;
+    }
+    
     .projectsList {
         grid-template-columns: repeat(auto-fit, minmax(150px, 100%));
     }

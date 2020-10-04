@@ -6,9 +6,6 @@ $(document).ready(function(){
         setTimeout(() => {
             $("#loadingPage").css({'display': 'none'});
         }, 1500);
-
-        // $('body').removeClass('removeScroll');
-
     }, 1500);
 
     // OPEN NAVIGATION MENU
@@ -33,10 +30,21 @@ $(document).ready(function(){
         $(`.headerTop .logoInitials`).removeClass('toggleOpacity');
     });
 
+    $(`.projectsList li`).hide();
+    $(`.projectsList li.featured`).show();
+    $(`.everySortButton:first-child`).addClass('onLoad');
+
     $(".sortButtons button").click(function () {
-        $(`.${this.value}`).delay("500").slideDown();
-        $(`.projectsList li`).not(`.${this.value}`).slideUp();
-        this.value === 'all' && $(`.projectsList li`).delay("500").slideDown();
+        $(`.everySortButton:first-child`).removeClass('onLoad');
+        $(`.projectsList li`).slideUp(300);
+            // $(`.projectsList li`).hide(300);
+
+        $(`.${this.value}`).delay("300").slideDown(500);
+            // $(`.${this.value}`).delay(300).show(500);
+        this.value === 'featured' && $(`.projectsList featured`).delay("300").slideDown(500);
+            // this.value === 'featured' && $(`.projectsList featured`).delay(300).show(500);
+        this.value === 'all' && $(`.projectsList li`).delay("300").slideDown(500);
+            // this.value === 'all' && $(`.projectsList li`).delay(300).show(500);
     });
 
 

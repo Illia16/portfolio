@@ -14,7 +14,8 @@
     padding: 5px 10px;
 };
 
-.sortButtons button:after {
+.everySortButton::after {
+// .sortButtons button:after {
     display: block;
     content: "";
     background: #0d0d0d;
@@ -26,6 +27,10 @@
 
 .sortButtons button:hover::after,
 .sortButtons button:focus::after {
+    width: 100%;
+};
+
+.onLoad::after {
     width: 100%;
 };
 

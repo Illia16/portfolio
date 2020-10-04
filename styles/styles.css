@@ -655,6 +655,10 @@ header {
           align-items: center;
 }
 
+header h1, header h2 {
+  text-shadow: 3px 3px black;
+}
+
 .headerTop {
   width: 100%;
   display: -webkit-box;
@@ -704,7 +708,7 @@ header {
 
 .headerBottom {
   text-align: center;
-  margin: auto;
+  margin: 125px 0 auto 0;
   -webkit-box-ordinal-group: 16;
       -ms-flex-order: 15;
           order: 15;
@@ -1062,7 +1066,7 @@ nav [data-bigletter]:before {
   padding: 5px 10px;
 }
 
-.sortButtons button:after {
+.everySortButton::after {
   display: block;
   content: "";
   background: #0d0d0d;
@@ -1075,6 +1079,10 @@ nav [data-bigletter]:before {
 
 .sortButtons button:hover::after,
 .sortButtons button:focus::after {
+  width: 100%;
+}
+
+.onLoad::after {
   width: 100%;
 }
 
@@ -1303,6 +1311,9 @@ input:required {
 }
 
 @media (max-width: 900px) {
+  .headerBottom {
+    margin: 0 0 auto 0;
+  }
   .projectsList {
     -ms-grid-columns: (minmax(150px, 100%))[auto-fit];
         grid-template-columns: repeat(auto-fit, minmax(150px, 100%));

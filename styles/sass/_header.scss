@@ -9,6 +9,10 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    h1, h2 {
+        text-shadow: 3px 3px black;
+    }
 }
 
 .headerTop {
@@ -57,9 +61,8 @@ header {
 //////////////////////////////////////////////////////////////////////////////////
 .headerBottom {
     text-align: center;
-    margin: auto;
+    margin: 125px 0 auto 0;
     order: 15;
-    //margin-bottom: 25vh;
 }
 
 .logoInitials {
