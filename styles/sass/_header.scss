@@ -61,7 +61,7 @@ header {
 //////////////////////////////////////////////////////////////////////////////////
 .headerBottom {
     text-align: center;
-    margin: 125px 0 auto 0;
+    margin: auto;
     order: 15;
 }
 
@@ -123,10 +123,12 @@ header .showNav {
 // NAVIGATION MENU
 nav {
     position: fixed;
-    top: -2000px;
+    top: -1000px;
     transition: all .3s ease-in-out;
     z-index: 25;
     width: 100%;
+
+    visibility: hidden;
 }
 
 .openedNav {
@@ -141,6 +143,8 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 80px;
+
+    visibility: visible;
 }
 
 .showNav span.clicked::before {

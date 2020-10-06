@@ -15,7 +15,6 @@
 };
 
 .everySortButton::after {
-// .sortButtons button:after {
     display: block;
     content: "";
     background: #0d0d0d;
@@ -48,7 +47,7 @@
     grid-gap: 20px;
     justify-content: center;
 
-    min-height: 30vh;
+    // min-height: 30vh;
 };
 
 .projectsList li {
@@ -64,6 +63,8 @@
     opacity: 0;
     z-index: 15;
     background: #ffffff;
+    // or
+    // background: #f0f0f0;
 
     text-align: center;
     transition: all .3s ease-in;
@@ -101,14 +102,16 @@
         margin: 10px;
         padding: 5px 10px;
         line-height: 1.5rem;
-        border: 1px solid rgba(0, 0, 0, 0.2);
+        // border: 1px solid rgba(0, 0, 0, 0.2);
+        background: #ffffff;
+        border: 1px solid #0d0d0d;
     }
 };
 
 .projectInfo a:hover,
 .projectInfo a:focus {
     color: #ffffff;
-    border: 1px solid transparent;
+    // border: 1px solid transparent;
 }
 
 .projectInfo a:hover::after,
