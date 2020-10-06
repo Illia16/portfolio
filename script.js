@@ -33,13 +33,37 @@ myPortfolio.openNav = function() {
         $('.showNav').focus();
     });
 
-    // putting focused element to the center of the screen
-        $('main a, main input, main textarea, main button').focus(function(){
+    // putting focused element to the center of the screen only if it's TABBED
+            // $('main a, main input, main textarea, main button').focus(function(){
+            //         let center = $(window).height()/2;
+            //         let top = $(this).offset().top ;
+            //         top > center && $(window).scrollTop(top-center);
+            // });
+    $('main a, main input, main textarea, main button').bind('keyup', function(e) {
+        console.log(e.keyCode, e.target, myPortfolio.isInView(e.target));
+
+        if (e.keyCode === 9 && myPortfolio.isInView(e.target)) {
+            console.log('tab pressed');
             let center = $(window).height()/2;
-            let top = $(this).offset().top ;
+            let top = $(e.target).offset().top ;
             top > center && $(window).scrollTop(top-center);
+        }
     });
 };
+
+myPortfolio.isInView = function(el){
+    let r, html;
+    if ( !el || 1 !== el.nodeType ) { return false; }
+    html = document.documentElement;
+    r = el.getBoundingClientRect();
+
+    return ( !!r
+        && r.bottom >= 0
+        && r.right >= 0
+        && r.top <= html.clientHeight
+        && r.left <= html.clientWidth
+    );
+}
 
 myPortfolio.scrollTo = function() {
     // WHEN CLICKING ON A CERTAIN LINK WE GO TO the #element
@@ -134,3 +158,19 @@ myPortfolio.init = function() {
 $(document).ready(function(){
     myPortfolio.init();
 });
+
+
+// function checkTabPress(e) {
+//     console.log(e.keyCode);
+//     var ele = document.activeElement;
+//     console.log(ele, ele.nodeName);
+//     // 'use strict';
+
+//     // if (e.keyCode === 9 && ele.nodeName.toLowerCase() === 'a') {
+//     //     console.log(ele.href);
+//     // }
+// }
+
+// document.addEventListener('keyup', function (e) {
+//     checkTabPress(e);
+// }, false);
