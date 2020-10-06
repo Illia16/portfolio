@@ -40,10 +40,9 @@ myPortfolio.openNav = function() {
             //         top > center && $(window).scrollTop(top-center);
             // });
     $('main a, main input, main textarea, main button').bind('keyup', function(e) {
-        console.log(e.keyCode, e.target, myPortfolio.isInView(e.target));
-
-        if (e.keyCode === 9 && myPortfolio.isInView(e.target)) {
-            console.log('tab pressed');
+        // console.log(e.keyCode, e.target, myPortfolio.isInView(e.target));
+        if (e.keyCode === 9 && !myPortfolio.isInView(e.target)) {
+            // console.log('tab pressed');
             let center = $(window).height()/2;
             let top = $(e.target).offset().top ;
             top > center && $(window).scrollTop(top-center);
@@ -51,19 +50,26 @@ myPortfolio.openNav = function() {
     });
 };
 
+// function to check is the next focused element is visible or not
 myPortfolio.isInView = function(el){
-    let r, html;
-    if ( !el || 1 !== el.nodeType ) { return false; }
-    html = document.documentElement;
-    r = el.getBoundingClientRect();
+    let rect     = el.getBoundingClientRect();
+    let vWidth   = window.innerWidth || document.documentElement.clientWidth;
+    let vHeight  = window.innerHeight || document.documentElement.clientHeight;
+    let efp      = function (x, y) { return document.elementFromPoint(x, y) };  
 
-    return ( !!r
-        && r.bottom >= 0
-        && r.right >= 0
-        && r.top <= html.clientHeight
-        && r.left <= html.clientWidth
+    // Return false if it's not in the viewport
+    if (rect.right < 0 || rect.bottom < 0 
+            || rect.left > vWidth || rect.top > vHeight)
+        return false;
+
+    // Return true if any of its four corners are visible
+    return (
+        el.contains(efp(rect.left,  rect.top))
+        ||  el.contains(efp(rect.right, rect.top))
+        ||  el.contains(efp(rect.right, rect.bottom))
+        ||  el.contains(efp(rect.left,  rect.bottom))
     );
-}
+};
 
 myPortfolio.scrollTo = function() {
     // WHEN CLICKING ON A CERTAIN LINK WE GO TO the #element
@@ -98,7 +104,7 @@ myPortfolio.sortProjects = function() {
 myPortfolio.ulMinHeightSet = function() {
     let ulMinHeight = $(`.projectImage`).height().toFixed(2) + 'px';
     $('.projectsList').css({'min-height' : ulMinHeight });
-    // console.log('resized!!!!', ulMinHeight);
+    // console.log('resized', ulMinHeight);
     // console.log( $(window).width()    );
 };
 
