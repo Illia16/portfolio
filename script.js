@@ -22,6 +22,8 @@ myPortfolio.openNav = function() {
     $('#openNav').click(function() {
         $('#nav').toggleClass('openedNav');
         $(`.showNav span`).toggleClass('clicked');
+        $(`#headerBottom`).toggleClass('toggleOpacityToLow');
+        $('body').toggleClass('fixedBody');
 
         $(`.showNav span`).hasClass('clicked') 
         ? $(`.headerTop .logoInitials`).addClass('toggleOpacity')
@@ -34,11 +36,6 @@ myPortfolio.openNav = function() {
     });
 
     // putting focused element to the center of the screen only if it's TABBED
-            // $('main a, main input, main textarea, main button').focus(function(){
-            //         let center = $(window).height()/2;
-            //         let top = $(this).offset().top ;
-            //         top > center && $(window).scrollTop(top-center);
-            // });
     $('main a, main input, main textarea, main button').bind('keyup', function(e) {
         // console.log(e.keyCode, e.target, myPortfolio.isInView(e.target));
         if (e.keyCode === 9 && !myPortfolio.isInView(e.target)) {
@@ -77,6 +74,8 @@ myPortfolio.scrollTo = function() {
 
         $('#nav').removeClass('openedNav');
         $(`.showNav span`).removeClass('clicked');
+        $(`#headerBottom`).removeClass('toggleOpacityToLow');
+        $(`body`).removeClass('fixedBody');
 
         // bringing back our logo initials to 1(visible)
         $(`.headerTop .logoInitials`).removeClass('toggleOpacity');
@@ -87,14 +86,10 @@ myPortfolio.sortProjects = function() {
     $(".sortButtons button").click(function () {
         $(`.everySortButton:first-child`).removeClass('onLoad');
         $(`.projectsList li`).slideUp(300);
-            // $(`.projectsList li`).hide(300);
 
         $(`.${this.value}`).delay("300").slideDown(500);
-            // $(`.${this.value}`).delay(300).show(500);
         this.value === 'featured' && $(`.projectsList featured`).delay("300").slideDown(500);
-            // this.value === 'featured' && $(`.projectsList featured`).delay(300).show(500);
         this.value === 'all' && $(`.projectsList li`).delay("300").slideDown(500);
-            // this.value === 'all' && $(`.projectsList li`).delay(300).show(500);
     });
 };
 
@@ -102,8 +97,6 @@ myPortfolio.sortProjects = function() {
 myPortfolio.ulMinHeightSet = function() {
     let ulMinHeight = $(`.projectImage`).height().toFixed(2) + 'px';
     $('.projectsList').css({'min-height' : ulMinHeight });
-    // console.log('resized', ulMinHeight);
-    // console.log( $(window).width()    );
 };
 
 
@@ -123,10 +116,6 @@ $(window).on('resize', function(){
 
 // CHECK IF HEADER TOUCHES TOP SO THAT TO MOVE HAMBURGER
 myPortfolio.observeEl = new IntersectionObserver(function(domEl) {
-    //console.log(entries);
-    //console.log(entries[0].target.id);
-    //console.log(entries[0].intersectionRatio);
-
     if(domEl[0].intersectionRatio < 1) {
         //console.log("no intersection with screen");
 
@@ -162,19 +151,3 @@ myPortfolio.init = function() {
 $(document).ready(function(){
     myPortfolio.init();
 });
-
-
-// function checkTabPress(e) {
-//     console.log(e.keyCode);
-//     var ele = document.activeElement;
-//     console.log(ele, ele.nodeName);
-//     // 'use strict';
-
-//     // if (e.keyCode === 9 && ele.nodeName.toLowerCase() === 'a') {
-//     //     console.log(ele.href);
-//     // }
-// }
-
-// document.addEventListener('keyup', function (e) {
-//     checkTabPress(e);
-// }, false);

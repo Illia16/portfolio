@@ -676,6 +676,15 @@ header h1, header h2 {
   opacity: 0;
 }
 
+.toggleOpacityToLow {
+  opacity: 0.2;
+}
+
+.fixedBody {
+  height: 100%;
+  overflow: hidden;
+}
+
 .headerTopFixed {
   position: fixed;
   top: 5px;
@@ -712,6 +721,8 @@ header h1, header h2 {
   -webkit-box-ordinal-group: 16;
       -ms-flex-order: 15;
           order: 15;
+  -webkit-transition: all .3s;
+  transition: all .3s;
 }
 
 .logoInitials {
@@ -781,7 +792,7 @@ nav {
 }
 
 .openedNav {
-  background: rgba(10, 10, 10, 0.9);
+  background: rgba(10, 10, 10, 0.95);
   left: 0;
   right: 0;
   top: 0;
