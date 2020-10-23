@@ -298,26 +298,29 @@
                 <div class="separator" aria-hidden="true"><span></span></div>
                 <h3>Get in touch with me</h3>
             </div>
-
+            
             <form action="http://www.focuspocus.io/magic/3b84de581148fea3a588b4b85035fb37" method="POST" class="contactForm">
                 <div class="formInner">
                     <div class="formEl">
+                        <span class="nameError">Invalid name</span>
                         <label for="name">NAME</label>
-                        <input type="text" name="name" id="name" placeholder="Name" required>
+                        <input type="text" name="name" id="name" placeholder="Name">
                     </div>
 
                     <div class="formEl">
+                        <span class="emailError">Invalid email</span>
                         <label for="email">EMAIL</label>
-                        <input type="email" name="email" id="email" placeholder="Email" required>
+                        <input type="email" name="email" id="email" placeholder="Email">
                     </div>
 
                     <div class="formEl">
+                        <span class="textFieldError">Invalid message</span>
                         <label for="message">MESSAGE</label>
-                        <textarea name="message" id="message" rows="7" placeholder="Message" maxlength="700" required></textarea>
+                        <textarea name="message" id="message" rows="7" placeholder="Message" maxlength="700" ></textarea>
                     </div>
 
                     <div class="formEl">
-                        <button>SEND</button>
+                        <button id="send">SEND</button>
                     </div>
                 </div>
             </form>

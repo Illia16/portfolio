@@ -139,6 +139,43 @@ myPortfolio.observeEl = new IntersectionObserver(function(domEl) {
 
 }, { threshold: [0,1] });
 
+
+myPortfolio.checkIfValidInput = (input, pattern) => {
+    if ( pattern.test(input) ) {
+        return true
+    }
+};
+
+$('#send').click( function(e) {
+    e.preventDefault();
+
+    const name = $('#name').val();
+    const email = $('#email').val();
+    const message = $('#message').val();
+
+    const emailSpamPattern = /(?:admin|reply|noreply|no-reply|spam|subscribe|register|online)\S*/;
+    // right email pattern
+    const emailValidation = /\S+@\S+\.\S+/;
+    // checking textarea for links
+    const linkPattern = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+
+    $('.nameError').css({"display": "none"});
+    $('.emailError').css({"display": "none"});
+    $('.textFieldError').css({"display": "none"});
+
+    console.log(myPortfolio.checkIfValidInput(email, emailSpamPattern));
+
+    if ( !name ) {
+        $('.nameError').css({"display": "block"});
+    } else if ( !email || myPortfolio.checkIfValidInput(email, emailSpamPattern) || !myPortfolio.checkIfValidInput(email, emailValidation) ) {
+        $('.emailError').css({"display": "block"});
+    } else if ( !message || myPortfolio.checkIfValidInput(message, linkPattern) ) {
+        $('.textFieldError').css({"display": "block"});
+    } else {
+        $("form")[0].submit();
+    }
+});
+
 myPortfolio.init = function() {
     myPortfolio.loadingPage();
     myPortfolio.ulMinHeightSet();

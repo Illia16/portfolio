@@ -1211,6 +1211,7 @@ form,
   margin: 10px;
   width: 100%;
   text-align: center;
+  position: relative;
 }
 
 .formEl:nth-child(1),
@@ -1313,6 +1314,17 @@ input:required {
 .formEl button:hover::after,
 .formEl button:focus::after {
   height: 100%;
+}
+
+.nameError,
+.emailError,
+.textFieldError {
+  display: none;
+  top: 0;
+  left: 0;
+  position: absolute;
+  font-size: 1.2rem;
+  color: #eb2c42;
 }
 
 @media (max-width: 1100px) {
