@@ -1019,7 +1019,8 @@ nav [data-bigletter]:before {
   color: #3c873a;
 }
 
-.redux svg {
+.redux svg,
+.typeScript svg {
   max-height: 80px;
   display: block;
   margin: 0 auto;
@@ -1420,7 +1421,8 @@ input:required {
   .project.wrapper {
     padding: 40px;
   }
-  .redux svg {
+  .redux svg,
+  .typeScript svg {
     max-height: 50px;
   }
 }
