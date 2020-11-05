@@ -98,16 +98,15 @@ myPortfolio.ulMinHeightSet = function() {
 
 // if width is < 500px then show only TO TOP link, otherwise TO TOP + list of my social media
 myPortfolio.borderBottomContent = function() {
-    if ( $(document).width() < 500 || ( $(document).width() < 500 && !myPortfolio.observeEl.isIntersects ) ) {
+    if ( $(document).width() < 500 || ( $(document).width() < 500 && !myPortfolio.observeEl.isIntersects)  ) {
         $(".borderBottom .socialMedia").css({"display": "none"});
         $(".borderBottom").css({"justify-content": "center"});
     }
-    else {
+    else if ( !myPortfolio.observeEl.isIntersects ) {
         $(".borderBottom .socialMedia").css({"display": "flex"});
         $(".borderBottom").css({"justify-content": "space-between"});
     }
 };
-
 
 // so that not to change the height every time width changes in EVERY PIXES, to prevent a huge load on the system, there's a fucntion with a step i
 $(window).on('resize', function() {
@@ -122,38 +121,22 @@ $(window).on('resize', function() {
     }
 });
 
-
 // CHECK IF HEADER TOUCHES TOP SO THAT TO MOVE HAMBURGER
 myPortfolio.observeEl = new IntersectionObserver(function(domEl) {
 
-    // if(domEl[0].intersectionRatio < 1) {
+    myPortfolio.observeEl.element = domEl[0].target.id;
+
+    //console.log("no intersection with screen");
     if(!domEl[0].isIntersecting) {
-        //console.log("no intersection with screen");
-
-        // $(`.headerTop`).addClass('headerTopFixed');
-        // $(`.headerTop .logoInitials`).empty();
-        // $(`.headerTop .logoInitials`).append(`<img src="./img/logoBlack.png" alt="logo initials I.N.">`);
-        // $(".borderBottom .socialMedia").css({'display': 'flex'});
-        // $("#toTopLink").css({'display': 'block'});
-        // $(`.headerTop .logoInitials`).removeClass('toggleOpacity');
         myPortfolio.observeEl.isIntersects = false;
-        myPortfolio.observeEl.element = domEl[0].target.id;
     }
+    //console.log("fully intersects with screen");
     else {
-        //console.log("fully intersects with screen");
-        // $(`.showNav span`).hasClass('clicked') && $(`.headerTop .logoInitials`).addClass('toggleOpacity')
-
-        // $(`.headerTop`).removeClass('headerTopFixed');
-        // $(`.headerTop .logoInitials`).empty();
-        // $(`.headerTop .logoInitials`).append(`<img src="./img/logoWhite.png" alt="logo initials I.N.">`);
-        // $(".borderBottom .socialMedia").css({'display': 'none'});
-        // $("#toTopLink").css({'display': 'none'});
         myPortfolio.observeEl.isIntersects = true;
-        myPortfolio.observeEl.element = domEl[0].target.id;
     }
 
-    console.log(myPortfolio.observeEl);
     myPortfolio.checkIntersection();
+    console.log(myPortfolio.observeEl);
 }, { threshold: [0,1] });
 
 
@@ -179,6 +162,8 @@ myPortfolio.checkIntersection = function() {
         $(".borderBottom .socialMedia").css({"display": "flex"});
         $(".borderBottom").css({"justify-content": "space-between"});
     } else null
+
+    myPortfolio.borderBottomContent();
 };
 
 

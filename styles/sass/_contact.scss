@@ -21,7 +21,6 @@ form,
 
 .formEl:nth-child(1),
 .formEl:nth-child(2) {
-    //flex: 1 0 150px;
     flex: 1 0 calc(100%/2 - 40px)
 }
 
@@ -81,13 +80,7 @@ input:required {
 };
 
 .toTopLink {
-    // margin: 40px 0;
     margin: 0 15px;
-    // text-align: center;
-    // position: fixed;
-    // right: 20px;
-    // bottom: -45px;
-    // z-index: 55;
 
     a::after {
         display: block;
@@ -130,7 +123,6 @@ input:required {
 }
 
 .contact .socialMedia {
-    // display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     max-width: 550px;
@@ -143,7 +135,6 @@ input:required {
     li {
         display: flex;
         flex-direction: column;
-        // margin: 0 30px;
     }
 
     a {

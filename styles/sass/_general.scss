@@ -137,7 +137,6 @@ section h2 {
 }
 
 // TOP PART OF SKILLS + PROJECT + CONTACT
-
 .topPartSection {
     text-align: center;
 }
@@ -200,7 +199,6 @@ section h2 {
 
 // SOCAIL MEDIA ON THE BOTTOM BORDER ////////////////////////////
 .borderBottom .socialMedia {
-    // display: none;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -312,22 +310,18 @@ section h2 {
 }
 
 @keyframes moveRight {
-    // 50% { left: -100%; }
     100% { left: 0 };
 }
 
 @keyframes moveBottom {
-    // 50% { top: -100%; }
     100% { top: 0; }
 }
 
 @keyframes moveLeft {
-    // 50% { left: 100% };
     100% { left: 0 };
 }
 
 @keyframes moveTop {
-    // 90% { top: 100%; }
     100% { top: 0; }
 }
 

@@ -171,10 +171,6 @@ nav {
     background: transparent;
 }
 
-// .showNav span.clicked::before,
-// .showNav span.clicked::after {
-//     background: #ffffff;
-// }
 
 .showNav span.clicked::after {
     -webkit-transform: rotate(-45deg);
