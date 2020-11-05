@@ -447,6 +447,15 @@ section h2 {
 
 .borderBottom {
   bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .borderBottom .socialMedia {
@@ -1019,6 +1028,18 @@ nav [data-bigletter]:before {
   color: #3c873a;
 }
 
+.twitter i {
+  color: #00acee;
+}
+
+.linkedin i {
+  color: #0e76a8;
+}
+
+.calendly i {
+  color: #00a3fa;
+}
+
 .redux svg,
 .typeScript svg {
   max-height: 80px;
@@ -1282,12 +1303,7 @@ input:required {
 }
 
 .toTopLink {
-  margin: 40px 0;
-  text-align: center;
-  position: fixed;
-  right: 20px;
-  bottom: -45px;
-  z-index: 55;
+  margin: 0 15px;
 }
 
 .toTopLink a::after {
@@ -1328,6 +1344,37 @@ input:required {
   color: #eb2c42;
 }
 
+.contact .socialMedia {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 550px;
+  margin: 40px auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+.contact .socialMedia li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contact .socialMedia a {
+  color: #0d0d0d;
+  opacity: 1;
+  font-size: 4rem;
+}
+
 @media (max-width: 1100px) {
   .projectsList {
     -ms-grid-columns: (minmax(150px, 100%))[auto-fit];
@@ -1359,9 +1406,6 @@ input:required {
     -webkit-box-flex: 1;
         -ms-flex: 1 0 100%;
             flex: 1 0 100%;
-  }
-  .toTopLink {
-    position: static;
   }
   .borderBottom .socialMedia {
     -webkit-box-pack: center;
@@ -1424,5 +1468,12 @@ input:required {
   .redux svg,
   .typeScript svg {
     max-height: 50px;
+  }
+  .contact .socialMedia {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  .contact .socialMedia a {
+    font-size: 3rem;
   }
 }

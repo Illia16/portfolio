@@ -34,9 +34,9 @@
         flex: 1 0 100%;
     }
 
-    .toTopLink {
-        position: static;
-    }
+    // .toTopLink {
+    //     position: static;
+    // }
 
     .borderBottom .socialMedia {
         justify-content: center;
@@ -109,5 +109,14 @@
     .redux svg,
     .typeScript svg {
         max-height: 50px;
+    }
+
+
+    .contact .socialMedia {
+        grid-template-columns: repeat(2, 1fr);
+
+        a {
+            font-size: 3rem;
+        }
     }
 };

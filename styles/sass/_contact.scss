@@ -81,12 +81,13 @@ input:required {
 };
 
 .toTopLink {
-    margin: 40px 0;
-    text-align: center;
-    position: fixed;
-    right: 20px;
-    bottom: -45px;
-    z-index: 55;
+    // margin: 40px 0;
+    margin: 0 15px;
+    // text-align: center;
+    // position: fixed;
+    // right: 20px;
+    // bottom: -45px;
+    // z-index: 55;
 
     a::after {
         display: block;
@@ -127,3 +128,28 @@ input:required {
     font-size: 1.2rem;
     color: #eb2c42;
 }
+
+.contact .socialMedia {
+    // display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 550px;
+    margin: 40px auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+
+    li {
+        display: flex;
+        flex-direction: column;
+        // margin: 0 30px;
+    }
+
+    a {
+        color: #0d0d0d;
+        opacity: 1;
+        font-size: 4rem;
+    };
+}
+

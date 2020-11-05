@@ -193,6 +193,9 @@ section h2 {
 
 .borderBottom {
     bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 };
 
 // SOCAIL MEDIA ON THE BOTTOM BORDER ////////////////////////////
