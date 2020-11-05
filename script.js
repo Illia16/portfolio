@@ -31,15 +31,13 @@ myPortfolio.openNav = function() {
     });
 
     // nav focus loop
-    $('.socialMedia li:last-child a').focusout( function() {
+    $('header .socialMedia li:last-child a').focusout( function() {
         $('.showNav').focus();
     });
 
     // putting focused element to the center of the screen only if it's TABBED
     $('main a, main input, main textarea, main button').bind('keyup', function(e) {
-        // console.log(e.keyCode, e.target, myPortfolio.isInView(e.target));
         if (e.keyCode === 9 && !myPortfolio.isInView(e.target)) {
-            // console.log('tab pressed');
             let center = $(window).height()/2;
             let top = $(e.target).offset().top ;
             top > center && $(window).scrollTop(top-center);
@@ -48,13 +46,12 @@ myPortfolio.openNav = function() {
 };
 
 // function to check is the next focused element is visible or not
-myPortfolio.isInView = function(el){
+myPortfolio.isInView = function(el) {
     let rect     = el.getBoundingClientRect();
     let vWidth   = window.innerWidth || document.documentElement.clientWidth;
     let vHeight  = window.innerHeight || document.documentElement.clientHeight;
     let efp      = function (x, y) { return document.elementFromPoint(x, y) };  
 
-    // console.log(rect.right, "< 0", rect.bottom, "< 0", rect.left, ">", vWidth, rect.top, ">", vHeight);
     // Return false if it's not in the viewport
     if (rect.right < 0 || rect.bottom < 0 || rect.left > vWidth || rect.top > vHeight)
         return false;
@@ -99,10 +96,21 @@ myPortfolio.ulMinHeightSet = function() {
     $('.projectsList').css({'min-height' : ulMinHeight });
 };
 
+// if width is < 500px then show only TO TOP link, otherwise TO TOP + list of my social media
+myPortfolio.borderBottomContent = function() {
+    if ( $(document).width() < 500 || ( $(document).width() < 500 && !myPortfolio.observeEl.isIntersects ) ) {
+        $(".borderBottom .socialMedia").css({"display": "none"});
+        $(".borderBottom").css({"justify-content": "center"});
+    }
+    else {
+        $(".borderBottom .socialMedia").css({"display": "flex"});
+        $(".borderBottom").css({"justify-content": "space-between"});
+    }
+};
 
 
 // so that not to change the height every time width changes in EVERY PIXES, to prevent a huge load on the system, there's a fucntion with a step i
-$(window).on('resize', function(){
+$(window).on('resize', function() {
     const arrSizes = [];
     for (let i=250; i<=1500; i += 10) {
         arrSizes.push(i);
@@ -110,34 +118,68 @@ $(window).on('resize', function(){
 
     if( arrSizes.includes( $(this).width() ) ) {
         myPortfolio.ulMinHeightSet();
+        myPortfolio.borderBottomContent();
     }
 });
 
 
 // CHECK IF HEADER TOUCHES TOP SO THAT TO MOVE HAMBURGER
 myPortfolio.observeEl = new IntersectionObserver(function(domEl) {
-    if(domEl[0].intersectionRatio < 1) {
+
+    // if(domEl[0].intersectionRatio < 1) {
+    if(!domEl[0].isIntersecting) {
         //console.log("no intersection with screen");
 
+        // $(`.headerTop`).addClass('headerTopFixed');
+        // $(`.headerTop .logoInitials`).empty();
+        // $(`.headerTop .logoInitials`).append(`<img src="./img/logoBlack.png" alt="logo initials I.N.">`);
+        // $(".borderBottom .socialMedia").css({'display': 'flex'});
+        // $("#toTopLink").css({'display': 'block'});
+        // $(`.headerTop .logoInitials`).removeClass('toggleOpacity');
+        myPortfolio.observeEl.isIntersects = false;
+        myPortfolio.observeEl.element = domEl[0].target.id;
+    }
+    else {
+        //console.log("fully intersects with screen");
+        // $(`.showNav span`).hasClass('clicked') && $(`.headerTop .logoInitials`).addClass('toggleOpacity')
+
+        // $(`.headerTop`).removeClass('headerTopFixed');
+        // $(`.headerTop .logoInitials`).empty();
+        // $(`.headerTop .logoInitials`).append(`<img src="./img/logoWhite.png" alt="logo initials I.N.">`);
+        // $(".borderBottom .socialMedia").css({'display': 'none'});
+        // $("#toTopLink").css({'display': 'none'});
+        myPortfolio.observeEl.isIntersects = true;
+        myPortfolio.observeEl.element = domEl[0].target.id;
+    }
+
+    console.log(myPortfolio.observeEl);
+    myPortfolio.checkIntersection();
+}, { threshold: [0,1] });
+
+
+myPortfolio.checkIntersection = function() {
+    if ( myPortfolio.observeEl.element === 'headerBottom' && myPortfolio.observeEl.isIntersects === false) {
         $(`.headerTop`).addClass('headerTopFixed');
         $(`.headerTop .logoInitials`).empty();
         $(`.headerTop .logoInitials`).append(`<img src="./img/logoBlack.png" alt="logo initials I.N.">`);
         $(".borderBottom .socialMedia").css({'display': 'flex'});
         $("#toTopLink").css({'display': 'block'});
         $(`.headerTop .logoInitials`).removeClass('toggleOpacity');
-    }
-    else {
-        //console.log("fully intersects with screen");
-        $(`.showNav span`).hasClass('clicked') && $(`.headerTop .logoInitials`).addClass('toggleOpacity')
-
+    } else if ( myPortfolio.observeEl.element === 'headerBottom' && myPortfolio.observeEl.isIntersects === true) {
+        $(`.showNav span`).hasClass('clicked') && $(`.headerTop .logoInitials`).addClass('toggleOpacity');
         $(`.headerTop`).removeClass('headerTopFixed');
         $(`.headerTop .logoInitials`).empty();
         $(`.headerTop .logoInitials`).append(`<img src="./img/logoWhite.png" alt="logo initials I.N.">`);
         $(".borderBottom .socialMedia").css({'display': 'none'});
         $("#toTopLink").css({'display': 'none'});
-    }
-
-}, { threshold: [0,1] });
+    } else if (myPortfolio.observeEl.element === 'contact' && myPortfolio.observeEl.isIntersects === true) {
+        $(".borderBottom .socialMedia").css({"display": "none"});
+        $(".borderBottom").css({"justify-content": "center"});
+    } else if (myPortfolio.observeEl.element === 'contact' && myPortfolio.observeEl.isIntersects === false) {
+        $(".borderBottom .socialMedia").css({"display": "flex"});
+        $(".borderBottom").css({"justify-content": "space-between"});
+    } else null
+};
 
 
 myPortfolio.checkIfValidInput = (input, pattern) => {
@@ -153,7 +195,7 @@ $('#send').click( function(e) {
     const email = $('#email').val();
     const message = $('#message').val();
 
-    const emailSpamPattern = /(?:admin|reply|noreply|no-reply|spam|subscribe|register|online)\S*/;
+    const emailSpamPattern = /(?:admin|reply|sales|product|noreply|no-reply|spam|subscribe|register|online)\S*/;
     // right email pattern
     const emailValidation = /\S+@\S+\.\S+/;
     // checking textarea for links
@@ -183,6 +225,7 @@ myPortfolio.init = function() {
     myPortfolio.scrollTo();
     myPortfolio.sortProjects();
     myPortfolio.observeEl.observe(document.querySelector("#headerBottom"));
+    myPortfolio.observeEl.observe(document.querySelector("#contact"));
 }
 
 $(document).ready(function(){

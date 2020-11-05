@@ -1375,6 +1375,16 @@ input:required {
   font-size: 4rem;
 }
 
+.displayFlex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.displayNone {
+  display: none;
+}
+
 @media (max-width: 1100px) {
   .projectsList {
     -ms-grid-columns: (minmax(150px, 100%))[auto-fit];
