@@ -689,6 +689,10 @@ header h1, header h2 {
   opacity: 0.2;
 }
 
+.toggleDisplayNone {
+  display: none;
+}
+
 .fixedBody {
   height: 100%;
   overflow: hidden;

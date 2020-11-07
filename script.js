@@ -28,6 +28,10 @@ myPortfolio.openNav = function() {
         $(`.showNav span`).hasClass('clicked') 
         ? $(`.headerTop .logoInitials`).addClass('toggleOpacity')
         : $(`.headerTop .logoInitials`).removeClass('toggleOpacity')
+
+        $(`.showNav span`).hasClass('clicked') 
+        ? $(`#bottomSocialMedia, #toTopLink`).css({'display':'none'})
+        : $(`#bottomSocialMedia, #toTopLink`).css({'display':'flex'})
     });
 
     // nav focus loop
