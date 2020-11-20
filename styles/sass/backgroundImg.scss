@@ -1,0 +1,32 @@
+// Background Image ////////////////////////////////////////
+.backgroundImgOne {
+    background: url(../img/diego-jimenez-A-NVHPka9Rk-unsplash.jpg);
+};
+
+.backgroundImgTwo {
+    background: url(../img/daniel-leone-v7daTKlZzaw-unsplash.jpg);
+};
+
+.backgroundImgOne,
+.backgroundImgTwo {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 50vh;
+
+    color: #ffffff;
+    font-size: 3rem;
+    line-height: 4rem;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        width: 70%;
+        text-shadow: 2px 2px #0d0d0d;
+    }
+};
+

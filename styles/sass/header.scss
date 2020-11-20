@@ -38,7 +38,6 @@ header {
 
 // removing scroll when needed
 .fixedBody {
-    // position: fixed;
     height: 100%;
     overflow: hidden;
 }
@@ -132,7 +131,6 @@ header .showNav {
 .showNav:hover,
 .showNav:focus{
     transform: scale(1.25);
-    //transform: rotateZ(180deg);
     cursor: pointer;
 }
 
