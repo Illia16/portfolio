@@ -714,18 +714,16 @@ header h1, header h2 {
   height: 30px;
 }
 
-.headerTopFixed .showNav span::before {
-  top: -10px;
-}
-
-.headerTopFixed .showNav span::after {
-  top: 10px;
-}
-
-.headerTopFixed .showNav span,
-.headerTopFixed .showNav span::before,
-.headerTopFixed .showNav span::after {
+.headerTopFixed .showNav span {
   background: #0d0d0d;
+}
+
+.headerTopFixed .showNav span.clicked:nth-child(1) {
+  top: 15px;
+}
+
+.headerTopFixed .showNav span.clicked:nth-child(3) {
+  top: 15px;
 }
 
 .headerBottom {
@@ -756,42 +754,48 @@ header .showNav {
   transition: all .3s ease-in-out;
 }
 
-.showNav span,
-.showNav span::before,
-.showNav span::after {
+.showNav span {
   position: absolute;
   display: block;
   height: 1.5px;
   background: #ffffff;
-}
-
-.showNav span {
-  left: 5px;
-  right: 5px;
-}
-
-.showNav span::before,
-.showNav span::after {
   content: "";
-  left: 0;
-  right: 0;
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
+  left: 0px;
+  right: 0px;
 }
 
-.showNav span::before {
-  top: -15px;
+.showNav span:nth-child(1) {
+  top: 0;
 }
 
-.showNav span::after {
-  top: 15px;
+.showNav span:nth-child(2) {
+  top: calc(50% - 1.5px);
+}
+
+.showNav span:nth-child(3) {
+  top: calc(100% - 1.5px);
 }
 
 .showNav:hover,
 .showNav:focus {
-  -webkit-transform: scale(1.25);
-          transform: scale(1.25);
   cursor: pointer;
+}
+
+.showNav:hover span:nth-child(1),
+.showNav:focus span:nth-child(1) {
+  top: 25%;
+}
+
+.showNav:hover span:nth-child(2),
+.showNav:focus span:nth-child(2) {
+  top: 50%;
+}
+
+.showNav:hover span:nth-child(3),
+.showNav:focus span:nth-child(3) {
+  top: 75%;
 }
 
 nav {
@@ -827,20 +831,21 @@ nav {
   visibility: visible;
 }
 
-.showNav span.clicked::before {
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-  top: 0;
+.showNav span.clicked:nth-child(1) {
+  top: 18px;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
 }
 
-.showNav span.clicked {
-  background: transparent;
+.showNav span.clicked:nth-child(2) {
+  opacity: 0;
+  left: -30px;
 }
 
-.showNav span.clicked::after {
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  top: 0;
+.showNav span.clicked:nth-child(3) {
+  top: 18px;
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
 }
 
 nav ul {

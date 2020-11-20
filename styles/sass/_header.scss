@@ -57,18 +57,17 @@ header {
         width: 30px;
         height: 30px;
     }
-    .showNav span::before {
-        top: -10px;
-    }
 
-    .showNav span::after {
-        top: 10px;
-    }
-
-    .showNav span,
-    .showNav span::before,
-    .showNav span::after {
+    .showNav span {
         background: #0d0d0d;
+    }
+
+    .showNav span.clicked:nth-child(1) {
+        top: 15px;
+    }
+    
+    .showNav span.clicked:nth-child(3) {
+        top: 15px;
     }
 }
 
@@ -98,40 +97,37 @@ header .showNav {
     transition: all .3s ease-in-out;
 }
 
-.showNav span,
-.showNav span::before,
-.showNav span::after {
+.showNav span {
     position: absolute;
     display: block;
     height: 1.5px;
     background: #ffffff;
-}
 
-.showNav span {
-    left: 5px;
-    right: 5px;
-}
-
-.showNav span::before,
-.showNav span::after  {
     content: "";
-    left: 0;
-    right: 0;
     transition: all .3s ease-in-out;
+    left: 0px;
+    right: 0px;
 }
 
-.showNav span::before {
-    top: -15px;
+.showNav span:nth-child(1) {
+    top: 0;
 }
 
-.showNav span::after {
-    top: 15px;
+.showNav span:nth-child(2) {
+    top: calc(50% - 1.5px);
+}
+
+.showNav span:nth-child(3) {
+    top: calc(100% - 1.5px);
 }
 
 .showNav:hover,
 .showNav:focus{
-    transform: scale(1.25);
+    // transform: scale(1.01);
     cursor: pointer;
+    span:nth-child(1) { top: 25%; }
+    span:nth-child(2) { top: 50%; }
+    span:nth-child(3) { top: 75%; }
 }
 
 // NAVIGATION MENU
@@ -161,25 +157,25 @@ nav {
     visibility: visible;
 }
 
-.showNav span.clicked::before {
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
-    top: 0;
+.showNav span.clicked:nth-child(1) {
+    top: 18px;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
 }
 
-.showNav span.clicked {
-    background: transparent;
+.showNav span.clicked:nth-child(2) {
+    opacity: 0;
+    left: -30px;
 }
 
-
-.showNav span.clicked::after {
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    top: 0;
+.showNav span.clicked:nth-child(3) {
+    top: 18px;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
 }
 
 nav ul {
