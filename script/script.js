@@ -198,10 +198,13 @@ $('#send').click( function(e) {
 
     if ( !name ) {
         $('.nameError').css({"display": "block"});
+        $(`.nameError`).fadeOut(1500);
     } else if ( !email || myPortfolio.checkIfValidInput(email, emailSpamPattern) || !myPortfolio.checkIfValidInput(email, emailValidation) ) {
         $('.emailError').css({"display": "block"});
+        $(`.emailError`).fadeOut(1500);
     } else if ( !message || myPortfolio.checkIfValidInput(message, linkPattern) ) {
         $('.textFieldError').css({"display": "block"});
+        $(`.textFieldError`).fadeOut(1500);
     } else {
         $("form")[0].submit();
     }
