@@ -32,6 +32,11 @@ myPortfolio.openNav = function() {
         $(`.showNav span`).hasClass('clicked') 
         ? $(`#bottomSocialMedia, #toTopLink`).css({'display':'none'})
         : $(`#bottomSocialMedia, #toTopLink`).css({'display':'flex'})
+
+        // $(`.showNav span`).hasClass('clicked')
+        // ? $(`#openNav`).addClass('navCrossHover')
+        // : $(`#openNav`).removeClass('navCrossHover');
+
     });
 
     // nav focus loop

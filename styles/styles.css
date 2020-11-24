@@ -835,6 +835,8 @@ nav {
   top: 18px;
   -webkit-transform: rotate(135deg);
   transform: rotate(135deg);
+  -webkit-transition: all .3s;
+  transition: all .3s;
 }
 
 .showNav span.clicked:nth-child(2) {
@@ -846,6 +848,20 @@ nav {
   top: 18px;
   -webkit-transform: rotate(-135deg);
   transform: rotate(-135deg);
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.showNav:hover span.clicked:nth-child(1),
+.showNav:focus span.clicked:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.showNav:hover span.clicked:nth-child(3),
+.showNav:focus span.clicked:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 nav ul {
