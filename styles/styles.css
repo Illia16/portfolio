@@ -1079,7 +1079,6 @@ nav [data-bigletter]:before {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  position: relative;
 }
 
 .backgroundImgOne h3 {
@@ -1089,6 +1088,7 @@ nav [data-bigletter]:before {
   text-align: center;
   text-shadow: 2px 2px #0d0d0d;
   font-weight: 700;
+  margin: 25px 0;
 }
 
 .backgroundImgOne h4 {
@@ -1129,9 +1129,9 @@ nav [data-bigletter]:before {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1544,6 +1544,9 @@ input:required {
         grid-template-columns: repeat(2, 1fr);
   }
   .contact .socialMedia a {
+    font-size: 3rem;
+  }
+  .backgroundImgOne h3 {
     font-size: 3rem;
   }
 }
