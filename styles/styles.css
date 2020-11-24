@@ -1074,10 +1074,44 @@ nav [data-bigletter]:before {
 
 .backgroundImgOne {
   background: url(../img/diego-jimenez-A-NVHPka9Rk-unsplash.jpg);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.backgroundImgOne h3 {
+  color: #ffffff;
+  font-size: 3rem;
+  line-height: 4rem;
+  text-align: center;
+  text-shadow: 2px 2px #0d0d0d;
+  font-weight: 700;
+}
+
+.backgroundImgOne h4 {
+  color: #ffffff;
+  text-shadow: 2px 2px #0d0d0d;
+}
+
+.backgroundImgOne h4:before {
+  opacity: 0.25;
 }
 
 .backgroundImgTwo {
   background: url(../img/daniel-leone-v7daTKlZzaw-unsplash.jpg);
+}
+
+.leaningNowSkills {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .backgroundImgOne,
@@ -1094,9 +1128,9 @@ nav [data-bigletter]:before {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;

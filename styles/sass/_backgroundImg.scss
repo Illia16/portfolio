@@ -1,11 +1,38 @@
-// Background Image ////////////////////////////////////////
+// Background Images ////////////////////////////////////////
 .backgroundImgOne {
     background: url(../img/diego-jimenez-A-NVHPka9Rk-unsplash.jpg);
+    flex-direction: column;
+    position: relative;
+
+    h3 {
+        color: #ffffff;
+        font-size: 3rem;
+        line-height: 4rem;
+        text-align: center;
+        text-shadow: 2px 2px #0d0d0d;
+        font-weight: 700;
+    }
+
+    h4 {
+        color: #ffffff;
+        text-shadow: 2px 2px #0d0d0d;
+    }
+
+    h4:before {
+        opacity: 0.25;
+    }
 };
 
 .backgroundImgTwo {
     background: url(../img/daniel-leone-v7daTKlZzaw-unsplash.jpg);
 };
+
+
+.leaningNowSkills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 .backgroundImgOne,
 .backgroundImgTwo {
@@ -21,7 +48,7 @@
     text-align: center;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 
     p {
@@ -29,4 +56,3 @@
         text-shadow: 2px 2px #0d0d0d;
     }
 };
-
