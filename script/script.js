@@ -8,6 +8,19 @@ myPortfolio.loadingPage = function() {
             $("#loadingPage").css({'display': 'none'});
         }, 1500);
     }, 1500);
+
+    // so that not to change the height every time width changes in EVERY PIXES, to prevent a huge load on the system, there's a fucntion with a step i
+    $(window).on('resize', function() {
+        const arrSizes = [];
+        for (let i=250; i<=1500; i += 10) {
+            arrSizes.push(i);
+        }
+
+        if( arrSizes.includes( $(this).width() ) ) {
+            myPortfolio.ulMinHeightSet();
+            myPortfolio.borderBottomContent();
+        }
+    });
 };
 
 myPortfolio.openNav = function() {
@@ -104,19 +117,6 @@ myPortfolio.borderBottomContent = function() {
         $(".borderBottom").css({"justify-content": "space-between"});
     }
 };
-
-// so that not to change the height every time width changes in EVERY PIXES, to prevent a huge load on the system, there's a fucntion with a step i
-$(window).on('resize', function() {
-    const arrSizes = [];
-    for (let i=250; i<=1500; i += 10) {
-        arrSizes.push(i);
-    }
-
-    if( arrSizes.includes( $(this).width() ) ) {
-        myPortfolio.ulMinHeightSet();
-        myPortfolio.borderBottomContent();
-    }
-});
 
 // CHECK IF HEADER TOUCHES TOP SO THAT TO MOVE HAMBURGER
 myPortfolio.observeEl = new IntersectionObserver(function(domEl) {
