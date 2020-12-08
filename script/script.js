@@ -8,13 +8,6 @@ myPortfolio.loadingPage = function() {
             $("#loadingPage").css({'display': 'none'});
         }, 1500);
     }, 1500);
-
-    // hiding all projects
-    $(`.projectsList li`).hide();
-    // showing only featured ones
-    $(`.projectsList li.featured`).show();
-    // making underline on featured ones by default
-    $(`.everySortButton:first-child`).addClass('onLoad');
 };
 
 myPortfolio.openNav = function() {

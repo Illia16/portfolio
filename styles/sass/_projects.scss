@@ -54,6 +54,10 @@
     position: relative;
 };
 
+.projectsList li:not(.featured) {
+    display: none;
+};
+
 .projectInfo {
     position: absolute;
     top: 0;
