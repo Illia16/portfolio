@@ -130,17 +130,16 @@ myPortfolio.observeEl = new IntersectionObserver(function(domEl) {
 
     myPortfolio.observeEl.element = domEl[0].target.id;
 
-    //console.log("no intersection with screen");
+    //"no intersection with screen"
     if(!domEl[0].isIntersecting) {
         myPortfolio.observeEl.isIntersects = false;
     }
-    //console.log("fully intersects with screen");
+    //"fully intersects with screen"
     else {
         myPortfolio.observeEl.isIntersects = true;
     }
 
     myPortfolio.checkIntersection();
-    console.log(myPortfolio.observeEl);
 }, { threshold: [0,1] });
 
 
@@ -194,7 +193,6 @@ $('#send').click( function(e) {
     $('.emailError').css({"display": "none"});
     $('.textFieldError').css({"display": "none"});
 
-    console.log(myPortfolio.checkIfValidInput(email, emailSpamPattern));
 
     if ( !name ) {
         $('.nameError').css({"display": "block"});
