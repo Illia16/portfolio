@@ -1067,7 +1067,8 @@ nav [data-bigletter]:before {
 }
 
 .redux svg,
-.typeScript svg {
+.typeScript svg,
+.firebase img {
   max-height: 80px;
   display: block;
   margin: 0 auto;
@@ -1536,7 +1537,8 @@ input:required {
     padding: 40px;
   }
   .redux svg,
-  .typeScript svg {
+  .typeScript svg,
+  .firebase img {
     max-height: 50px;
   }
   .contact .socialMedia {
