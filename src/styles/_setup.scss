@@ -1,0 +1,9 @@
+#app {
+    background: darkkhaki;
+}
+
+.hello {
+    h1 {
+        @apply font-montserrat min-h-screen py-4 text-7xl text-white font-normal leading-10;
+    }
+}

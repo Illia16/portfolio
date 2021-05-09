@@ -1,16 +1,24 @@
-# My portfolio
+# portfolio
 
-## Author
-[Illia Nikitin](https://illiaweb.dev/)
+## Project setup
+```
+npm install
+```
 
-## Description
-My personal website with skills, projects I've built, contact information.
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-### To install locally
-* Clone the repo via terminal `git clone HTTPS URL`
-* Then, in the terminal `git pull origin master`
+### Compiles and minifies for production
+```
+npm run build
+```
 
-## Built with
-HTML5, CSS3, Sass, JavaScript(jQuery)
+### Lints and fixes files
+```
+npm run lint
+```
 
-
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
