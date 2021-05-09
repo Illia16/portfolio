@@ -1,24 +1,25 @@
 <template>
   <div>
      <header class="wrapper">
-        <div id="headerBottom" aria-label="Hello there!" class="headerBottom">
+         <div class="headerTop" id="headerTop">
+             <div class="logoInitials">
+                 <img src="../../src/assets/logoWhite.png" alt="logo initials I.N.">
+             </div>
+ 
+             <button aria-label="open navigation menu" id="openNav" class="showNav" title="Navigation menu">
+                 <span></span>
+                 <span></span>
+                 <span></span>
+             </button>
+         </div>
+
+        <div id="headerBottom" aria-label="Hello there!" class="text-center m-auto">
             <h1>Illia Nikitin</h1>
             <h2>A Front-End Web Developer</h2>
         </div>
 
-        <div class="headerTop" id="headerTop">
-            <div class="logoInitials">
-                <img src="../../src/assets/logoWhite.png" alt="logo initials I.N.">
-            </div>
 
-            <button aria-label="open navigation menu" id="openNav" class="showNav" title="Navigation menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-
-        <nav id="nav">
+        <!-- <nav id="nav">
             <div class="logoInitials">
                 <img src="../../src/assets/logoWhite.png" alt="logo initials I.N.">
             </div>
@@ -44,7 +45,7 @@
 
                 <li><a href="https://calendly.com/illianikitin/30-minutes-meeting" aria-label="schedule a meeting with me" title="Book a meeting with me"><i class="fas fa-calendar-day" aria-hidden="true"></i></a></li>
             </ul>
-        </nav>
+        </nav> -->
     </header>
   </div>
 </template>

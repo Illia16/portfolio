@@ -1,6 +1,8 @@
+// @import './setup';
+
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@import './setup';
+@import './general';
 @import './header';
