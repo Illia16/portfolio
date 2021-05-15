@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header />
+    <Header @clickNav="toggleNav" :navOpen="navOpen" />
   </div>
 </template>
 
@@ -11,6 +11,17 @@ export default {
   name: 'App',
   components: {
     Header
+  },
+  data() {
+    return {
+      navOpen: false,
+
+    }
+  },
+  methods: {
+    toggleNav: function() {
+      this.navOpen = !this.navOpen;
+    },
   }
 }
 </script>

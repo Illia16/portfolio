@@ -1,15 +1,15 @@
 <template>
   <div>
      <header class="wrapper">
-         <div class="headerTop" id="headerTop">
+         <div class="w-full flex justify-between headerTop" id="headerTop">
              <div class="logoInitials">
-                 <img src="../../src/assets/logoWhite.png" alt="logo initials I.N.">
+                 <img src="../../src/assets/logoWhite.png" alt="logo initials I.N." class="h-10">
              </div>
  
-             <button aria-label="open navigation menu" id="openNav" class="showNav" title="Navigation menu">
-                 <span></span>
-                 <span></span>
-                 <span></span>
+             <button @click="toggleNav" aria-label="open navigation menu" id="openNav" class="relative showNavBtn" title="Navigation menu">
+                 <span class="top-0 left-0 right-0"></span>
+                 <span class="top-1/2 left-0 right-0"></span>
+                 <span class="bottom-0 left-0 right-0"></span>
              </button>
          </div>
 
@@ -19,7 +19,7 @@
         </div>
 
 
-        <!-- <nav id="nav">
+        <nav id="nav" v-if="navOpen">
             <div class="logoInitials">
                 <img src="../../src/assets/logoWhite.png" alt="logo initials I.N.">
             </div>
@@ -45,7 +45,7 @@
 
                 <li><a href="https://calendly.com/illianikitin/30-minutes-meeting" aria-label="schedule a meeting with me" title="Book a meeting with me"><i class="fas fa-calendar-day" aria-hidden="true"></i></a></li>
             </ul>
-        </nav> -->
+        </nav>
     </header>
   </div>
 </template>
@@ -53,15 +53,22 @@
 <script>
 export default {
   name: 'Header',
-  props: {
-    msg: String
+  props: ['navOpen'],
+  mounted() {
+      console.log(this);
+      console.log(this.$parent);
+  },
+  methods: {
+    toggleNav() {
+        this.$emit('clickNav', !this.toggleNav)
+    },
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-// h3 {
+/* // h3 {
 //   margin: 40px 0 0;
 // }
 // ul {
@@ -74,5 +81,5 @@ export default {
 // }
 // a {
 //   color: #42b983;
-// }
+// } */
 </style>

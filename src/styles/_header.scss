@@ -6,3 +6,12 @@ header {
         text-shadow: 3px 3px black;
     }
 }
+
+.showNavBtn {
+    width: 40px;
+    height: 40px;
+
+    span {
+        @apply h-px block absolute bg-white;
+    }
+}
