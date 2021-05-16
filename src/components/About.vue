@@ -1,7 +1,7 @@
 <template>
   <section class="flex flex-col items-center wrapper">
     <div>
-      <h2>About</h2>
+      <SectionHeading :letter="'A'">About</SectionHeading>
       <Separator />
     </div>
 
@@ -32,20 +32,15 @@
 <script>
 import Separator from './smallComponents/Separator';
 import ButtonLink from './smallComponents/ButtonLink';
+import SectionHeading from './smallComponents/SectionHeading';
 
 export default {
   name: 'About',
-  components: { Separator, ButtonLink },
+  components: { Separator, ButtonLink, SectionHeading },
 }
 </script>
 
 <style lang="scss" scoped>
-  h2 {
-    &::after {
-      content: 'A';
-    }
-  }
-
   .myPhoto {
     max-width: 250px;
     border-radius: 50%;

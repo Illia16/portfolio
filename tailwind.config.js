@@ -22,6 +22,19 @@ module.exports = {
         'black': '#0d0d0d',
         'blue': '#00008b',
         'sandyBorder': '#f0f0f0',
+        'skills': {
+          'js': '#f0db4f',
+          'jquery': '#0769ad',
+          'react': '#61dbfb',
+          'git': '#211F1F',
+          'html': '#F14A29',
+          'css': '#2962ff',
+          'sass': '#fd7e14',
+          'respDesign': '#25201c',
+          'a11y': '#1e90ff',
+          'pairedProgramming': '#69625b',
+          'vuejs': '#42b883',
+        },
 
       }
     },
