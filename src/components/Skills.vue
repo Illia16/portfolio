@@ -5,12 +5,23 @@
       <h3 class="font-light">Always keen to learn more</h3>
 
       <ul class="allSkills">
-        <li v-for="skill in skills" :key="skill.skillName" class="singleSkill">
+        <li v-for="skill in skills.current" :key="skill.skillName" class="singleSkill">
+            <!-- There's no Font Awesome icon for Firebase, had to use img -->
             <img v-if="skill.skillName === 'Firebase'" :class="skill.skillClass" src="../assets/logo_lockup_firebase_vertical.svg" alt="firebase logo">
             <i v-else :class="skill.skillClass" aria-hidden="true"></i>
             <SectionHeading isSmall :letter="skill.skillName[0]">{{skill.skillName}}</SectionHeading>
         </li>
       </ul>
+
+      <div class="w-full backgroundImgOne">
+        <h3>Currently learning</h3>
+        <ul class="allSkills">
+          <li v-for="skill in skills.mastering" :key="skill.skillName" class="singleSkill">
+            <i :class="skill.skillClass" aria-hidden="true"></i>
+            <SectionHeading isSmall :letter="skill.skillName[0]" :addClass="'white'">{{skill.skillName}}</SectionHeading>
+          </li>
+        </ul>
+      </div>
   </section>
 </template>
 
@@ -47,6 +58,15 @@ export default {
     .singleSkill {
       flex-basis: 250px;
     }
+  }
+}
+
+.backgroundImgOne {
+  min-height: 50vh;
+  @apply bg-skills bg-no-repeat bg-cover bg-fixed bg-center m-auto flex flex-col justify-center;
+  h3 {
+    @apply text-white text-3xl text-center font-bold my-6;
+    text-shadow: 2px 2px #0d0d02;
   }
 }
 </style>
