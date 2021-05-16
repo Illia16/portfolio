@@ -14,13 +14,14 @@ module.exports = {
         doubled: '2rem',
       },
       lineHeight: {
-        heading: '5rem',
+        heading: '8rem',
       },
       colors: {
         'white': '#ffffff',
         'brown': '#4d4d4d',
         'black': '#0d0d0d',
-        'blue': '#00008b'
+        'blue': '#00008b',
+        'sandyBorder': '#f0f0f0',
 
       }
     },

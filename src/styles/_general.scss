@@ -1,5 +1,5 @@
 #app {
-    @apply text-sm font-normal text-brown font-lato;
+    @apply text-sm font-normal leading-6 tracking-widest text-brown font-lato;
 }
 .wrapper {
     @apply my-0 mx-auto p-20;
@@ -8,4 +8,15 @@
 
 h1, h2, h3, h4, h5, h6 {
     @apply text-black;
+}
+
+// Heading of every section
+section {
+    h2 {
+        @apply font-montserrat text-5xl text-center font-bold relative inline-block;
+
+        &::after {
+            @apply opacity-10 font-bold text-7xl absolute left-1/4 right-1/4 -top-3;
+        }
+    }
 }

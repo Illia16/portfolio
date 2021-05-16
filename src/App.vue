@@ -1,16 +1,22 @@
 <template>
-  <div id="app">
+  <div id="app" class="relative">
+    <Border />
     <Header @clickNav="toggleNav" :navOpen="navOpen" />
+    <About />
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
+import Border from './components/Border'
+import Header from './components/Header'
+import About from './components/About'
 
 export default {
   name: 'App',
   components: {
-    Header
+    Border,
+    Header,
+    About,
   },
   data() {
     return {
