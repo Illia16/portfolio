@@ -7,9 +7,10 @@
 
     <div class="flex flex-wrap">
       <div class="flex-auto m-7">
-        <img src="../assets/myPhoto.jpg" alt="my photo" class="myPhoto">
+        <img src="../assets/myPhoto.jpg" alt="my photo" class="m-auto myPhoto">
       </div>
-      <div class="flex-auto max-w-lg">
+
+      <div class="m-auto myStory">
         <p>I am a <strong class="text-blue">Front-End Web Developer</strong> experienced in building accessible, 
           responsive websites with reusable code using HTML, CSS, JavaScript and its frameworks such as React. 
           With 3 years of prior experience in engineering, 
@@ -24,18 +25,17 @@
       </div>
     </div>
 
-    <div class="text-center">
-      <a href="#">RESUME</a>
-    </div>
+    <ButtonLink :href="'https://illiaweb.dev/cv/Resume-WEB-DEV-Illia%20Nikitin.pdf'">RESUME</ButtonLink>
   </section>
 </template>
 
 <script>
 import Separator from './smallComponents/Separator';
+import ButtonLink from './smallComponents/ButtonLink';
 
 export default {
   name: 'About',
-  components: { Separator },
+  components: { Separator, ButtonLink },
 }
 </script>
 
@@ -47,7 +47,12 @@ export default {
   }
 
   .myPhoto {
-    max-width: 200px;
+    max-width: 250px;
     border-radius: 50%;
+  }
+
+  .myStory {
+    flex: 1 1 70%;
+    padding: 2.5rem;
   }
 </style>
