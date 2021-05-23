@@ -1,6 +1,6 @@
 <template>
   <section class="flex flex-col items-center wrapper">
-      <SectionHeading :letter="'S'">Skills</SectionHeading>
+      <DynamicHeading :letter="'S'">Skills</DynamicHeading>
       <Separator />
       <h3 class="font-light">Always keen to learn more</h3>
 
@@ -9,7 +9,7 @@
             <!-- There's no Font Awesome icon for Firebase, had to use img -->
             <img v-if="skill.skillName === 'Firebase'" :class="skill.skillClass" src="../assets/logo_lockup_firebase_vertical.svg" alt="firebase logo">
             <i v-else :class="skill.skillClass" aria-hidden="true"></i>
-            <SectionHeading isSmall :letter="skill.skillName[0]">{{skill.skillName}}</SectionHeading>
+            <DynamicHeading isSmall :letter="skill.skillName[0]">{{skill.skillName}}</DynamicHeading>
         </li>
       </ul>
 
@@ -18,7 +18,7 @@
         <ul class="allSkills">
           <li v-for="skill in skills.mastering" :key="skill.skillName" class="singleSkill">
             <i :class="skill.skillClass" aria-hidden="true"></i>
-            <SectionHeading isSmall :letter="skill.skillName[0]" :addClass="'white'">{{skill.skillName}}</SectionHeading>
+            <DynamicHeading isSmall :letter="skill.skillName[0]" :addClass="'white'">{{skill.skillName}}</DynamicHeading>
           </li>
         </ul>
       </div>
@@ -26,12 +26,12 @@
 </template>
 
 <script>
-import SectionHeading from './smallComponents/SectionHeading';
+import DynamicHeading from './smallComponents/DynamicHeading';
 import Separator from './smallComponents/Separator';
 
 export default {
   name: 'Skills',
-  components: { SectionHeading, Separator },
+  components: { DynamicHeading, Separator },
   props: ['skills'],
 }
 </script>

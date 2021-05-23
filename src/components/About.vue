@@ -1,7 +1,7 @@
 <template>
   <section class="flex flex-col items-center wrapper">
     <div>
-      <SectionHeading :letter="'A'">About</SectionHeading>
+      <DynamicHeading :letter="'A'">About</DynamicHeading>
       <Separator />
     </div>
 
@@ -32,11 +32,11 @@
 <script>
 import Separator from './smallComponents/Separator';
 import ButtonLink from './smallComponents/ButtonLink';
-import SectionHeading from './smallComponents/SectionHeading';
+import DynamicHeading from './smallComponents/DynamicHeading';
 
 export default {
   name: 'About',
-  components: { Separator, ButtonLink, SectionHeading },
+  components: { Separator, ButtonLink, DynamicHeading },
 }
 </script>
 
