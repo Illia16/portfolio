@@ -6,7 +6,7 @@
                  <img src="../../src/assets/logoWhite.png" alt="logo initials I.N." class="h-10">
              </div>
  
-             <button @click="toggleNav" aria-label="open navigation menu" id="openNav" class="relative showNavBtn" title="Navigation menu">
+             <button @click="toggleNav" aria-label="open navigation menu" id="openNav" class="relative z-30 showNavBtn" title="Navigation menu">
                  <span class="top-0 left-0 right-0"></span>
                  <span class="top-1/2 left-0 right-0"></span>
                  <span class="bottom-0 left-0 right-0"></span>
@@ -19,12 +19,12 @@
         </div>
 
 
-        <nav id="nav" v-if="navOpen">
-            <div class="logoInitials">
+        <nav id="nav" v-if="navOpen" class="z-20">
+            <div class="w-1/12">
                 <img src="../../src/assets/logoWhite.png" alt="logo initials I.N.">
             </div>
 
-            <ul>
+            <ul class="flex flex-wrap justify-center items-center">
                 <li><a href="header" class="scrollTo" data-bigletter="H">HOME</a></li>
                 <li><a href="#about" class="scrollTo" data-bigletter="A">ABOUT</a></li>
                 <li><a href="#skill" class="scrollTo" data-bigletter="S">SKILLS</a></li>
@@ -68,5 +68,51 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+    nav {
+        background: rgba(10, 10, 10, 0.95);
+        @apply fixed inset-0 flex flex-col justify-between items-center p-20;
 
+        &:focus,
+        &:hover {
+            transition: all 0.3s;
+        }
+
+        ul {
+            [data-bigletter] {
+                @apply relative;
+            }
+
+            a:hover::before,
+            a:focus::before {
+                opacity: 0.3;
+            }
+
+            [data-bigletter]:before {
+                content: attr(data-bigletter);
+                top: -40%;
+                left: 0;
+                right: 0;
+                opacity: 0;
+                width: 100%;
+                transition: all .3s ease-in;
+                @apply absolute font-bold text-5xl;
+            }
+            
+
+
+            a {
+                @apply m-2 py-1 px-3 text-center text-white;
+            }
+        }
+
+        .socialMedia {
+            @apply flex flex-wrap justify-center items-center;
+
+            a:hover,
+            a:focus {
+                transform: scale(1.25);
+                -webkit-transform: scale(1.25);
+            }
+        }
+    }
 </style>

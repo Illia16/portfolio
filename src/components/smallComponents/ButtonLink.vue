@@ -1,6 +1,7 @@
 <template>
     <div>
-      <a :href="href" target="_blank" class="relative px-7 py-2 leading-4 z-10 bg-none"><slot /></a>
+      <a v-if="href" :href="href" target="_blank"><slot /></a>
+      <button v-if="!href"><slot /></button>
     </div>
 </template>
 
@@ -14,10 +15,10 @@ export default {
 
 <style lang="scss" scoped>
 
-a {
+a, button {
+  @apply relative inline-block m-3 px-7 py-2 leading-4 z-10 bg-none;
   border: 1px solid rgba(0,0,0,0.2);
   transition: all .3s ease-in;
-  display: inline-block;
   text-decoration: none;
 
   &::after {

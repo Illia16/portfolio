@@ -10,6 +10,8 @@ module.exports = {
       backgroundImage: {
         'hero': "url('../assets/nathan-anderson-iYO-EGosrCo-unsplash.jpg')",
         'skills': "url('../assets/diego-jimenez-A-NVHPka9Rk-unsplash.jpg')",
+        'projects': "url(../assets/daniel-leone-v7daTKlZzaw-unsplash.jpg)",
+        'exploreSpace': "url(../assets/exploreSpace.png)",
       },
       fontSize: {
         doubled: '2rem',
@@ -38,7 +40,9 @@ module.exports = {
           'nodejs': '#3c873a',
           'aws': '#ff9900',
         },
-
+        'twitter': '#00acee',
+        'linkedin': '#0e76a8',
+        'calendly': '#00a3fa',
       }
     },
   },

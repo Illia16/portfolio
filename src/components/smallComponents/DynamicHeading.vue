@@ -15,7 +15,10 @@
 export default {
   name: 'DynamicHeading',
   props: {
-    letter: {},
+    letter: {
+      default: '',
+      type: String,
+    },
     isSmall: {
       default: false,
       type: Boolean,

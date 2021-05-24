@@ -4,6 +4,8 @@
     <Header @clickNav="toggleNav" :navOpen="navOpen" />
     <About />
     <Skills :skills="skills"/>
+    <Projects @setActiveProjects="toggleProjects" :activeProjects="activeProjects" :actionsMade="actionsMade" />
+    <Contact />
   </div>
 </template>
 
@@ -12,6 +14,8 @@ import Border from './components/Border'
 import Header from './components/Header'
 import About from './components/About'
 import Skills from './components/Skills'
+import Projects from './components/Projects'
+import Contact from './components/Contact'
 
 export default {
   name: 'App',
@@ -20,6 +24,8 @@ export default {
     Header,
     About,
     Skills,
+    Projects,
+    Contact,
   },
   data() {
     return {
@@ -93,12 +99,19 @@ export default {
             skillClass: 'devicon-redux-original colored',
           },
         ],
-      }
+      },
+      activeProjects: 'featured',
+      actionsMade: 0,
     }
   },
   methods: {
     toggleNav: function() {
+      this.actionsMade += 1;
       this.navOpen = !this.navOpen;
+    },
+    toggleProjects: function(val) {
+      this.actionsMade += 1;
+      this.activeProjects = val;
     },
   }
 }
