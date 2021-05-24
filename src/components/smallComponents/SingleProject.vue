@@ -37,7 +37,7 @@ export default {
 
   .projectInfo {
     transition: all .3s ease-in;
-    @apply md:absolute inset-0 z-20 md:opacity-0 bg-white text-center flex flex-col justify-center items-center;
+    @apply md:absolute inset-0 z-10 md:opacity-0 bg-white text-center flex flex-col justify-center items-center;
 
     .projectLinks {
       @apply flex flex-wrap justify-center;

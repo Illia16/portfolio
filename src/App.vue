@@ -113,6 +113,29 @@ export default {
       this.actionsMade += 1;
       this.activeProjects = val;
     },
+  },
+  computed: {
+    disableScroll() {
+      return this.navOpen;
+    }
+  },
+  watch: {
+    disableScroll(navOpen) {
+      const focusDisableOnOtherElement = document.querySelectorAll('#about a, #projects a, #projects button, #contact a, #contact input, #contact button, textarea');
+      let documentScroll = document.documentElement.style;
+
+      if (navOpen) {
+        documentScroll.overflow = "hidden";
+        for (const element of focusDisableOnOtherElement) {
+          element.tabIndex = '-1';
+        }
+      } else {
+        documentScroll.overflow = "auto";
+        for (const element of focusDisableOnOtherElement) {
+          element.tabIndex = '0';
+        }
+      }
+    }
   }
 }
 </script>

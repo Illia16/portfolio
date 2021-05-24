@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col items-center wrapper">
+  <section id="contact" class="flex flex-col items-center wrapper">
     <DynamicHeading :letter="'C'">Contact</DynamicHeading>
     <Separator />
     <ul class="socialMedia" id="bottomSocialMedia">
@@ -73,6 +73,11 @@ export default {
 
 <style lang="scss" scoped>
   .socialMedia {
+    :focus,
+    :hover {
+        transition: all 0.3s;
+    }
+
     @apply flex flex-wrap justify-center gap-5 my-10 text-center;
 
     li {
@@ -80,6 +85,12 @@ export default {
       
       a {
         @apply text-black opacity-100 text-4xl;
+
+        :hover,
+        :focus {
+          transform: scale(1.25);
+          -webkit-transform: scale(1.25);
+        }
       }
     }
   }

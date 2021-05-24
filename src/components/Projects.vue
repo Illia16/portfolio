@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col items-center wrapper">
+  <section id="projects" class="flex flex-col items-center wrapper">
     <DynamicHeading :letter="'P'">Projects</DynamicHeading>
     <Separator />
     <div class="sortButtons">

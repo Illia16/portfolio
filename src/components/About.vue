@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col items-center wrapper">
+  <section id="about" class="flex flex-col items-center wrapper">
     <div>
       <DynamicHeading :letter="'A'">About</DynamicHeading>
       <Separator />

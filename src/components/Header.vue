@@ -6,10 +6,10 @@
                  <img src="../../src/assets/logoWhite.png" alt="logo initials I.N." class="h-10">
              </div>
  
-             <button @click="toggleNav" aria-label="open navigation menu" id="openNav" class="relative z-30 showNavBtn" title="Navigation menu">
-                 <span class="top-0 left-0 right-0"></span>
-                 <span class="top-1/2 left-0 right-0"></span>
-                 <span class="bottom-0 left-0 right-0"></span>
+             <button @click="toggleNav" aria-label="open navigation menu" :class="[navOpen ? 'openedNav' : '', 'showNavBtn']" title="Navigation menu">
+                 <span class="top-0"></span>
+                 <span class="top-1/2"></span>
+                 <span class="bottom-0"></span>
              </button>
          </div>
 
@@ -20,16 +20,16 @@
 
 
         <nav id="nav" v-if="navOpen" class="z-20">
-            <div class="w-1/12">
+            <div class="w-3/12 md:w-1/12">
                 <img src="../../src/assets/logoWhite.png" alt="logo initials I.N.">
             </div>
 
-            <ul class="flex flex-wrap justify-center items-center">
-                <li><a href="header" class="scrollTo" data-bigletter="H">HOME</a></li>
-                <li><a href="#about" class="scrollTo" data-bigletter="A">ABOUT</a></li>
-                <li><a href="#skill" class="scrollTo" data-bigletter="S">SKILLS</a></li>
-                <li><a href="#project" class="scrollTo" data-bigletter="P">PROJECTS</a></li>
-                <li><a href="#contact" class="scrollTo" data-bigletter="C">CONTACT</a></li>
+            <ul class="flex flex-col md:flex-row justify-center items-center sections">
+                <li><a href="#" @click="toggleNav">HOME</a></li>
+                <li><a href="#about" @click="toggleNav">ABOUT</a></li>
+                <li><a href="#skills" @click="toggleNav">SKILLS</a></li>
+                <li><a href="#projects" @click="toggleNav">PROJECTS</a></li>
+                <li><a href="#contact" @click="toggleNav">CONTACT</a></li>
             </ul>
 
             <ul class="socialMedia">
@@ -54,10 +54,6 @@
 export default {
   name: 'Header',
   props: ['navOpen'],
-  mounted() {
-      console.log(this);
-      console.log(this.$parent);
-  },
   methods: {
     toggleNav() {
         this.$emit('clickNav', !this.toggleNav)
@@ -68,40 +64,80 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+    :focus,
+    :hover {
+        transition: all 0.3s;
+    }
+
+    .showNavBtn {
+        @apply relative z-30;
+        span {
+            transition: all .1s;
+            @apply left-0 right-0;
+        }
+        &:hover span:nth-child(1),
+        &:focus span:nth-child(1){
+            @apply top-1/4;
+        }
+
+        &:hover span:nth-child(3),
+        &:focus span:nth-child(3){
+            @apply top-3/4;
+        }
+
+        &.openedNav {
+            &:hover span:nth-child(1),
+            &:focus span:nth-child(1) {
+                transform: rotate(45deg);
+            }
+
+            &:hover span:nth-child(3),
+            &:focus span:nth-child(3) {
+                transform: rotate(-45deg);
+            }
+            span:nth-child(1) {
+                top: 18px;
+                transform: rotate(135deg);
+            }
+
+            span:nth-child(2) {
+                opacity: 0;
+                top: -30px;
+            }
+
+            span:nth-child(3) {
+                top: 18px;
+                transform: rotate(-135deg);
+            }
+        }
+
+    }
+
     nav {
         background: rgba(10, 10, 10, 0.95);
         @apply fixed inset-0 flex flex-col justify-between items-center p-20;
 
-        &:focus,
-        &:hover {
-            transition: all 0.3s;
-        }
-
         ul {
-            [data-bigletter] {
-                @apply relative;
-            }
-
-            a:hover::before,
-            a:focus::before {
-                opacity: 0.3;
-            }
-
-            [data-bigletter]:before {
-                content: attr(data-bigletter);
-                top: -40%;
-                left: 0;
-                right: 0;
-                opacity: 0;
-                width: 100%;
-                transition: all .3s ease-in;
-                @apply absolute font-bold text-5xl;
+            a {
+                @apply inline-block relative my-2 mx-2 py-1 px-3 text-center text-white;
             }
             
+            &.sections {
+                a:hover::after,
+                a:focus::after {
+                    opacity: 0.3;
+                }
 
+                li:nth-child(1) a::after{ content: "H"};
+                li:nth-child(2) a::after{ content: "A"};
+                li:nth-child(3) a::after{ content: "S"};
+                li:nth-child(4) a::after{ content: "P"};
+                li:nth-child(5) a::after{ content: "C"};
 
-            a {
-                @apply m-2 py-1 px-3 text-center text-white;
+                li a:after {
+                    transition: all .3s ease-in;
+                    @apply absolute font-bold text-5xl left-0 right-0 opacity-0 w-full -top-1/4;
+                }
             }
         }
 
@@ -110,8 +146,8 @@ export default {
 
             a:hover,
             a:focus {
-                transform: scale(1.25);
-                -webkit-transform: scale(1.25);
+                transform: scale(1.5);
+                -webkit-transform: scale(1.5);
             }
         }
     }
