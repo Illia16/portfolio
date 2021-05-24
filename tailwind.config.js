@@ -8,10 +8,9 @@ module.exports = {
 				montserrat: ['Montserrat', 'sans-serif'],
 			},
       backgroundImage: {
-        'hero': "url('../assets/nathan-anderson-iYO-EGosrCo-unsplash.jpg')",
-        'skills': "url('../assets/diego-jimenez-A-NVHPka9Rk-unsplash.jpg')",
+        'hero': "url(../assets/nathan-anderson-iYO-EGosrCo-unsplash.jpg)",
+        'skills': "url(../assets/diego-jimenez-A-NVHPka9Rk-unsplash.jpg)",
         'projects': "url(../assets/daniel-leone-v7daTKlZzaw-unsplash.jpg)",
-        'exploreSpace': "url(../assets/exploreSpace.png)",
       },
       fontSize: {
         doubled: '2rem',
