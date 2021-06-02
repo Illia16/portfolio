@@ -5,12 +5,12 @@
              <div class="logoInitials">
                  <img src="../../src/assets/logoWhite.png" alt="logo initials I.N." class="h-10">
              </div>
- 
-             <button @click="toggleNav" aria-label="open navigation menu" :class="[navOpen ? 'openedNav' : '', 'showNavBtn']" title="Navigation menu">
-                 <span class="top-0"></span>
-                 <span class="top-1/2"></span>
-                 <span class="bottom-0"></span>
-             </button>
+             
+            <button @click="toggleNav" aria-label="open navigation menu" :class="[navOpen ? 'openedNav' : '', 'showNavBtn']" title="Navigation menu">
+                <span class="top-0"></span>
+                <span class="top-1/2"></span>
+                <span class="bottom-0"></span>
+            </button>
          </div>
 
         <div id="headerBottom" aria-label="Hello there!" class="text-center m-auto">
@@ -18,34 +18,35 @@
             <h2>A Front-End Web Developer</h2>
         </div>
 
+        <transition name="fade">
+            <nav id="nav" v-if="navOpen" class="z-20">
+                <div class="w-3/12 md:w-1/12">
+                    <img src="../../src/assets/logoWhite.png" alt="logo initials I.N.">
+                </div>
 
-        <nav id="nav" v-if="navOpen" class="z-20">
-            <div class="w-3/12 md:w-1/12">
-                <img src="../../src/assets/logoWhite.png" alt="logo initials I.N.">
-            </div>
+                <ul class="flex flex-col md:flex-row justify-center items-center sections">
+                    <li><a href="#" @click="toggleNav">HOME</a></li>
+                    <li><a href="#about" @click="toggleNav">ABOUT</a></li>
+                    <li><a href="#skills" @click="toggleNav">SKILLS</a></li>
+                    <li><a href="#projects" @click="toggleNav">PROJECTS</a></li>
+                    <li><a href="#contact" @click="toggleNav">CONTACT</a></li>
+                </ul>
 
-            <ul class="flex flex-col md:flex-row justify-center items-center sections">
-                <li><a href="#" @click="toggleNav">HOME</a></li>
-                <li><a href="#about" @click="toggleNav">ABOUT</a></li>
-                <li><a href="#skills" @click="toggleNav">SKILLS</a></li>
-                <li><a href="#projects" @click="toggleNav">PROJECTS</a></li>
-                <li><a href="#contact" @click="toggleNav">CONTACT</a></li>
-            </ul>
+                <ul class="socialMedia">
+                    <li><a href="https://github.com/Illia16" aria-label="my github" title="My GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+                    
+                    <li><a href="https://twitter.com/Illia__N" aria-label="my twitter" title="My Twitter profile"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                    
+                    <li><a href="https://www.linkedin.com/in/illia-nikitin-a4a637122/" aria-label="my linkedin" title="My LinkedIn profile"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
 
-            <ul class="socialMedia">
-                <li><a href="https://github.com/Illia16" aria-label="my github" title="My GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a></li>
-                
-                <li><a href="https://twitter.com/Illia__N" aria-label="my twitter" title="My Twitter profile"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                
-                <li><a href="https://www.linkedin.com/in/illia-nikitin-a4a637122/" aria-label="my linkedin" title="My LinkedIn profile"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+                    <li><a href="https://medium.com/@illia2143" aria-label="my medium" title="My Medium profile"><i class="fab fa-medium-m" aria-hidden="true"></i></a></li>
 
-                <li><a href="https://medium.com/@illia2143" aria-label="my medium" title="My Medium profile"><i class="fab fa-medium-m" aria-hidden="true"></i></a></li>
+                    <li><a href="mailto:illia2143@gmail.com" aria-label="my email" title="Email me"><i class="fas fa-envelope" aria-hidden="true"></i></a></li>
 
-                <li><a href="mailto:illia2143@gmail.com" aria-label="my email" title="Email me"><i class="fas fa-envelope" aria-hidden="true"></i></a></li>
-
-                <li><a href="https://calendly.com/illianikitin/30-minutes-meeting" aria-label="schedule a meeting with me" title="Book a meeting with me"><i class="fas fa-calendar-day" aria-hidden="true"></i></a></li>
-            </ul>
-        </nav>
+                    <li><a href="https://calendly.com/illianikitin/30-minutes-meeting" aria-label="schedule a meeting with me" title="Book a meeting with me"><i class="fas fa-calendar-day" aria-hidden="true"></i></a></li>
+                </ul>
+            </nav>
+        </transition>
     </header>
   </div>
 </template>
