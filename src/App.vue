@@ -4,7 +4,7 @@
     <Header @clickNav="toggleNav" :navOpen="navOpen" />
     <About />
     <Skills :skills="skills"/>
-    <Projects @setActiveProjects="toggleProjects" :activeProjects="activeProjects" :actionsMade="actionsMade" />
+    <Projects @setActiveProjects="toggleProjects" :activeProjects="activeProjects" :actionsMade="actionsMade" :projects="projects"/>
     <Contact />
   </div>
 </template>
@@ -99,6 +99,71 @@ export default {
             skillClass: 'devicon-redux-original colored',
           },
         ],
+      },
+      projects: {
+        exploreSpace: {
+          key: 'exploreSpace',
+          name: 'Explore Space',
+          info: 'The team project built on jQuery is now rebuilt on React. With NASA API, this app lets user find media of the selected date, Mars photos taken by a rover and other space data.',
+          bgImage: 'exploreSpace.png',
+          category: ['featured', 'react', 'all'],
+          liveLink: 'https://illia16.github.io/spaceApp/',
+          codeLink: 'https://github.com/Illia16/spaceApp',
+        },
+        toDoApp: {
+          key: 'toDoApp',
+          name: 'To Do App',
+          info: 'A multilanguage app that allows user to log in via Google-Authentication or continue as anonymous. The user can add/remove items in the list stored in the database.',
+          bgImage: 'toDoApp.png',
+          category: ['featured', 'react', 'all'],
+          liveLink: 'https://illia16.github.io/toDoApp/',
+          codeLink: 'https://github.com/Illia16/toDoApp',
+        },
+        starWarsExplorer: {
+          key: 'starWarsExplorer',
+          name: 'Star Wars Explorer',
+          info: 'See the information about Star Wars characters, planets, movies. Built with React, Redux, Material UI as a styling framework.',
+          bgImage: 'starWarsExplorer.jpg',
+          category: ['react', 'all'],
+          liveLink: 'https://illia16.github.io/star-wars-explorer/',
+          codeLink: 'https://github.com/Illia16/star-wars-explorer',
+        },
+        findMovie: {
+          key: 'findMovie',
+          name: 'Find a movie',
+          info: 'Find a movie based on genre(s) and/or release year from The Movie Database API. With Firebase database, save the movies that you have watched.',
+          bgImage: 'findMovie.png',
+          category: ['js', 'all'],
+          liveLink: 'https://illia16.github.io/find-a-movie/',
+          codeLink: 'https://github.com/Illia16/find-a-movie',
+        },
+        mealGenerator: {
+          key: 'mealGenerator',
+          name: 'Meal Generator',
+          info: 'Virtually cook meals, add your own ingridients and meals with any ingridients specified.',
+          bgImage: 'mealGenerator.png',
+          category: ['js', 'all'],
+          liveLink: 'https://illia16.github.io/MealGenerator/',
+          codeLink: 'https://github.com/Illia16/MealGenerator',
+        },
+        boatPSD: {
+          key: 'boatPSD',
+          name: 'Boat Ride Adventures',
+          info: 'A multipage website PDS conversion.',
+          bgImage: 'boatPSD.png',
+          category: ['html', 'all'],
+          liveLink: 'https://illia16.github.io/BoatRideAdventuresPSD/',
+          codeLink: 'https://illia16.github.io/BoatRideAdventuresPSD/',
+        },
+        bagsPSD: {
+          key: 'bagsPSD',
+          name: 'Galass Handbags',
+          info: 'A single page PDS conversion using only floats.',
+          bgImage: 'bagsPSD.png',
+          category: ['html', 'all'],
+          liveLink: 'https://illia16.github.io/galass-handbags-PSD/',
+          codeLink: 'https://github.com/Illia16/galass-handbags-PSD',
+        },
       },
       activeProjects: 'featured',
       actionsMade: 0,
