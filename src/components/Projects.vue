@@ -44,10 +44,6 @@ export default {
   name: 'Projects',
   props: ['activeProjects', 'actionsMade', 'projects'],
   components: { DynamicHeading, Separator, BackgroundImage, SingleProject, ButtonLink },
-  mounted() {
-    // console.log(this.actionsMade);
-    console.log(this.projects);
-  },
   methods: {
     toggleProjects(val) {
         this.$emit('setActiveProjects', val)

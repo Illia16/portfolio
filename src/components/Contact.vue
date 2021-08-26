@@ -34,7 +34,7 @@
 
     <h3 class="font-light">Get in touch with me</h3>
 
-    <form action="http://www.focuspocus.io/magic/3b84de581148fea3a588b4b85035fb37" method="POST" class="contactForm py-5">
+    <form @submit.prevent="sendEmail" id="form" class="contactForm py-5">
       <div class="formInner">
           <div class="formEl">
               <label for="name">NAME</label>
@@ -64,10 +64,27 @@ import DynamicHeading from './smallComponents/DynamicHeading';
 import Separator from './smallComponents/Separator';
 
 import ButtonLink from './smallComponents/ButtonLink';
+import emailjs from 'emailjs-com';
 
 export default {
   name: 'Contact',
   components: { DynamicHeading, Separator, ButtonLink },
+  methods: {
+    sendEmail: function(e) {
+      emailjs.sendForm(
+        process.env.VUE_APP_FORM_SERVICE_ID, 
+        process.env.VUE_APP_FORM_TEMPLATE_ID, 
+        e.target,
+        process.env.VUE_APP_FORM_USER_ID,
+      )
+      .then( (res) => {
+        console.log('SENT!', res);
+      }).catch( (er) => {
+        console.log('ERROR!', er);
+      })
+    }
+  },
+
 }
 </script>
 
