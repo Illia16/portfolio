@@ -1,24 +1,7 @@
-# portfolio
+## portfolio (legacy)
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- Ensure Docker is installed
+- Create .env file under `_legacy` folder. Put env var `PROJECT_PATH` there with value `*/*/*/portfolio/_legacy`
+- docker-compose up --build -d
+- docker-compose logs (to see the logs)
+- docker-compose down (to destroy the container)

@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  portfolio-vuejs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ${PROJECT_PATH}:/app
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=development
