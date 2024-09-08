@@ -1,0 +1,7 @@
+.test-btn {
+    @apply bg-transparent border border-solid border-black mx-3 inline-block;
+
+    span {
+        @apply font-black text-yellow-500;
+    }
+}

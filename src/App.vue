@@ -15,7 +15,10 @@ const store = useCounterStore();
       <HelloWorld msg="You did it!" />
       {{ store.count }}
       {{ store.doubleCount }}
-      <button @click="store.increment()">Add</button>
+      <button @click="store.increment()" class="test-btn">
+        Add
+        <span>+1</span>
+      </button>
     </div>
   </header>
 
