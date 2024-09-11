@@ -8,6 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
+RUN npm install -g @vue/cli-service
 RUN npm install
 
 # Copy the rest of the application files to the container
