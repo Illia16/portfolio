@@ -86,7 +86,7 @@ export default {
     .singleProject {
       @apply flex-grow;
 
-      @media (min-width: '768px') {
+      @media (min-width: 768px) {
         flex: 0 0 calc(50% - 20px);
       }
     }
