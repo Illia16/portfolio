@@ -1,11 +1,15 @@
 const multipartParser = require('parse-multipart-data');
 const helpers = require('../helpers');
+const { MAX_FILE_SIZE, allowedTypes} = require('../helpers/ENUM');
+const jwt = require('jsonwebtoken');
 
 module.exports.handler = async (event, context) => {
     // Environment variables
     const STAGE = process.env.STAGE;
     const PROJECT_NAME = process.env.PROJECT_NAME;
     const CLOUDFRONT_URL = process.env.CLOUDFRONT_URL;
+    const JWT_SECRET = process.env.JWT_SECRET;
+    const API_URL = process.env.API_URL;
     
     const headers = event.headers;
     const allowedOrigins = ["http://localhost:3000", CLOUDFRONT_URL];
@@ -15,14 +19,6 @@ module.exports.handler = async (event, context) => {
 
     // AWS Resource names
     const s3Bucket = `${PROJECT_NAME}--s3-site--${STAGE}`;
-
-    let response = {
-        statusCode: 200,
-        headers: {
-            "Access-Control-Allow-Origin": headerOrigin,
-        },
-        body: null,
-    };
 
     // Incoming data;
     let body;
@@ -49,6 +45,44 @@ module.exports.handler = async (event, context) => {
 
             return result;
         }, {});
+
+        const file = body?.file?.[0];
+        if (file) {
+            if (helpers.isFileTypeAllowed(file.type)) {
+                console.log('file type not allowed...');
+                return helpers.responseUnsupportedMediaType(headerOrigin);
+            }
+        }
+    }
+
+    if (action === 'GET') {
+        const queries = event.queryStringParameters;
+        console.log('queries', queries);
+    
+        if (!queries?.token) {
+            return helpers.responseError(headerOrigin, 'Missing query parameter', 400);
+        }
+
+        let decoded;
+        // Validate token
+        try {
+            decoded = jwt.verify(queries.token, JWT_SECRET);
+            console.log('Token is ok.', decoded);
+        } catch(err) {
+            console.log('Err, token is invalid:', err);
+            return helpers.responseError(headerOrigin, 'Token is invalid', 400);
+        }
+        
+        if (!decoded.largeFilename) return helpers.responseError(headerOrigin, 'Token is invalid', 400);
+
+        // Send url with redirect to the attachment
+        try {
+            const fileUrl = await helpers.s3GetSignedUrl(s3Bucket, `files/${decoded.largeFilename}`);
+            return helpers.responseRedirect(fileUrl, 302)
+        } catch (error) {
+            console.error('Error getting signed URL', error);
+            return helpers.responseError(headerOrigin, 'Error retrieving file', 500);
+        }
     }
 
     if (action === 'POST') {
@@ -56,35 +90,41 @@ module.exports.handler = async (event, context) => {
         // 1) Email with no attachment.
         // 2) Email with attachment that's less than 5 Mb.
         // 3) Email with attachment that's larger than 5 Mb.
-        //     3.1) Generate presign url and return it to FrontEnd
-        //     3.2) On FrontEnd, upload a file using the pre-sign url
-        //     3.3) Call the same api again passing "fileAsUrl". Get URL of the uploaded file from the S3 bucket and send it via email 
+        //     3.1) Generate presign url and return it to FrontEnd.
+        //     3.2) On FrontEnd, upload a file using the pre-sign url.
+        //     3.3) Call the same api again passing "fileAsUrl". Send it via email a tokenized url to access the needed attachment. 
         if (body.fileAsUrl) {
-            const fileUrl = await helpers.s3GetSignedUrl(s3Bucket, `files/${body.largeFilename}`);
-            await helpers.sendEmailLargeAttachment({email: body.email, subject: body.subject, message: body.message, fileUrl: fileUrl});
-            response.body = JSON.stringify({success: true});
+            const token = jwt.sign({largeFilename: body.largeFilename}, JWT_SECRET, { expiresIn: '5m' });
+            await helpers.sendEmailLargeAttachment({email: body.email, subject: body.subject, message: body.message, fileUrl: `${API_URL}?token=${token}`});
+            return helpers.responseSuccess(headerOrigin, {success: true});
         } else {
             const file = body?.file?.[0];
             // No attachment
             if (!file && !body.largeFilename) {
                 await helpers.sendEmailSmallAttachment({email: body.email, subject: body.subject, message: body.message});
-                response.body = JSON.stringify({success: true, data: null});
+                return helpers.responseSuccess(headerOrigin, {success: true, data: null});
             } else if (file?.size < 5242880) {
                 // Attachment, but less than 5 Mb
                 await helpers.sendEmailSmallAttachment({email: body.email, subject: body.subject, message: body.message, file: file});
-                response.body = JSON.stringify({success: true, data: null});
+                return helpers.responseSuccess(headerOrigin, {success: true, data: null});
             } else {
+                // TODO: validate by allowedType (not working)
+                // const contentTypeConditions = allowedTypes.map((type) => ['starts-with', '$Content-Type', type]);
                 // Attachment, but it's large so create presign url, return to frontend
                 const presignedData = await helpers.s3PostSignedUrl(
                     s3Bucket, 
-                    // `files/${file.filename}`,
                     `files/${body.largeFilename}`,
-                    [{ bucket: s3Bucket }, ["starts-with", "$key", "files"]]
+                    [
+                        { bucket: s3Bucket }, 
+                        ["starts-with", "$key", "files"],
+                        ['content-length-range', 0, MAX_FILE_SIZE],
+                        // ...contentTypeConditions,
+                    ]
                 );
-                response.body = JSON.stringify({success: true, data: presignedData});
+                return helpers.responseSuccess(headerOrigin, {success: true, data: presignedData});
             }
         }
     }
 
-    return response;
+    return helpers.responseSuccess();
 };

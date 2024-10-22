@@ -7,6 +7,8 @@ const s3 = require('aws-cdk-lib/aws-s3');
 const cloudfront = require('aws-cdk-lib/aws-cloudfront');
 const origins = require('aws-cdk-lib/aws-cloudfront-origins');
 const path = require("path");
+const crypto = require('crypto');
+
 
 class BackendStack extends cdk.Stack {
   /**
@@ -23,7 +25,8 @@ class BackendStack extends cdk.Stack {
     const CLOUDFRONT_URL = props.env.CLOUDFRONT_URL;
     const CERTIFICATE_ARN = props.env.CERTIFICATE_ARN;
     const EMAIL = props.env.EMAIL;
-  
+    const JWT_SECRET = crypto.randomBytes(32).toString('hex');
+
     const account = cdk.Stack.of(this).account;
 
     const ssl_cert = acm.Certificate.fromCertificateArn(this, `${PROJECT_NAME}--certificate--${STAGE}`, CERTIFICATE_ARN); // uploaded manually
@@ -118,6 +121,7 @@ class BackendStack extends cdk.Stack {
           PROJECT_NAME: PROJECT_NAME,
           CLOUDFRONT_URL: CLOUDFRONT_URL,
           EMAIL: EMAIL,
+          JWT_SECRET: JWT_SECRET,
         },
         layers: [lambdaLayer]
       }
@@ -181,6 +185,8 @@ class BackendStack extends cdk.Stack {
     ['GET', 'POST', 'PUT', 'DELETE'].forEach(method => {
       route.addMethod(method, new apiGateway.LambdaIntegration(lambdaFn));
     });
+
+    lambdaFn.addEnvironment('API_URL', `${api.domainName.domainName}/v1`);
 
     const apiUsagePlan = api.addUsagePlan(`${PROJECT_NAME}--api-usage-plan--${STAGE}`, {
       name: `${PROJECT_NAME}--api-usage-plan--${STAGE}`,

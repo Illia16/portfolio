@@ -8,6 +8,8 @@ const clientS3 = new S3Client();
 const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
 const { createPresignedPost } = require("@aws-sdk/s3-presigned-post");
 
+const { MAX_FILE_SIZE, allowedTypes} = require('./ENUM');
+
 module.exports =  {
     sendEmailSmallAttachment: async (data) => {
         const message = createMimeMessage();
@@ -91,7 +93,7 @@ module.exports =  {
     },
     s3GetSignedUrl: async (s3_buckname, filenamepath) => {
         const command = new GetObjectCommand({ Bucket: s3_buckname, Key: filenamepath });
-        const file = await getSignedUrl(clientS3, command, { expiresIn: 604800 }); // 7 days(max)
+        const file = await getSignedUrl(clientS3, command, { expiresIn: 60 }); // 1 minute
         return file;
     },
     s3PostSignedUrl: async (s3_buckname, filenamepath, conditions) => {
@@ -103,5 +105,56 @@ module.exports =  {
           });
 
         return res;
+    },
+    isFileTooLarge: (fileSize) => {
+        return fileSize > MAX_FILE_SIZE;
+    },
+    isFileTypeAllowed: (fileType) => {
+        return !allowedTypes.includes(fileType);
+    },
+    responseSuccess: (headerOrigin, data = null) =>  {
+        return {
+            statusCode: 200,
+            headers: {
+                "Access-Control-Allow-Origin": headerOrigin,
+            },
+            body: JSON.stringify(data),
+        };
+    },
+    responseError: (headerOrigin, message = 'Error occurred', statusCode = 500) => ({
+        statusCode,
+        headers: {
+            "Access-Control-Allow-Origin": headerOrigin,
+        },
+        body: JSON.stringify({ success: false, message }),
+    }),
+    responseRedirect: (newUrl, statusCode) => ({
+        statusCode,
+        headers: {
+            Location: newUrl,
+        },
+        body: JSON.stringify({ success: true }),
+    }),
+    responsePayloadTooLarge: (headerOrigin) => {
+        return {
+            statusCode: 413,
+            headers: {
+                "Access-Control-Allow-Origin": headerOrigin,
+            },
+            body: JSON.stringify({
+                message: "File size exceeds the maximum allowed limit.",
+            }),
+        };
+    },
+    responseUnsupportedMediaType: (headerOrigin) => {
+        return {
+            statusCode: 415,
+            headers: {
+                "Access-Control-Allow-Origin": headerOrigin,
+            },
+            body: JSON.stringify({
+                message: "Unsupported file type. Allowed types are images, PDF, DOC, DOCX, TXT, audio, and video files.",
+            }),
+        };
     }
 };

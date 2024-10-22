@@ -27,3 +27,6 @@ npm run dev
 ```sh
 npm run build
 ```
+
+
+- Need to have `.env` file with env var `VITE_API_URL` set
