@@ -116,6 +116,8 @@ class BackendStack extends cdk.Stack {
         handler: 'handle/index.handler',
         code: lambda.Code.fromAsset(path.join(__dirname, 'functions'), { exclude: ['node_modules'] }),
         functionName: `${PROJECT_NAME}--lambda-fn-${STAGE}`,
+        timeout: cdk.Duration.seconds(30),
+        memorySize: 256,
         environment: {
           STAGE: STAGE,
           PROJECT_NAME: PROJECT_NAME,
@@ -167,7 +169,7 @@ class BackendStack extends cdk.Stack {
           description: `API template using AWS CDK ${STAGE}`,
         },
         domainName: {
-          domainName: `api-${PROJECT_NAME}-${STAGE}.illusha.net`,
+          domainName: `api.portfolio.illusha.net`,
           certificate: ssl_cert,
         },
         proxy: false,
@@ -192,7 +194,7 @@ class BackendStack extends cdk.Stack {
       name: `${PROJECT_NAME}--api-usage-plan--${STAGE}`,
       description: `API usage plan to handle number of requests.`,
       quota: {
-        limit: 25,
+        limit: 100,
         period: apiGateway.Period.DAY,
       },
     });

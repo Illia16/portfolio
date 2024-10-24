@@ -10,7 +10,7 @@ module.exports.handler = async (event, context) => {
     const CLOUDFRONT_URL = process.env.CLOUDFRONT_URL;
     const JWT_SECRET = process.env.JWT_SECRET;
     const API_URL = process.env.API_URL;
-    
+
     const headers = event.headers;
     const allowedOrigins = ["http://localhost:3000", CLOUDFRONT_URL];
     const headerOrigin = allowedOrigins.includes(headers?.origin) ? headers?.origin : null;
@@ -58,7 +58,7 @@ module.exports.handler = async (event, context) => {
     if (action === 'GET') {
         const queries = event.queryStringParameters;
         console.log('queries', queries);
-    
+
         if (!queries?.token) {
             return helpers.responseError(headerOrigin, 'Missing query parameter', 400);
         }
@@ -72,7 +72,7 @@ module.exports.handler = async (event, context) => {
             console.log('Err, token is invalid:', err);
             return helpers.responseError(headerOrigin, 'Token is invalid', 400);
         }
-        
+
         if (!decoded.largeFilename) return helpers.responseError(headerOrigin, 'Token is invalid', 400);
 
         // Send url with redirect to the attachment
@@ -92,10 +92,10 @@ module.exports.handler = async (event, context) => {
         // 3) Email with attachment that's larger than 5 Mb.
         //     3.1) Generate presign url and return it to FrontEnd.
         //     3.2) On FrontEnd, upload a file using the pre-sign url.
-        //     3.3) Call the same api again passing "fileAsUrl". Send it via email a tokenized url to access the needed attachment. 
+        //     3.3) Call the same api again passing "fileAsUrl". Send it via email a tokenized url to access the needed attachment.
         if (body.fileAsUrl) {
             const token = jwt.sign({largeFilename: body.largeFilename}, JWT_SECRET, { expiresIn: '5m' });
-            await helpers.sendEmailLargeAttachment({email: body.email, subject: body.subject, message: body.message, fileUrl: `${API_URL}?token=${token}`});
+            await helpers.sendEmailLargeAttachment({email: body.email, subject: body.subject, message: body.message, fileUrl: `https://${API_URL}?token=${token}`});
             return helpers.responseSuccess(headerOrigin, {success: true});
         } else {
             const file = body?.file?.[0];
@@ -112,10 +112,10 @@ module.exports.handler = async (event, context) => {
                 // const contentTypeConditions = allowedTypes.map((type) => ['starts-with', '$Content-Type', type]);
                 // Attachment, but it's large so create presign url, return to frontend
                 const presignedData = await helpers.s3PostSignedUrl(
-                    s3Bucket, 
+                    s3Bucket,
                     `files/${body.largeFilename}`,
                     [
-                        { bucket: s3Bucket }, 
+                        { bucket: s3Bucket },
                         ["starts-with", "$key", "files"],
                         ['content-length-range', 0, MAX_FILE_SIZE],
                         // ...contentTypeConditions,
