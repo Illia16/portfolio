@@ -9,26 +9,11 @@
           </a>
           <span>GitHub</span>
       </li>
-      
-      <li>
-          <a href="https://twitter.com/Illia__N" aria-label="my twitter" title="My Twitter profile" class="twitter">
-            <i class="fab fa-twitter text-twitter" aria-hidden="true"></i>
-          </a>
-          <span>Twitter</span>
-      </li>
-      
       <li>
           <a href="https://www.linkedin.com/in/illia-nikitin-a4a637122/" aria-label="my linkedin" title="My LinkedIn profile" class="linkedin">
             <i class="fab fa-linkedin-in text-linkedin" aria-hidden="true"></i>
           </a>
           <span>LinkedIn</span>
-      </li>
-
-      <li>
-          <a href="https://calendly.com/illianikitin/30-minutes-meeting" aria-label="schedule a meeting with me" title="Book a meeting with me" class="calendly">
-            <i class="fas fa-calendar-day text-calendly" aria-hidden="true"></i>
-          </a>
-          <span>Calendly</span>
       </li>
     </ul>
 

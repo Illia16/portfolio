@@ -7,7 +7,10 @@
       <button @click="toggleProjects('js')">JavaScript/jQuery</button>
       <button @click="toggleProjects('react')">React</button>
       <button @click="toggleProjects('html')">HTML/CSS</button>
+      <button @click="toggleProjects('java')">Java</button>
+      <button @click="toggleProjects('AI')">AI</button>
       <button @click="toggleProjects('all')">All</button>
+      <button @click="toggleProjects('legacy')">Legacy</button>
     </div>
 
     <transition-group name="fade" tag="div" :class="'projectList'">
@@ -19,7 +22,7 @@
 
             <template #links>
               <div class="projectLinks">
-                <ButtonLink :href="project.liveLink">VIEW LIVE</ButtonLink>
+                <ButtonLink v-if="project.liveLink" :href="project.liveLink">VIEW LIVE</ButtonLink>
                 <ButtonLink :href="project.codeLink">VIEW CODE</ButtonLink>
               </div>
             </template>

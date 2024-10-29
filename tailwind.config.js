@@ -40,9 +40,7 @@ export default {
           'nodejs': '#3c873a',
           'aws': '#ff9900',
         },
-        'twitter': '#00acee',
         'linkedin': '#0e76a8',
-        'calendly': '#00a3fa',
       }
     },
   },

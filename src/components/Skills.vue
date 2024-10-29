@@ -6,8 +6,10 @@
 
       <ul class="allSkills">
         <li v-for="skill in skills.current" :key="skill.skillName" class="singleSkill">
-            <!-- There's no Font Awesome icon for Firebase, had to use img -->
-            <img v-if="skill.skillName === 'Firebase'" :class="skill.skillClass" src="../assets/logo_lockup_firebase_vertical.svg" alt="firebase logo">
+            <button v-if="skill.subSkills" class="skillWithSubSkills" @click="store.setModalOpen(true); store.setModalType('skills'); activeModalSkills = skill.subSkills">
+              <img :class="skill.skillClass" :src="skill.src" :alt="skill.alt">
+            </button>
+            <img v-else-if="skill.src" :class="skill.skillClass" :src="skill.src" :alt="skill.alt">
             <i v-else :class="skill.skillClass" aria-hidden="true"></i>
             <DynamicHeading isSmall :letter="skill.skillName[0]">{{skill.skillName}}</DynamicHeading>
         </li>
@@ -17,24 +19,39 @@
         <h3>Currently learning</h3>
         <ul class="allSkills">
           <li v-for="skill in skills.mastering" :key="skill.skillName" class="singleSkill">
-          <i :class="skill.skillClass" aria-hidden="true"></i>
-          <DynamicHeading isSmall :letter="skill.skillName[0]" :addClass="'white'">{{skill.skillName}}</DynamicHeading>
+            <img v-if="skill.src" :class="skill.skillClass" :src="skill.src" :alt="skill.alt">
+            <!-- <i :class="skill.skillClass" aria-hidden="true"></i> -->
+            <DynamicHeading isSmall :letter="skill.skillName[0]" :addClass="'white'">{{skill.skillName}}</DynamicHeading>
           </li>
         </ul>
       </BackgroundImage>
+
+      <teleport to="body">
+          <Modal v-if="store.modalOpen && store.modalType === 'skills'">
+            <ul class="allSkills">
+              <li v-for="subSkill in activeModalSkills" :key="subSkill.skillName" class="singleSkill">
+                  <img :class="subSkill.skillClass" :src="subSkill.src" :alt="subSkill.alt">
+                  <DynamicHeading isSmall :letter="subSkill.skillName[0]">{{subSkill.skillName}}</DynamicHeading>
+              </li>
+            </ul>
+          </Modal>
+      </teleport>
   </section>
 </template>
 
-<script>
+<script setup>
+import { defineProps, ref } from 'vue'
+import { useMainStore } from '@/stores/main';
+
+import Modal from './Modal.vue';
 import DynamicHeading from './smallComponents/DynamicHeading.vue';
 import Separator from './smallComponents/Separator.vue';
 import BackgroundImage from './smallComponents/BackgroundImage.vue';
 
-export default {
-  name: 'Skills',
-  components: { DynamicHeading, Separator, BackgroundImage },
-  props: ['skills'],
-}
+const props = defineProps(['skills']);
+const store = useMainStore();
+const activeModalSkills = ref(null);
+
 </script>
 
 <style>
@@ -43,9 +60,24 @@ export default {
 
     .singleSkill {
         flex-basis: 33%;
-        @apply inline-block flex flex-col items-center m-3;
+        @apply flex flex-col items-center m-3;
       i {
-        @apply block text-4xl md:text-8xl;
+        @apply block text-4xl md:text-5xl;
+      }
+
+      .skillWithSubSkills {
+        @apply relative;
+
+        &:before {
+          @apply content-[''] absolute w-[calc(100%+10px)] h-[calc(100%+10px)] left-[-5px] top-[-5px] border-2 border-sandyBorder transition-all;
+        }
+
+        &:hover,
+        &:focus {
+          &:before {
+            @apply border-black;
+          }
+        }
       }
     }
 
@@ -57,7 +89,7 @@ export default {
 
     @media (min-width: 1280px) {
       .singleSkill {
-        flex-basis: 250px;
+        flex-basis: 100px;
       }
     }
   }

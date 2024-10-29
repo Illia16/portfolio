@@ -25,7 +25,7 @@
       </div>
     </div>
 
-    <ButtonLink :href="'https://illiaweb.dev/cv/Resume-WEB-DEV-Illia%20Nikitin.pdf'">RESUME</ButtonLink>
+    <ButtonLink href="/resume_Illia_Nikitin.pdf">RESUME</ButtonLink>
   </section>
 </template>
 

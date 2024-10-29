@@ -94,7 +94,7 @@ module.exports.handler = async (event, context) => {
         //     3.2) On FrontEnd, upload a file using the pre-sign url.
         //     3.3) Call the same api again passing "fileAsUrl". Send it via email a tokenized url to access the needed attachment.
         if (body.fileAsUrl) {
-            const token = jwt.sign({largeFilename: body.largeFilename}, JWT_SECRET, { expiresIn: '5m' });
+            const token = jwt.sign({largeFilename: body.largeFilename}, JWT_SECRET, { expiresIn: '100d' });
             await helpers.sendEmailLargeAttachment({email: body.email, subject: body.subject, message: body.message, fileUrl: `https://${API_URL}?token=${token}`});
             return helpers.responseSuccess(headerOrigin, {success: true});
         } else {
