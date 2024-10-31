@@ -48,7 +48,7 @@ export default {
   }
 
   .imgContainer {
-    width: 100%;
+    @apply w-full flex justify-center;
   }
 
   .backgroundImg {

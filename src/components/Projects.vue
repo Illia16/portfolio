@@ -4,9 +4,9 @@
     <Separator />
     <div class="sortButtons">
       <button @click="toggleProjects('featured')" :class="{ initBtn: !actionsMade }">Featured</button>
-      <button @click="toggleProjects('js')">JavaScript/jQuery</button>
+      <!-- <button @click="toggleProjects('js')">JavaScript/jQuery</button>
       <button @click="toggleProjects('react')">React</button>
-      <button @click="toggleProjects('html')">HTML/CSS</button>
+      <button @click="toggleProjects('html')">HTML/CSS</button> -->
       <button @click="toggleProjects('java')">Java</button>
       <button @click="toggleProjects('AI')">AI</button>
       <button @click="toggleProjects('all')">All</button>
@@ -84,12 +84,13 @@ export default {
   }
 
   .projectList {
-    @apply flex flex-wrap my-5 gap-5;
+    @apply flex flex-wrap my-5 gap-5 w-full;
 
     .singleProject {
-      @apply flex-grow;
+      @apply flex-1;
 
       @media (min-width: 768px) {
+        min-width: 500px;
         flex: 0 0 calc(50% - 20px);
       }
     }
