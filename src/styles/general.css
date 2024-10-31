@@ -9,3 +9,29 @@
 h1, h2, h3, h4, h5, h6 {
     @apply text-black;
 }
+
+.btn-main {
+    @apply relative inline-block m-3 px-7 py-2 leading-4 z-10 bg-none;
+    border: 1px solid rgba(0,0,0,0.2);
+    transition: all .3s ease-in;
+    text-decoration: none;
+    
+    &::after {
+        content: "";
+        @apply w-full absolute bottom-0 right-0 bg-black h-0;
+        transition: height .2s ease;
+        z-index: -1;
+    }
+    
+    &:not(:disabled) {
+        &:hover,
+        &:focus {
+            border: 1px solid transparent;
+            color: white;
+        
+            &::after {
+            height: 100%;
+            }
+        }
+    }
+}

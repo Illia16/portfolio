@@ -17,23 +17,26 @@
       </li>
     </ul>
 
-    <h3 class="font-light">Get in touch with me</h3>
+    <!-- <h3 class="font-light">Get in touch with me</h3> -->
 
-    <form @submit.prevent="submitForm" id="form" class="contactForm py-5">
+    <form v-if="!isFormSubmitted" @submit.prevent="submitForm" id="form" class="contactForm py-5">
       <div class="formInner">
           <div class="formEl">
               <label for="subject">SUBJECT</label>
               <input type="text" name="subject" id="subject" placeholder="Subject" v-model="subject">
+              <span class="field-error">Please, fill out this field</span>
           </div>
 
           <div class="formEl">
               <label for="email">EMAIL</label>
-              <input type="email" name="email" id="email" placeholder="Email"  v-model="email">
+              <input type="email" name="email" id="email" placeholder="Email" v-model="email">
+              <span class="field-error">Please, fill out this field</span>
           </div>
 
           <div class="formEl">
               <label for="message">MESSAGE</label>
               <textarea name="message" id="message" rows="7" placeholder="Message" maxlength="700" v-model="message"></textarea>
+              <span class="field-error">Please, fill out this field</span>
           </div>
 
           <div class="formEl formEl--file">
@@ -49,25 +52,30 @@
           </div>
 
           <div class="formEl">
-              <ButtonLink :href="null">SEND</ButtonLink>
+            <button class="btn-main" :disabled="isLoading">SEND</button>
           </div>
       </div>
     </form>
+    <div v-else class="form-submitted">
+      <h2>Thanks!</h2>
+      <button @click="isFormSubmitted = false" class="btn-main">Send another</button>
+    </div>
   </section>
 </template>
 
 <script setup>
 import DynamicHeading from './smallComponents/DynamicHeading.vue';
 import Separator from './smallComponents/Separator.vue';
-import ButtonLink from './smallComponents/ButtonLink.vue';
-import { ref,onMounted } from 'vue'
+import { ref } from 'vue'
 
 
 const API_URL = import.meta.env.VITE_API_URL;
+const isLoading = ref(false);
+const isFormSubmitted = ref(false);
 // Form fields
 const email = ref('');
-const subject = ref('');
 const message = ref('');
+const subject = ref('');
 // Form file
 const file = ref(null);
 const isLargeFile = ref(false);
@@ -83,9 +91,29 @@ const handleFile = (e) => {
     }
 };
 
+const handleFormErrors = () => {  
+  document.querySelectorAll('.formEl').forEach(el => el.classList.remove('error'));
+  const fields = {
+    email: 'input[name="email"]',
+    subject: 'input[name="subject"]',
+    message: 'textarea'
+  };
+
+  let hasError = false;
+  for (const [name, selector] of Object.entries(fields)) {
+    const field = document.querySelector(`.formEl ${selector}`);
+    if (!field?.value) {
+      field?.parentElement.classList.add('error');
+      hasError = true;
+    }
+  }
+
+  return hasError;
+}
+
 const preparePayload = (fileAsUrl = false) => {
-    const payload = new FormData();    
-    if (!email.value || !subject.value || !message.value) return;
+  if (handleFormErrors()) return;
+  const payload = new FormData();
   
     payload.append('email', email.value);
     payload.append('subject', subject.value);
@@ -124,22 +152,31 @@ const submitForm = async (e) => {
     if (!payload) return;
     
     try {
-        const res = await fetch(API_URL, {
-            method: 'POST',
-            body: payload,
-        }).then(res=> res.json());
-        if (res.data) {
-            // If there is data, handle large file upload
-            await uploadLargeFile(res);
-            const newPayload = preparePayload(true);
+      isLoading.value = true;
+      const res = await fetch(API_URL, {
+          method: 'POST',
+          body: payload,
+      }).then(res=> res.json());
 
-            // Send another POST request to send email with attachment as URL
-            await fetch(API_URL, {
-                method: 'POST',
-                body: newPayload,
-            });
-        }
+      if (res.data) {
+          // If there is data, handle large file upload
+          await uploadLargeFile(res);
+          const newPayload = preparePayload(true);
+
+          // Send another POST request to send email with attachment as URL
+          await fetch(API_URL, {
+              method: 'POST',
+              body: newPayload,
+          });
+      }
+
+      isFormSubmitted.value = true;
+      isLoading.value = false;
+      email.value = '';
+      message.value = '';
+      subject.value = '';
     } catch (err) {
+        isLoading.value = false;
         console.log('err', err);
     }
 }
@@ -187,11 +224,35 @@ const submitForm = async (e) => {
 
     &.formEl--file {
       @apply flex flex-col items-start;
-    } 
+    }
+
+    .field-error {
+        @apply hidden text-red-500 text-start text-xs absolute;
+    }
+
+    &.error {
+        .field-error {
+            @apply block;
+        }
+    }
+
+    button {
+      &:disabled {
+        @apply opacity-50;
+      }
+    }
   }
 
   .formEl:nth-child(1),
   .formEl:nth-child(2) {
     flex: 1 0 calc(50% - 40px);
+  }
+
+  .form-submitted {
+    @apply min-h-[25vh] w-full flex flex-col items-center justify-center space-y-8;
+
+    h2 {
+      @apply text-4xl font-bold;
+    }
   }
 </style>

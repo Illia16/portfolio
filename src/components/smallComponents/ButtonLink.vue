@@ -5,6 +5,7 @@
     </div>
 </template>
 
+<!-- TODO: remove this component -->
 <script>
 export default {
   name: 'ButtonLink',
