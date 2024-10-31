@@ -3,20 +3,15 @@
       <div class="border h-10 top-0 left-0 right-0"></div>
       <div class="border w-10 right-0 top-0 bottom-0"></div>
       <div class="border h-10 bottom-0 left-0 right-0 px-10 flex justify-center md:justify-end">
-          <div class="toTopLink">
-            <a href="#">TO TOP</a>
-          </div>
+        <ToTop />
       </div>
       <div class="border w-10 left-0 top-0 bottom-0"></div>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Border',
-}
+<script setup>
+import ToTop from './ToTop.vue';
 </script>
-
 
 <style scoped>
     .border {
@@ -41,24 +36,5 @@ export default {
         }
       }
 
-    }
-
-    .toTopLink {
-      @apply inline-block border-none m-1 text-center py-1 px-3;
-
-      &:hover,
-      &:focus {
-        &:after {
-          width: 100%;
-        }
-      }
-
-      &::after {
-        content: "";
-        height: 1px;
-        margin: 3px auto;
-        transition: width .3s ease-in-out;
-        @apply block bg-black w-0;
-      }
     }
 </style>
