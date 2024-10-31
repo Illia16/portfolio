@@ -49,6 +49,13 @@ import IconAWSIAM from './assets/icons/aws-iam.svg';
 import IconAWSRDS from './assets/icons/aws-rds.svg';
 import IconAWSES from './assets/icons/aws-ses.svg';
 
+import IconGit from './assets/icons/git.svg';
+import IconAzure from './assets/icons/azure.svg';
+
+import IconCSS3 from './assets/icons/css3.svg';
+import IconSass from './assets/icons/sass.svg';
+import IconLess from './assets/icons/less.svg';
+
 export default {
   name: 'App',
   components: {
@@ -64,6 +71,10 @@ export default {
       navOpen: false,
       skills: {
         current: [
+          {
+            skillName: 'Azure',
+            src: IconAzure,
+          },
           { 
             skillName: 'JavaScript',
             skillClass: 'fab fa-js text-skills-js',
@@ -78,7 +89,19 @@ export default {
           },
           {
             skillName: 'Git/Github',
-            skillClass: 'devicon-git-plain text-skills-git',
+            src: IconGit,
+            subSkills: [
+              {
+                skillName: 'GitHub CoPilot',
+                alt: 'GitHub CoPilot icon',
+                src: IconGitHubCoPilot,
+              },
+              {
+                skillName: 'GitHub actions',
+                alt: 'GitHub actions icon',
+                src: IconGitHubActions,
+              },
+            ]
           },
           {
             skillName: 'HTML5',
@@ -86,175 +109,143 @@ export default {
           },
           {
             skillName: 'CSS3',
-            skillClass: 'fab fa-css3-alt text-skills-css',
-          },
-          {
-            skillName: 'SASS',
-            skillClass: 'fab fa-sass text-skills-sass',
+            src: IconCSS3,
+            subSkills: [
+              {
+                skillName: 'SASS',
+                src: IconSass,
+              },
+              {
+                skillName: 'less',
+                src: IconLess,
+              },
+              {
+                skillName: 'Tailwindcss',
+                alt: 'tailwind css icon',
+                src: IconTailwindcss,
+              },
+            ]
           },
           {
             skillName: 'Firebase',
             alt: 'google firebase icon',
             src: IconFirebase,
-            skillClass: 'h-10 md:h-12',
-          },
-          {
-            skillName: 'Tailwindcss',
-            alt: 'tailwind css icon',
-            src: IconTailwindcss,
-            skillClass: 'h-10 md:h-12',
           },
           {
             skillName: 'Docker',
             alt: 'docker icon',
             src: IconDocker,
-            skillClass: 'h-10 md:h-12',
           },
 
           {
             skillName: 'OpenAI',
             alt: 'OpenAI icon',
             src: IconOpenAI,
-            skillClass: 'h-10 md:h-12',
           },
           {
             skillName: 'Jenkins',
             alt: 'Jenkins icon',
             src: IconJenkins,
-            skillClass: 'h-10 md:h-12',
           },
           {
             skillName: 'Java',
             alt: 'Java icon',
             src: IconJava,
-            skillClass: 'h-10 md:h-12',
-          },
-
-          {
-            skillName: 'GitHub CoPilot',
-            alt: 'GitHub CoPilot icon',
-            src: IconGitHubCoPilot,
-            skillClass: 'h-10 md:h-12',
-          },
-          {
-            skillName: 'GitHub actions',
-            alt: 'GitHub actions icon',
-            src: IconGitHubActions,
-            skillClass: 'h-10 md:h-12',
           },
           {
             skillName: 'Google GeminiAI',
             alt: 'Google GeminiAI icon',
             src: IconGoogleGeminiAI,
-            skillClass: 'h-10 md:h-12',
           },
           {
             skillName: 'CloudFlare',
             alt: 'CloudFlare icon',
             src: IconCloudFlare,
-            skillClass: 'h-10 md:h-12',
           },
           {
             skillName: 'AWS',
             alt: 'AWS icon',
             src: IconAWS,
-            skillClass: 'h-10 md:h-12',
             subSkills: [
                 {
                 skillName: 'AWS Secrets Manager',
                 alt: 'AWS Secrets Manager icon',
                 src: IconAWSSecretsManager,
-                skillClass: 'h-10 md:h-12',
               },
               {
                 skillName: 'AWS Lambda',
                 alt: 'AWS Lambda icon',
                 src: IconAWSLambda,
-                skillClass: 'h-10 md:h-12',
               },
               {
                 skillName: 'AWS Amplify',
                 alt: 'AWS Amplify icon',
                 src: IconAWSAmplify,
-                skillClass: 'h-10 md:h-12',
               },
               {
                 skillName: 'AWS SQS',
                 alt: 'AWS SQS icon',
                 src: IconAWSSQS,
-                skillClass: 'h-10 md:h-12',
               },
               {
                 skillName: 'AWS S3',
                 alt: 'AWS S3 icon',
                 src: IconAWSs3,
-                skillClass: 'h-10 md:h-12',
               },
               {
                 skillName: 'AWS EC2',
                 alt: 'AWS EC2 icon',
                 src: IconAWSEC2,
-                skillClass: 'h-10 md:h-12',
               },
               {
                 skillName: 'AWS DynamoDB',
                 alt: 'AWS DynamoDB icon',
                 src: IconAWSDynamoDB,
-                skillClass: 'h-10 md:h-12',
               },
               {
                 skillName: 'AWS ACM',
                 alt: 'AWS ACM icon',
                 src: IconAWSACM,
-                skillClass: 'h-10 md:h-12',
               },
               {
                 skillName: 'AWS API Gateway',
                 alt: 'AWS API Gateway icon',
                 src: IconAWSAPIGateway,
-                skillClass: 'h-10 md:h-12',
               },
               {
                 skillName: 'AWS CloudFormation',
                 alt: 'AWS CloudFormation icon',
                 src: IconAWSCloudFormation,
-                skillClass: 'h-10 md:h-12',
               },
               {
                 skillName: 'AWS CloudFront',
                 alt: 'AWS CloudFront icon',
                 src: IconAWSCloudFront,
-                skillClass: 'h-10 md:h-12',
               },
               {
                 skillName: 'AWS CloudWatch',
                 alt: 'AWS CloudWatch icon',
                 src: IconAWSCloudWatch,
-                skillClass: 'h-10 md:h-12',
               },
               {
                 skillName: 'AWS EventBridge',
                 alt: 'AWS EventBridge icon',
                 src: IconAWSEventBridge,
-                skillClass: 'h-10 md:h-12',
               },
               {
                 skillName: 'AWS IAM',
                 alt: 'AWS IAM icon',
                 src: IconAWSIAM,
-                skillClass: 'h-10 md:h-12',
               },
               {
                 skillName: 'AWS RDS',
                 alt: 'AWS RDS icon',
                 src: IconAWSRDS,
-                skillClass: 'h-10 md:h-12',
               },
               {
                 skillName: 'AWS SES',
                 alt: 'AWS SES icon',
                 src: IconAWSES,
-                skillClass: 'h-10 md:h-12',
               },
             ]
           },
@@ -288,15 +279,10 @@ export default {
           },
         ],
         mastering: [
-          // {
-          //   skillName: 'AWS',
-          //   skillClass: 'fab fa-aws text-skills-aws',
-          // },
           {
             skillName: 'AWS',
             alt: 'AWS icon',
             src: IconAWS,
-            skillClass: 'h-10 md:h-12',
           },
         ],
       },
@@ -430,7 +416,7 @@ export default {
     },
     toggleProjects: function(val) {
       this.actionsMade += 1;
-      this.activeProjects = val;
+      this.activeProjects = val;      
     },
   },
   computed: {

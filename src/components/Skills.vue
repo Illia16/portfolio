@@ -2,7 +2,7 @@
   <section id="skills" class="flex flex-col items-center wrapper">
       <DynamicHeading :letter="'S'">Skills</DynamicHeading>
       <Separator />
-      <h3 class="font-light">Always keen to learn more</h3>
+      <!-- <h3 class="font-light">Always keen to learn more</h3> -->
 
       <ul class="allSkills">
         <li v-for="skill in skills.current" :key="skill.skillName" class="singleSkill">
@@ -16,7 +16,7 @@
       </ul>
 
       <BackgroundImage :bgSection="'skills'">
-        <h3>Currently learning</h3>
+        <h3>Always learning</h3>
         <ul class="allSkills">
           <li v-for="skill in skills.mastering" :key="skill.skillName" class="singleSkill">
             <img v-if="skill.src" :class="skill.skillClass" :src="skill.src" :alt="skill.alt">
@@ -57,6 +57,11 @@ const activeModalSkills = ref(null);
 <style>
   .allSkills {
     @apply flex flex-wrap justify-evenly md:justify-around md:my-5;
+
+    .singleSkill img,
+    .singleSkill .skillWithSubSkills img {
+      @apply h-10 md:h-12;
+    }
 
     .singleSkill {
         flex-basis: 33%;
