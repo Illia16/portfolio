@@ -22,7 +22,7 @@ const props = defineProps(['bgImage', 'projectName']);
 <style>
   .singleProject {
     transition: all .3s;
-    @apply relative h-[275px] overflow-hidden;
+    @apply relative min-h-[275px] lg:h-[275px] overflow-hidden;
     /* border border-sandyBorder */
   }
 

@@ -11,16 +11,10 @@
       </div>
 
       <div class="m-auto myStory">
-        <p>I am a <strong class="text-blue">Front-End Web Developer</strong> experienced in building accessible, 
-          responsive websites with reusable code using HTML, CSS, JavaScript and its frameworks such as React. 
-          With 3 years of prior experience in engineering, 
-          I bring strong understanding of JavaScript concepts and problem-solving skills 
-          focused on a team desired outcome. 
-          I am a solid relationship builder and an imaginative, out-of-the-box 
-          hinker who is eager to put these talents for my job in the web industry.
+        <p>I am a skilled <strong class="text-blue">Full-Stack Developer</strong> with expertise in building scalable, responsive, and accessible web applications, and integrating AI solutions. Proficient in front-end technologies like HTML, CSS, JavaScript, and frameworks such as React, Vue, and Svelte, I create user-centric, reusable code that supports modern standards. My back-end experience includes extensive use of AWS services for deploying robust solutions, along with AI tools such as ChatGPT and OpenAI APIs to enhance automation, data insights, and user experience. With an engineering background and over three years in tech, I bring strong problem-solving skills, creative thinking, and a collaborative, goal-oriented approach to every project.
         </p>
         <p class="pt-4">
-          Outside of web development, I love spending time outdoors, travelling, reading books and gaming.
+          Beyond coding, I enjoy outdoor activities, traveling, reading, and gaming.
         </p>
       </div>
     </div>

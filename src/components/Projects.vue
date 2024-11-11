@@ -17,7 +17,7 @@
       <template v-for="project in projects">
         <SingleProject v-if="project.category.includes(activeProjects)" :bgImage="project.bgImage" :projectName="project.name" :key="project.key">
             <template #description>
-              <p>{{project.info}}</p>
+              <p v-html="project.info"></p>
             </template>
 
             <template #links>
@@ -87,7 +87,7 @@ export default {
     @apply flex flex-wrap my-5 gap-5 w-full;
 
     .singleProject {
-      @apply flex-1;
+      @apply flex-1 min-w-full;
 
       @media (min-width: 768px) {
         min-width: 500px;

@@ -353,7 +353,7 @@ export default {
         languageApp: {
           key: 'languageApp',
           name: 'Language app',
-          info: 'Nuxt/Vue/Typescript for FrontEnd. AWS CDK/AWS/OpenAI for Backend.',
+          info: 'Nuxt/Vue/Typescript for FrontEnd. AWS CDK/AWS/OpenAI for Backend. <br/> (message me for testing-user credentials)',
           bgImage: 'languageApp.png',
           category: ['featured', 'all'],
           liveLink: 'https://languageapp.illusha.net',
