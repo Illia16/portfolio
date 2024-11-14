@@ -1,11 +1,7 @@
-module.exports = {
-  purge: {
-    content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
-    options: {
-      safelist: ['bg-skills']
-    },
-  },
-  darkMode: false, // or 'media' or 'class'
+/** @type {import('tailwindcss').Config} */
+export default {
+  safelist: ['bg-skills'],
+  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
       fontFamily: {
@@ -44,9 +40,7 @@ module.exports = {
           'nodejs': '#3c873a',
           'aws': '#ff9900',
         },
-        'twitter': '#00acee',
         'linkedin': '#0e76a8',
-        'calendly': '#00a3fa',
       }
     },
   },

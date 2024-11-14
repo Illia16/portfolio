@@ -9,86 +9,180 @@
           </a>
           <span>GitHub</span>
       </li>
-      
-      <li>
-          <a href="https://twitter.com/Illia__N" aria-label="my twitter" title="My Twitter profile" class="twitter">
-            <i class="fab fa-twitter text-twitter" aria-hidden="true"></i>
-          </a>
-          <span>Twitter</span>
-      </li>
-      
       <li>
           <a href="https://www.linkedin.com/in/illia-nikitin-a4a637122/" aria-label="my linkedin" title="My LinkedIn profile" class="linkedin">
             <i class="fab fa-linkedin-in text-linkedin" aria-hidden="true"></i>
           </a>
           <span>LinkedIn</span>
       </li>
-
-      <li>
-          <a href="https://calendly.com/illianikitin/30-minutes-meeting" aria-label="schedule a meeting with me" title="Book a meeting with me" class="calendly">
-            <i class="fas fa-calendar-day text-calendly" aria-hidden="true"></i>
-          </a>
-          <span>Calendly</span>
-      </li>
     </ul>
 
-    <h3 class="font-light">Get in touch with me</h3>
+    <!-- <h3 class="font-light">Get in touch with me</h3> -->
 
-    <form @submit.prevent="sendEmail" id="form" class="contactForm py-5">
+    <form v-if="!isFormSubmitted" @submit.prevent="submitForm" id="form" class="contactForm py-5">
       <div class="formInner">
           <div class="formEl">
-              <label for="name">NAME</label>
-              <input type="text" name="name" id="name" placeholder="Name" required>
+              <label for="subject">SUBJECT</label>
+              <input type="text" name="subject" id="subject" placeholder="Subject" v-model="subject">
+              <span class="field-error">Please, fill out this field</span>
           </div>
 
           <div class="formEl">
               <label for="email">EMAIL</label>
-              <input type="email" name="email" id="email" placeholder="Email" required>
+              <input type="email" name="email" id="email" placeholder="Email" v-model="email">
+              <span class="field-error">Please, fill out this field</span>
           </div>
 
           <div class="formEl">
               <label for="message">MESSAGE</label>
-              <textarea name="message" id="message" rows="7" placeholder="Message" maxlength="700" required></textarea>
+              <textarea name="message" id="message" rows="7" placeholder="Message" maxlength="700" v-model="message"></textarea>
+              <span class="field-error">Please, fill out this field</span>
+          </div>
+
+          <div class="formEl formEl--file">
+              <label htmlFor="attachment">
+                  Choose file (Optional)
+              </label>
+              <input
+                  @change="handleFile"
+                  type="file"
+                  name="attachment"
+                  id="attachment"
+              />
           </div>
 
           <div class="formEl">
-              <ButtonLink :href="null">SEND</ButtonLink>
+            <button class="btn-main" :disabled="isLoading">SEND</button>
           </div>
       </div>
     </form>
+    <div v-else class="form-submitted">
+      <h2>Thanks!</h2>
+      <button @click="isFormSubmitted = false" class="btn-main">Send another</button>
+    </div>
   </section>
 </template>
 
-<script>
-import DynamicHeading from './smallComponents/DynamicHeading';
-import Separator from './smallComponents/Separator';
+<script setup>
+import DynamicHeading from './smallComponents/DynamicHeading.vue';
+import Separator from './smallComponents/Separator.vue';
+import { ref } from 'vue'
 
-import ButtonLink from './smallComponents/ButtonLink';
-import emailjs from 'emailjs-com';
 
-export default {
-  name: 'Contact',
-  components: { DynamicHeading, Separator, ButtonLink },
-  methods: {
-    sendEmail: function(e) {
-      emailjs.sendForm(
-        process.env.VUE_APP_FORM_SERVICE_ID, 
-        process.env.VUE_APP_FORM_TEMPLATE_ID, 
-        e.target,
-        process.env.VUE_APP_FORM_USER_ID,
-      )
-      .then( (res) => {
-        console.log('SENT!', res);
-      }).catch( (er) => {
-        console.log('ERROR!', er);
-      })
+const API_URL = import.meta.env.VITE_API_URL;
+const isLoading = ref(false);
+const isFormSubmitted = ref(false);
+// Form fields
+const email = ref('');
+const message = ref('');
+const subject = ref('');
+// Form file
+const file = ref(null);
+const isLargeFile = ref(false);
+const largeFilename = ref('');
+
+const handleFile = (e) => {
+    if (!e.target.files) return;
+    file.value = e.target.files[0];
+
+    if (file.value.size > 5242880) {
+        isLargeFile.value = file.value.size > 5242880;
+        largeFilename.value = file.value.name;
     }
-  },
+};
 
+const handleFormErrors = () => {  
+  document.querySelectorAll('.formEl').forEach(el => el.classList.remove('error'));
+  const fields = {
+    email: 'input[name="email"]',
+    subject: 'input[name="subject"]',
+    message: 'textarea'
+  };
+
+  let hasError = false;
+  for (const [name, selector] of Object.entries(fields)) {
+    const field = document.querySelector(`.formEl ${selector}`);
+    if (!field?.value) {
+      field?.parentElement.classList.add('error');
+      hasError = true;
+    }
+  }
+
+  return hasError;
+}
+
+const preparePayload = (fileAsUrl = false) => {
+  if (handleFormErrors()) return;
+  const payload = new FormData();
+  
+    payload.append('email', email.value);
+    payload.append('subject', subject.value);
+    payload.append('message', message.value);
+    if (file.value && !isLargeFile.value) payload.append('file', file.value);
+    if (isLargeFile.value) {
+        payload.append('largeFilename', largeFilename.value);
+    }
+    if (fileAsUrl) {
+        payload.append('fileAsUrl', true);
+    }
+    return payload;
+}
+
+const uploadLargeFile = async (res) => {
+    const presignedData = res.data;
+    const formData = new FormData();
+    Object.entries(presignedData.fields).forEach(([key, value]) => {
+        formData.append(key, value);
+    });
+    formData.append('file', file.value);
+
+    try {
+        await fetch(presignedData.url, {
+            method: 'POST',
+            body: formData,
+        });
+    } catch (error) {
+        console.error('Error uploading file:', error);
+    }
+}
+
+const submitForm = async (e) => {
+    e.preventDefault();
+    const payload = preparePayload();
+    if (!payload) return;
+    
+    try {
+      isLoading.value = true;
+      const res = await fetch(API_URL, {
+          method: 'POST',
+          body: payload,
+      }).then(res=> res.json());
+
+      if (res.data) {
+          // If there is data, handle large file upload
+          await uploadLargeFile(res);
+          const newPayload = preparePayload(true);
+
+          // Send another POST request to send email with attachment as URL
+          await fetch(API_URL, {
+              method: 'POST',
+              body: newPayload,
+          });
+      }
+
+      isFormSubmitted.value = true;
+      isLoading.value = false;
+      email.value = '';
+      message.value = '';
+      subject.value = '';
+    } catch (err) {
+        isLoading.value = false;
+        console.log('err', err);
+    }
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
   .socialMedia {
     :focus,
     :hover {
@@ -120,15 +214,45 @@ export default {
   .formEl {
     @apply w-full m-3 text-center relative;
 
-    input,
-    textarea {
-      @apply w-full py-1 px-3 border-none text-black;
-      border-bottom: 1px solid #d9d9d9;
+    &:not(.formEl--file) {
+      input,
+      textarea {
+        @apply w-full py-1 px-3 border-none text-black;
+        border-bottom: 1px solid #d9d9d9;
+      }
+    }
+
+    &.formEl--file {
+      @apply flex flex-col items-start;
+    }
+
+    .field-error {
+        @apply hidden text-red-500 text-start text-xs absolute;
+    }
+
+    &.error {
+        .field-error {
+            @apply block;
+        }
+    }
+
+    button {
+      &:disabled {
+        @apply opacity-50;
+      }
     }
   }
 
   .formEl:nth-child(1),
   .formEl:nth-child(2) {
     flex: 1 0 calc(50% - 40px);
+  }
+
+  .form-submitted {
+    @apply min-h-[25vh] w-full flex flex-col items-center justify-center space-y-8;
+
+    h2 {
+      @apply text-4xl font-bold;
+    }
   }
 </style>

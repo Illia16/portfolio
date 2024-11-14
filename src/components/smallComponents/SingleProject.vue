@@ -10,24 +10,20 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { defineProps } from 'vue'
+import BackgroundImage from '../smallComponents/BackgroundImage.vue';
+import Separator from '../smallComponents/Separator.vue';
+import DynamicHeading from '../smallComponents/DynamicHeading.vue';
 
-import BackgroundImage from '../smallComponents/BackgroundImage';
-import Separator from '../smallComponents/Separator';
-import DynamicHeading from '../smallComponents/DynamicHeading';
-
-
-export default {
-  name: 'SingleProject',
-  props: ['bgImage' , 'projectName'],
-  components: { BackgroundImage, Separator, DynamicHeading },
-}
+const props = defineProps(['bgImage', 'projectName']);
 </script>
 
-<style lang="scss">
+<style>
   .singleProject {
     transition: all .3s;
-    @apply relative;
+    @apply relative min-h-[275px] lg:h-[275px] overflow-hidden;
+    /* border border-sandyBorder */
   }
 
   .singleProject:hover .projectInfo, 

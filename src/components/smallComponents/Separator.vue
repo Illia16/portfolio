@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .dot {
   @apply relative w-1 h-1 my-0 mx-auto rounded-sm bg-black;
 

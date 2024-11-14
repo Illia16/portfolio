@@ -4,22 +4,25 @@
     <Separator />
     <div class="sortButtons">
       <button @click="toggleProjects('featured')" :class="{ initBtn: !actionsMade }">Featured</button>
-      <button @click="toggleProjects('js')">JavaScript/jQuery</button>
+      <!-- <button @click="toggleProjects('js')">JavaScript/jQuery</button>
       <button @click="toggleProjects('react')">React</button>
-      <button @click="toggleProjects('html')">HTML/CSS</button>
+      <button @click="toggleProjects('html')">HTML/CSS</button> -->
+      <button @click="toggleProjects('java')">Java</button>
+      <button @click="toggleProjects('AI')">AI</button>
       <button @click="toggleProjects('all')">All</button>
+      <button @click="toggleProjects('legacy')">Legacy</button>
     </div>
 
     <transition-group name="fade" tag="div" :class="'projectList'">
       <template v-for="project in projects">
         <SingleProject v-if="project.category.includes(activeProjects)" :bgImage="project.bgImage" :projectName="project.name" :key="project.key">
             <template #description>
-              <p>{{project.info}}</p>
+              <p v-html="project.info"></p>
             </template>
 
             <template #links>
               <div class="projectLinks">
-                <ButtonLink :href="project.liveLink">VIEW LIVE</ButtonLink>
+                <ButtonLink v-if="project.liveLink" :href="project.liveLink">VIEW LIVE</ButtonLink>
                 <ButtonLink :href="project.codeLink">VIEW CODE</ButtonLink>
               </div>
             </template>
@@ -34,11 +37,11 @@
 </template>
 
 <script>
-import DynamicHeading from './smallComponents/DynamicHeading';
-import Separator from './smallComponents/Separator';
-import BackgroundImage from './smallComponents/BackgroundImage';
-import SingleProject from './smallComponents/SingleProject';
-import ButtonLink from './smallComponents/ButtonLink';
+import DynamicHeading from './smallComponents/DynamicHeading.vue';
+import Separator from './smallComponents/Separator.vue';
+import BackgroundImage from './smallComponents/BackgroundImage.vue';
+import SingleProject from './smallComponents/SingleProject.vue';
+import ButtonLink from './smallComponents/ButtonLink.vue';
 
 export default {
   name: 'Projects',
@@ -52,7 +55,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
   .sortButtons {
     @apply flex flex-wrap justify-center;
 
@@ -81,12 +84,13 @@ export default {
   }
 
   .projectList {
-    @apply flex flex-wrap my-5 gap-5;
+    @apply flex flex-wrap my-5 gap-5 w-full;
 
     .singleProject {
-      @apply flex-grow;
+      @apply flex-1 min-w-full;
 
-      @media (min-width: '768px') {
+      @media (min-width: 768px) {
+        min-width: 500px;
         flex: 0 0 calc(50% - 20px);
       }
     }

@@ -1,0 +1,17 @@
+header {
+    @apply bg-center min-h-screen bg-cover bg-no-repeat bg-hero flex flex-col justify-between items-center;
+
+    h1, h2 {
+        @apply font-montserrat font-normal text-4xl md:leading-heading md:text-7xl text-white shadow-md;
+        text-shadow: 3px 3px black;
+    }
+}
+
+.showNavBtn {
+    width: 40px;
+    height: 40px;
+
+    span {
+        @apply h-px block absolute bg-white;
+    }
+}

@@ -5,6 +5,7 @@
     </div>
 </template>
 
+<!-- TODO: remove this component -->
 <script>
 export default {
   name: 'ButtonLink',
@@ -13,7 +14,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 a, button {
   @apply relative inline-block m-3 px-7 py-2 leading-4 z-10 bg-none;

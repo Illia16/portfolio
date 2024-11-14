@@ -1,0 +1,10 @@
+node_modules
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+
+
+# dotenv environment variables file
+.env
+.env.*

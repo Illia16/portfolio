@@ -30,7 +30,9 @@ export default {
   },
   methods: {
     imgUrl(img) {
-      return require('../../assets/'+img)
+      const images = import.meta.glob('../../assets/*', { eager: true });
+      return images[`../../assets/${img}`]?.default || ''; // Get the image path or fallback to empty string
+      // return require('../../assets/'+img)
     },
     trimFormat(alt) {
       return alt.substring(0, alt.length-4);
@@ -39,14 +41,14 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
   .bg-skills,
   .bg-projects {
     min-height: 50vh;
   }
 
   .imgContainer {
-    width: 100%;
+    @apply w-full flex justify-center;
   }
 
   .backgroundImg {

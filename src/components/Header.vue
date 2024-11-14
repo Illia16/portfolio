@@ -15,7 +15,7 @@
 
         <div id="headerBottom" aria-label="Hello there!" class="text-center m-auto">
             <h1>Illia Nikitin</h1>
-            <h2>A Front-End Web Developer</h2>
+            <h2>A Full-Stack Engineer</h2>
         </div>
 
         <transition name="fade">
@@ -34,16 +34,7 @@
 
                 <ul class="socialMedia">
                     <li><a href="https://github.com/Illia16" aria-label="my github" title="My GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a></li>
-                    
-                    <li><a href="https://twitter.com/Illia__N" aria-label="my twitter" title="My Twitter profile"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                    
                     <li><a href="https://www.linkedin.com/in/illia-nikitin-a4a637122/" aria-label="my linkedin" title="My LinkedIn profile"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
-
-                    <li><a href="https://medium.com/@illia2143" aria-label="my medium" title="My Medium profile"><i class="fab fa-medium-m" aria-hidden="true"></i></a></li>
-
-                    <li><a href="mailto:illia2143@gmail.com" aria-label="my email" title="Email me"><i class="fas fa-envelope" aria-hidden="true"></i></a></li>
-
-                    <li><a href="https://calendly.com/illianikitin/30-minutes-meeting" aria-label="schedule a meeting with me" title="Book a meeting with me"><i class="fas fa-calendar-day" aria-hidden="true"></i></a></li>
                 </ul>
             </nav>
         </transition>
@@ -64,7 +55,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss" scoped>
+<style scoped>
     :focus,
     :hover {
         transition: all 0.3s;
