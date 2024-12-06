@@ -26,6 +26,7 @@ new BackendStack(app, `${process.env.PROJECT_NAME}-stack-${process.env.ENV_NAME}
     CLOUDFRONT_URL: `https://${process.env.CLOUDFRONT_URL}`,
     CERTIFICATE_ARN: process.env.CERTIFICATE_ARN,
     EMAIL: process.env.EMAIL,
+    JWT_SECRET: process.env.JWT_SECRET,
   },
   description: `Backend stack for ${process.env.PROJECT_NAME} for ${process.env.ENV_NAME} environment.`
 });

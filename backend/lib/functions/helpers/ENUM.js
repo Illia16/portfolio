@@ -7,7 +7,8 @@ const allowedTypes = [
     'video/mp4', 'video/x-msvideo', 'video/x-matroska', 'video/webm', 'video/ogg',
 ];
 
-const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50 MB
+// const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50 MB
+const MAX_FILE_SIZE = 52428800; // 50 MB
 
 module.exports = {
     allowedTypes,

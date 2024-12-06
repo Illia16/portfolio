@@ -102,7 +102,7 @@ module.exports =  {
             Key: filenamepath,
             Conditions: conditions,
             Expires: 900, // 15 mins
-          });
+        });
 
         return res;
     },
@@ -135,26 +135,26 @@ module.exports =  {
         },
         body: JSON.stringify({ success: true }),
     }),
-    responsePayloadTooLarge: (headerOrigin) => {
-        return {
-            statusCode: 413,
-            headers: {
-                "Access-Control-Allow-Origin": headerOrigin,
-            },
-            body: JSON.stringify({
-                message: "File size exceeds the maximum allowed limit.",
-            }),
-        };
-    },
-    responseUnsupportedMediaType: (headerOrigin) => {
-        return {
-            statusCode: 415,
-            headers: {
-                "Access-Control-Allow-Origin": headerOrigin,
-            },
-            body: JSON.stringify({
-                message: "Unsupported file type. Allowed types are images, PDF, DOC, DOCX, TXT, audio, and video files.",
-            }),
-        };
-    }
+    // responsePayloadTooLarge: (headerOrigin) => {
+    //     return {
+    //         statusCode: 413,
+    //         headers: {
+    //             "Access-Control-Allow-Origin": headerOrigin,
+    //         },
+    //         body: JSON.stringify({
+    //             message: "File size exceeds the maximum allowed limit.",
+    //         }),
+    //     };
+    // },
+    // responseUnsupportedMediaType: (headerOrigin) => {
+    //     return {
+    //         statusCode: 415,
+    //         headers: {
+    //             "Access-Control-Allow-Origin": headerOrigin,
+    //         },
+    //         body: JSON.stringify({
+    //             message: "Unsupported file type. Allowed types are images, PDF, DOC, DOCX, TXT, audio, and video files.",
+    //         }),
+    //     };
+    // }
 };

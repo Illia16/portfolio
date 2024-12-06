@@ -7,8 +7,6 @@ const s3 = require('aws-cdk-lib/aws-s3');
 const cloudfront = require('aws-cdk-lib/aws-cloudfront');
 const origins = require('aws-cdk-lib/aws-cloudfront-origins');
 const path = require("path");
-const crypto = require('crypto');
-
 
 class BackendStack extends cdk.Stack {
   /**
@@ -25,7 +23,7 @@ class BackendStack extends cdk.Stack {
     const CLOUDFRONT_URL = props.env.CLOUDFRONT_URL;
     const CERTIFICATE_ARN = props.env.CERTIFICATE_ARN;
     const EMAIL = props.env.EMAIL;
-    const JWT_SECRET = crypto.randomBytes(32).toString('hex');
+    const JWT_SECRET =  props.env.JWT_SECRET;
 
     const account = cdk.Stack.of(this).account;
 
@@ -97,7 +95,7 @@ class BackendStack extends cdk.Stack {
       layerVersionName: `${PROJECT_NAME}--fn-layer--${STAGE}`,
       code: lambda.Code.fromAsset(path.join(__dirname, 'functions'), {
         bundling: {
-            image: lambda.Runtime.NODEJS_20_X.bundlingImage,
+            image: lambda.Runtime.NODEJS_22_X.bundlingImage,
             command: [
                 'bash', '-c',
                 'mkdir -p /asset-output/nodejs && cp -r ./node_modules /asset-output/nodejs/'
@@ -105,14 +103,14 @@ class BackendStack extends cdk.Stack {
         },
       }),
       compatibleArchitectures: [lambda.Architecture.X86_64, lambda.Architecture.ARM_64],
-      compatibleRuntimes: [lambda.Runtime.NODEJS_18_X, lambda.Runtime.NODEJS_20_X]
+      compatibleRuntimes: [lambda.Runtime.NODEJS_20_X, lambda.Runtime.NODEJS_22_X]
     });
 
     const lambdaFn = new lambda.Function(
       this,
       `${PROJECT_NAME}--lambda-fn-${STAGE}`,
       {
-        runtime: lambda.Runtime.NODEJS_20_X,
+        runtime: lambda.Runtime.NODEJS_22_X,
         handler: 'handle/index.handler',
         code: lambda.Code.fromAsset(path.join(__dirname, 'functions'), { exclude: ['node_modules'] }),
         functionName: `${PROJECT_NAME}--lambda-fn-${STAGE}`,

@@ -50,7 +50,9 @@ module.exports.handler = async (event, context) => {
         if (file) {
             if (helpers.isFileTypeAllowed(file.type)) {
                 console.log('file type not allowed...');
-                return helpers.responseUnsupportedMediaType(headerOrigin);
+                // return helpers.responseUnsupportedMediaType(headerOrigin);
+                // headerOrigin, message = 'Error occurred', statusCode = 500
+                return helpers.responseError(headerOrigin, "Unsupported file type. Allowed types are images, PDF, DOC, DOCX, TXT, audio, and video files.", 415);
             }
         }
     }
@@ -111,6 +113,7 @@ module.exports.handler = async (event, context) => {
                 // TODO: validate by allowedType (not working)
                 // const contentTypeConditions = allowedTypes.map((type) => ['starts-with', '$Content-Type', type]);
                 // Attachment, but it's large so create presign url, return to frontend
+                if (body.largeFilenameSize > MAX_FILE_SIZE) return helpers.responseError(headerOrigin, 'The file is too large.', 413);
                 const presignedData = await helpers.s3PostSignedUrl(
                     s3Bucket,
                     `files/${body.largeFilename}`,

@@ -51,6 +51,10 @@
               />
           </div>
 
+          <div v-if="formError" class="formEl error">
+            <p class="field-error">{{ formError }}</p>
+          </div>
+
           <div class="formEl">
             <button class="btn-main" :disabled="isLoading">SEND</button>
           </div>
@@ -58,7 +62,7 @@
     </form>
     <div v-else class="form-submitted">
       <h2>Thanks!</h2>
-      <button @click="isFormSubmitted = false" class="btn-main">Send another</button>
+      <button @click="resetForm" class="btn-main">Send another</button>
     </div>
   </section>
 </template>
@@ -76,10 +80,13 @@ const isFormSubmitted = ref(false);
 const email = ref('');
 const message = ref('');
 const subject = ref('');
+// Error field
+const formError = ref('');
 // Form file
 const file = ref(null);
 const isLargeFile = ref(false);
 const largeFilename = ref('');
+const largeFilenameSize = ref('');
 
 const handleFile = (e) => {
     if (!e.target.files) return;
@@ -88,6 +95,7 @@ const handleFile = (e) => {
     if (file.value.size > 5242880) {
         isLargeFile.value = file.value.size > 5242880;
         largeFilename.value = file.value.name;
+        largeFilenameSize.value = file.value.size;
     }
 };
 
@@ -121,6 +129,7 @@ const preparePayload = (fileAsUrl = false) => {
     if (file.value && !isLargeFile.value) payload.append('file', file.value);
     if (isLargeFile.value) {
         payload.append('largeFilename', largeFilename.value);
+        payload.append('largeFilenameSize', largeFilenameSize.value);
     }
     if (fileAsUrl) {
         payload.append('fileAsUrl', true);
@@ -170,15 +179,24 @@ const submitForm = async (e) => {
           });
       }
 
-      isFormSubmitted.value = true;
+      if (res.success) {
+        isFormSubmitted.value = true;
+      } else {
+        formError.value = res.message;
+      }
+
       isLoading.value = false;
-      email.value = '';
-      message.value = '';
-      subject.value = '';
     } catch (err) {
         isLoading.value = false;
         console.log('err', err);
     }
+}
+
+const resetForm = () => {
+  isFormSubmitted.value = false;
+  email.value = '';
+  message.value = '';
+  subject.value = '';
 }
 </script>
 
