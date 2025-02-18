@@ -230,7 +230,7 @@ const resetForm = () => {
   }
 
   .formEl {
-    @apply w-full m-3 text-center relative;
+    @apply w-full my-3 text-center relative;
 
     &:not(.formEl--file) {
       input,
@@ -242,6 +242,10 @@ const resetForm = () => {
 
     &.formEl--file {
       @apply flex flex-col items-start;
+
+      input {
+        @apply w-full md:w-auto;
+      }
     }
 
     .field-error {
@@ -263,7 +267,7 @@ const resetForm = () => {
 
   .formEl:nth-child(1),
   .formEl:nth-child(2) {
-    flex: 1 0 calc(50% - 40px);
+    @apply md:flex-1 md:basis-[calc(50%-40px)];
   }
 
   .form-submitted {
