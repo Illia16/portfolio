@@ -12,13 +12,13 @@
     "deploy": "dotenv -e .env -- cdk deploy --profile personal"
   },
   "devDependencies": {
-    "aws-cdk": "^2.178.2",
+    "aws-cdk": "^2.1020.1",
     "dotenv-cli": "^7.4.4",
     "jest": "^29.7.0"
   },
   "dependencies": {
     "aws-cdk-lib": "^2.171.1",
-    "cdk": "^2.178.2",
+    "cdk": "^2.1020.1",
     "constructs": "^10.4.2"
   },
   "engines": {
